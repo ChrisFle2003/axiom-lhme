@@ -1,0 +1,32 @@
+# CMake and CTest output
+/build/
+/build-*/
+/out/
+/CMakeFiles/
+/CMakeCache.txt
+/Testing/
+/cmake_install.cmake
+/install_manifest.txt
+
+# Local skill and editor state
+/.superpowers/
+/.codex/
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Local runtime, profiling and snapshot artifacts
+*.profraw
+*.profdata
+*.gcda
+*.gcno
+*.tmp
+*.snapshot
+
+# Native build products outside dedicated build directories
+*.a
+*.so
+*.dylib
+*.dll
+*.exe
