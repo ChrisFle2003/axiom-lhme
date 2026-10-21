@@ -39,6 +39,7 @@ endif()
 include(CTest)
 
 add_library(bruce_lhme_core STATIC
+  src/gguf/reader.cpp
   src/core/formula.cpp
   src/core/fibonacci_kernel.cpp
   src/core/power_offset_kernel.cpp
@@ -79,6 +80,14 @@ add_executable(core_formula_tests
 target_include_directories(core_formula_tests PRIVATE tests/support include)
 target_link_libraries(core_formula_tests PRIVATE bruce_lhme_core)
 add_test(NAME core_formula_tests COMMAND core_formula_tests)
+
+add_executable(gguf_reader_tests
+  tests/support/test_main.cpp
+  tests/gguf_reader_tests.cpp
+)
+target_include_directories(gguf_reader_tests PRIVATE tests/support include)
+target_link_libraries(gguf_reader_tests PRIVATE bruce_lhme_core)
+add_test(NAME gguf_reader_tests COMMAND gguf_reader_tests)
 
 add_executable(core_budget_trace_tests
   tests/support/test_main.cpp
