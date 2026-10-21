@@ -5,6 +5,7 @@
 #include "bruce/lhme/gguf_inspector.hpp"
 
 #include <cstddef>
+#include <array>
 #include <cstdint>
 #include <filesystem>
 #include <limits>
@@ -91,4 +92,50 @@ TEST(gguf_reader_rejects_misaligned_tensor_offsets) {
   const auto bytes = test::gguf::valid_f32_file({2U}, 1U);
   expect_rejected(test::gguf::write_file("misaligned", bytes),
                   GgufValidationError::MisalignedTensorOffset);
+}
+
+TEST(gguf_reader_accounts_for_each_supported_v3_tensor_layout) {
+  struct TypeCase {
+    std::uint32_t type;
+    std::uint64_t elements_per_block;
+    std::uint64_t bytes_per_block;
+  };
+  constexpr std::array<TypeCase, 14> cases = {{
+      {test::gguf::kTypeF32, 1, 4},   {test::gguf::kTypeF16, 1, 2},
+      {test::gguf::kTypeQ40, 32, 18}, {test::gguf::kTypeQ41, 32, 20},
+      {test::gguf::kTypeQ50, 32, 22}, {test::gguf::kTypeQ51, 32, 24},
+      {test::gguf::kTypeQ80, 32, 34}, {test::gguf::kTypeQ81, 32, 40},
+      {test::gguf::kTypeQ2K, 256, 84}, {test::gguf::kTypeQ3K, 256, 110},
+      {test::gguf::kTypeQ4K, 256, 144}, {test::gguf::kTypeQ5K, 256, 176},
+      {test::gguf::kTypeQ6K, 256, 210}, {test::gguf::kTypeQ8K, 256, 292},
+  }};
+
+  for (const auto type_case : cases) {
+    const auto path = test::gguf::write_file(
+        "layout", test::gguf::tensor_file({type_case.elements_per_block},
+                                             type_case.type,
+                                             type_case.bytes_per_block));
+    const auto inspection = inspect_gguf_file(path, GgufInspectionLimits{});
+
+    CHECK(inspection.status == Status::Confirmed);
+    CHECK(inspection.inventory->tensors.size() == 1U);
+    const auto& tensor = inspection.inventory->tensors.front();
+    CHECK(tensor.logical_element_count == type_case.elements_per_block);
+    CHECK(tensor.stored_byte_count == type_case.bytes_per_block);
+    CHECK(tensor.decoded_ram_bytes == type_case.elements_per_block * 4U);
+  }
+}
+
+TEST(gguf_reader_rejects_a_tensor_payload_smaller_than_its_quantized_layout) {
+  const auto path = test::gguf::write_file(
+      "short-q40", test::gguf::tensor_file({32U}, test::gguf::kTypeQ40, 17U));
+
+  expect_rejected(path, GgufValidationError::TensorRangeOutOfBounds);
+}
+
+TEST(gguf_reader_rejects_quantized_tensor_sizes_that_do_not_fill_a_block) {
+  const auto path = test::gguf::write_file(
+      "partial-q40", test::gguf::tensor_file({31U}, test::gguf::kTypeQ40, 18U));
+
+  expect_rejected(path, GgufValidationError::InvalidTensorDimension);
 }

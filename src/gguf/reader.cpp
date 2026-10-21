@@ -16,7 +16,19 @@ namespace {
 constexpr std::uint32_t kGgufMagic = 0x46554747U;
 constexpr std::uint32_t kSupportedGgufVersion = 3;
 constexpr std::uint64_t kDefaultAlignment = 32;
-constexpr std::uint32_t kGgmlTypeF32 = 0;
+
+struct TensorLayout {
+  std::uint32_t type;
+  std::uint64_t elements_per_block;
+  std::uint64_t bytes_per_block;
+};
+
+constexpr std::array<TensorLayout, 14> kSupportedTensorLayouts = {{
+    {0, 1, 4},     {1, 1, 2},     {2, 32, 18},   {3, 32, 20},
+    {6, 32, 22},   {7, 32, 24},   {8, 32, 34},   {9, 32, 40},
+    {10, 256, 84}, {11, 256, 110}, {12, 256, 144}, {13, 256, 176},
+    {14, 256, 210}, {15, 256, 292},
+}};
 
 enum class GgufValueType : std::uint32_t {
   Uint8 = 0,
@@ -41,6 +53,7 @@ struct ParsedTensor {
   std::uint64_t element_count = 0;
   std::uint64_t relative_offset = 0;
   std::uint64_t stored_bytes = 0;
+  std::uint64_t decoded_ram_bytes = 0;
 };
 
 class BoundedReader {
@@ -129,6 +142,13 @@ class BoundedReader {
 
 [[nodiscard]] bool is_power_of_two(std::uint64_t value) {
   return value != 0 && (value & (value - 1U)) == 0;
+}
+
+[[nodiscard]] const TensorLayout* find_tensor_layout(std::uint32_t type) {
+  const auto match = std::find_if(
+      kSupportedTensorLayouts.begin(), kSupportedTensorLayouts.end(),
+      [type](const TensorLayout& layout) { return layout.type == type; });
+  return match == kSupportedTensorLayouts.end() ? nullptr : &*match;
 }
 
 [[nodiscard]] bool align_up(std::uint64_t value, std::uint64_t alignment,
@@ -346,13 +366,23 @@ GgufInspection inspect_gguf_file(const std::filesystem::path& path,
     if (!reader.read_u32(tensor.type) || !reader.read_u64(tensor.relative_offset)) {
       return rejected(GgufValidationError::TruncatedInput, "truncated tensor descriptor");
     }
-    if (tensor.type != kGgmlTypeF32) {
+    const auto* layout = find_tensor_layout(tensor.type);
+    if (layout == nullptr) {
       return rejected(GgufValidationError::UnsupportedTensorType,
                       "unsupported GGML tensor type", Status::UnsupportedMode);
     }
-    if (!checked_multiply(tensor.element_count, 4U, tensor.stored_bytes)) {
+    if (tensor.element_count % layout->elements_per_block != 0U) {
+      return rejected(GgufValidationError::InvalidTensorDimension,
+                      "tensor element count does not fill GGML blocks");
+    }
+    const auto block_count = tensor.element_count / layout->elements_per_block;
+    if (!checked_multiply(block_count, layout->bytes_per_block, tensor.stored_bytes)) {
       return rejected(GgufValidationError::IntegerOverflow,
                       "tensor byte count overflows uint64");
+    }
+    if (!checked_multiply(tensor.element_count, 4U, tensor.decoded_ram_bytes)) {
+      return rejected(GgufValidationError::IntegerOverflow,
+                      "decoded tensor RAM estimate overflows uint64");
     }
     parsed_tensors.push_back(std::move(tensor));
   }
@@ -402,7 +432,7 @@ GgufInspection inspect_gguf_file(const std::filesystem::path& path,
          .relative_data_offset = tensor.relative_offset,
          .absolute_file_offset = absolute_offset,
          .stored_byte_count = tensor.stored_bytes,
-         .decoded_ram_bytes = std::nullopt});
+         .decoded_ram_bytes = tensor.decoded_ram_bytes});
   }
 
   const auto trace = make_trace({{.scope = GateScope::Run,

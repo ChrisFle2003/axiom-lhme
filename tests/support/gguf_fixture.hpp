@@ -16,6 +16,19 @@ namespace test::gguf {
 constexpr std::uint32_t kMagic = 0x46554747U;
 constexpr std::uint32_t kVersion = 3;
 constexpr std::uint32_t kTypeF32 = 0;
+constexpr std::uint32_t kTypeF16 = 1;
+constexpr std::uint32_t kTypeQ40 = 2;
+constexpr std::uint32_t kTypeQ41 = 3;
+constexpr std::uint32_t kTypeQ50 = 6;
+constexpr std::uint32_t kTypeQ51 = 7;
+constexpr std::uint32_t kTypeQ80 = 8;
+constexpr std::uint32_t kTypeQ81 = 9;
+constexpr std::uint32_t kTypeQ2K = 10;
+constexpr std::uint32_t kTypeQ3K = 11;
+constexpr std::uint32_t kTypeQ4K = 12;
+constexpr std::uint32_t kTypeQ5K = 13;
+constexpr std::uint32_t kTypeQ6K = 14;
+constexpr std::uint32_t kTypeQ8K = 15;
 constexpr std::uint32_t kValueTypeString = 8;
 constexpr std::uint32_t kValueTypeArray = 9;
 constexpr std::uint32_t kValueTypeUint32 = 4;
@@ -58,23 +71,31 @@ inline void append_padding(std::vector<std::byte>& bytes,
   }
 }
 
-inline std::vector<std::byte> valid_f32_file(
-    std::vector<std::uint64_t> dimensions = {2}, std::uint64_t offset = 0,
+inline std::vector<std::byte> tensor_file(
+    std::vector<std::uint64_t> dimensions, std::uint32_t type,
+    std::uint64_t payload_bytes, std::uint64_t offset = 0,
     bool append_payload = true) {
   std::vector<std::byte> bytes;
   append_u32(bytes, kMagic);
   append_u32(bytes, kVersion);
   append_u64(bytes, 1);
   append_u64(bytes, 0);
-  append_tensor(bytes, "weight", dimensions, kTypeF32, offset);
+  append_tensor(bytes, "weight", dimensions, type, offset);
   append_padding(bytes);
   if (append_payload) {
-    const auto total_values = dimensions.empty() ? 0U : dimensions.front();
-    for (std::uint64_t index = 0; index < total_values * 4U; ++index) {
+    for (std::uint64_t index = 0; index < payload_bytes; ++index) {
       bytes.push_back(static_cast<std::byte>(index));
     }
   }
   return bytes;
+}
+
+inline std::vector<std::byte> valid_f32_file(
+    std::vector<std::uint64_t> dimensions = {2}, std::uint64_t offset = 0,
+    bool append_payload = true) {
+  const auto payload_bytes = dimensions.empty() ? 0U : dimensions.front() * 4U;
+  return tensor_file(std::move(dimensions), kTypeF32, payload_bytes, offset,
+                     append_payload);
 }
 
 inline std::vector<std::byte> truncated_metadata_string_file() {
