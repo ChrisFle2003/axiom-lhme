@@ -281,4 +281,3 @@ git add CMakeLists.txt README.md docs/gguf-inspector.md \
   tools/gguf_inspect/main.cpp tests/gguf_report_tests.cpp
 git commit -m "feat: expose deterministic GGUF inspection reports"
 ```
-
