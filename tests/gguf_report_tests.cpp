@@ -58,3 +58,19 @@ TEST(gguf_command_rejects_missing_required_arguments) {
   CHECK(exit_code != 0);
   CHECK(!error.str().empty());
 }
+
+TEST(gguf_command_returns_a_budget_exit_code_when_pattern_scan_exceeds_its_limit) {
+  const auto path = test::gguf::write_file("scan-budget", test::gguf::valid_f32_file());
+  const auto model_path = path.string();
+  const std::array<std::string_view, 9> arguments = {
+      "bruce_gguf_inspect", model_path, "--memory-budget", "4", "--chunk-size",
+      "8", "--policy", "budgeted", "--scan"};
+  std::istringstream input;
+  std::ostringstream output;
+  std::ostringstream error;
+
+  const auto exit_code = bruce::lhme::tool::run_gguf_inspect(arguments, input, output, error);
+
+  CHECK(exit_code == 4);
+  CHECK(output.str().find("pattern_scan_status=budget_exceeded") != std::string::npos);
+}
