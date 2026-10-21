@@ -76,6 +76,7 @@ The checked external example lives in
 ## Documentation
 
 - [Implemented architecture](docs/architecture.md)
+- [Benchmark review — 2026-10-21](docs/benchmark-review-2026-10-21.md)
 - [v0.1 release contract](docs/release-v0.1.md)
 - [Concept collection](concepts/README.md)
 - [Kernel SDK](docs/kernel-sdk.md)
