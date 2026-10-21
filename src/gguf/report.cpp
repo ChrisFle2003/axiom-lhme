@@ -53,6 +53,26 @@ namespace {
   return output.str();
 }
 
+[[nodiscard]] std::string text_escape(std::string_view value) {
+  std::ostringstream output;
+  for (const unsigned char character : value) {
+    switch (character) {
+      case '\\': output << "\\\\"; break;
+      case '\n': output << "\\n"; break;
+      case '\r': output << "\\r"; break;
+      case '\t': output << "\\t"; break;
+      default:
+        if (character < 0x20U || character == 0x7fU) {
+          output << "\\x" << std::hex << std::setw(2) << std::setfill('0')
+                 << static_cast<unsigned int>(character) << std::dec;
+        } else {
+          output << static_cast<char>(character);
+        }
+    }
+  }
+  return output.str();
+}
+
 }  // namespace
 
 std::string render_gguf_text_report(const GgufInspection& inspection,
@@ -72,7 +92,7 @@ std::string render_gguf_text_report(const GgufInspection& inspection,
   output << "resident_ram_bytes=" << plan.resident_ram_bytes << '\n';
   output << "trace_id=" << (plan.trace == nullptr ? "" : plan.trace->id) << '\n';
   for (const auto& item : plan.items) {
-    output << "item tensor=" << item.tensor_name << " chunk=" << item.chunk_index
+    output << "item tensor=" << text_escape(item.tensor_name) << " chunk=" << item.chunk_index
            << " file_offset=" << item.file_offset << " stored_byte_count="
            << item.stored_byte_count << " decoded_ram_bytes=" << item.decoded_ram_bytes
            << " placement=" << placement_name(item.placement)

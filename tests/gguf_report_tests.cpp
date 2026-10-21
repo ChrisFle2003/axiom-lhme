@@ -4,6 +4,7 @@
 
 #include "command.hpp"
 #include "bruce/lhme/gguf_report.hpp"
+#include "bruce/lhme/trace.hpp"
 
 #include <array>
 #include <sstream>
@@ -73,4 +74,21 @@ TEST(gguf_command_returns_a_budget_exit_code_when_pattern_scan_exceeds_its_limit
 
   CHECK(exit_code == 4);
   CHECK(output.str().find("pattern_scan_status=budget_exceeded") != std::string::npos);
+}
+
+TEST(gguf_text_report_escapes_control_characters_from_tensor_names) {
+  const bruce::lhme::GgufInspection inspection{
+      .status = Status::Confirmed,
+      .inventory = bruce::lhme::GgufInventory{.version = 3,
+                                               .input_fingerprint = "fixture"}};
+  const bruce::lhme::GgufStoragePlan plan{
+      .status = Status::Confirmed,
+      .items = {{.tensor_name = "weight\x1b[2J",
+                 .placement = bruce::lhme::GgufPlacement::Deferred}},
+      .trace = bruce::lhme::make_trace({})};
+
+  const auto text = render_gguf_text_report(inspection, plan);
+
+  CHECK(text.find('\x1b') == std::string::npos);
+  CHECK(text.find("weight\\x1b[2J") != std::string::npos);
 }
