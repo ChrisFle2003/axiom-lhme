@@ -1,0 +1,41 @@
+name: Bug report
+description: Report a reproducible BRUCE LHME problem.
+title: "bug: "
+labels: [bug]
+body:
+  - type: markdown
+    attributes:
+      value: Thank you for helping improve BRUCE LHME.
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected behaviour
+      description: What did you expect FormulaRecipe, KEVIN, or the runtime to do?
+    validations:
+      required: true
+  - type: textarea
+    id: actual
+    attributes:
+      label: Actual behaviour
+      description: Include the full error message or unexpected result.
+    validations:
+      required: true
+  - type: textarea
+    id: reproduce
+    attributes:
+      label: Reproduction
+      description: Provide a minimal program and exact build/test commands.
+    validations:
+      required: true
+  - type: input
+    id: environment
+    attributes:
+      label: Platform and compiler
+      placeholder: Ubuntu 24.04, GCC 14.2, CMake 3.25
+    validations:
+      required: true
+  - type: textarea
+    id: trace
+    attributes:
+      label: BRUCE trace or relevant output
+      description: Remove secrets before pasting logs.

@@ -1,0 +1,129 @@
+{
+  "version": 4,
+  "cmakeMinimumRequired": {
+    "major": 3,
+    "minor": 25,
+    "patch": 0
+  },
+  "configurePresets": [
+    {
+      "name": "base",
+      "hidden": true,
+      "binaryDir": "${sourceDir}/out/build/${presetName}",
+      "cacheVariables": {
+        "BUILD_TESTING": "ON"
+      }
+    },
+    {
+      "name": "debug",
+      "displayName": "Debug",
+      "inherits": "base",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Debug",
+        "BRUCE_SANITIZER": "none"
+      }
+    },
+    {
+      "name": "release",
+      "displayName": "Release",
+      "inherits": "base",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Release",
+        "BRUCE_SANITIZER": "none"
+      }
+    },
+    {
+      "name": "address",
+      "displayName": "AddressSanitizer",
+      "inherits": "debug",
+      "cacheVariables": {
+        "BRUCE_SANITIZER": "address"
+      }
+    },
+    {
+      "name": "undefined",
+      "displayName": "UndefinedBehaviorSanitizer",
+      "inherits": "debug",
+      "cacheVariables": {
+        "BRUCE_SANITIZER": "undefined"
+      }
+    },
+    {
+      "name": "thread",
+      "displayName": "ThreadSanitizer",
+      "inherits": "debug",
+      "cacheVariables": {
+        "BRUCE_SANITIZER": "thread"
+      }
+    }
+  ],
+  "buildPresets": [
+    {
+      "name": "debug",
+      "configurePreset": "debug",
+      "configuration": "Debug"
+    },
+    {
+      "name": "release",
+      "configurePreset": "release",
+      "configuration": "Release"
+    },
+    {
+      "name": "address",
+      "configurePreset": "address",
+      "configuration": "Debug"
+    },
+    {
+      "name": "undefined",
+      "configurePreset": "undefined",
+      "configuration": "Debug"
+    },
+    {
+      "name": "thread",
+      "configurePreset": "thread",
+      "configuration": "Debug"
+    }
+  ],
+  "testPresets": [
+    {
+      "name": "debug",
+      "configurePreset": "debug",
+      "configuration": "Debug",
+      "output": {
+        "outputOnFailure": true
+      }
+    },
+    {
+      "name": "release",
+      "configurePreset": "release",
+      "configuration": "Release",
+      "output": {
+        "outputOnFailure": true
+      }
+    },
+    {
+      "name": "address",
+      "configurePreset": "address",
+      "configuration": "Debug",
+      "output": {
+        "outputOnFailure": true
+      }
+    },
+    {
+      "name": "undefined",
+      "configurePreset": "undefined",
+      "configuration": "Debug",
+      "output": {
+        "outputOnFailure": true
+      }
+    },
+    {
+      "name": "thread",
+      "configurePreset": "thread",
+      "configuration": "Debug",
+      "output": {
+        "outputOnFailure": true
+      }
+    }
+  ]
+}
