@@ -11,6 +11,7 @@
 # Local skill and editor state
 /.superpowers/
 /.codex/
+/.tools/
 .idea/
 .vscode/
 *.swp
