@@ -132,11 +132,19 @@ int run_gguf_inspect(std::span<const std::string_view> arguments,
   }
 
   std::optional<GgufPatternScanResult> pattern_scan;
+  int exit_code = plan.status == Status::BudgetExceeded ? 4 : 0;
   if (arguments_result.scan) {
     pattern_scan = scan_gguf_pattern_candidates(
         arguments_result.model_path, *inspection.inventory, plan.items,
         {.max_payload_bytes = arguments_result.memory_budget_bytes,
          .max_candidates = 128});
+    if (pattern_scan->status == Status::BudgetExceeded) {
+      exit_code = 4;
+    } else if (pattern_scan->status == Status::InvalidArgument) {
+      exit_code = 2;
+    } else if (pattern_scan->status != Status::Confirmed) {
+      exit_code = 3;
+    }
   }
   output << render_gguf_text_report(inspection, plan,
                                     pattern_scan.has_value() ? &*pattern_scan : nullptr);
@@ -150,7 +158,7 @@ int run_gguf_inspect(std::span<const std::string_view> arguments,
                                          pattern_scan.has_value() ? &*pattern_scan : nullptr)
                 << '\n';
   }
-  return plan.status == Status::BudgetExceeded ? 4 : 0;
+  return exit_code;
 }
 
 }  // namespace bruce::lhme::tool
