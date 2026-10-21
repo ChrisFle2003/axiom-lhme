@@ -68,12 +68,12 @@ AddressSanitizer run. CI must retain leak detection.
 
 ## Verified locally
 
-- GNU C++ 14.2 on Linux: complete Debug profile, 35/35 tests.
-- GNU C++ 14.2 on Linux: complete Release profile, 35/35 tests.
-- GNU C++ 14.2 on Linux: complete ThreadSanitizer profile, 35/35 tests.
-- AddressSanitizer and UndefinedBehaviorSanitizer: the FormulaOverrideStore and
-  FormulaOverrideSnapshot suites pass. Leak detection was disabled only for the
-  local AddressSanitizer run because this host monitors processes with `ptrace`.
+- GNU C++ 14.2 on Linux: complete Debug profile, 42/42 tests.
+- GNU C++ 14.2 on Linux: complete Release profile, 42/42 tests.
+
+The latest complete verification includes the read-only GGUF inspector tests,
+its bounded storage planning and its report/CLI surface. Diagnostic sanitizer
+profiles have not yet been rerun against this 42-test release candidate.
 
 ## Still required before a public v0.1 tag
 
@@ -81,7 +81,8 @@ AddressSanitizer run. CI must retain leak detection.
    that permits LeakSanitizer.
 2. Build and test with an independently installed supported C++20 compiler.
 3. Build and test on Windows before claiming Windows support.
-4. Choose and add a project licence, release owner and distribution channel.
+4. Choose a release owner and distribution channel. The repository already
+   includes the MIT License.
 
 GPU backends, NanoCell runtime, semantic routing, AnswerPoints and Experience
 Records are explicitly not v0.1 release requirements.
