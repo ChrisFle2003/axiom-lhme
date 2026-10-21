@@ -5,6 +5,8 @@ formula evaluation. It is designed for cases where a large logical value space
 is better represented by a compact rule than by materializing every value in
 RAM.
 
+Source repository: [ChrisFle2003/bruce-lhme](https://github.com/ChrisFle2003/bruce-lhme).
+
 ## The core idea
 
 ```text

@@ -14,6 +14,9 @@ GridDomainSpec / GridAddress
   -> FormulaEvaluator
 ```
 
+The public source repository is
+[ChrisFle2003/bruce-lhme](https://github.com/ChrisFle2003/bruce-lhme).
+
 `FormulaRecipe` is the deterministic source of values. `KEVIN` is a separate
 8×8 domain and dimension layer; it neither owns values nor implicitly selects a
 formula. A value lookup through KEVIN therefore always needs an explicit
