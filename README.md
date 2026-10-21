@@ -81,6 +81,7 @@ The checked external example lives in
 - [v0.1 release contract](docs/release-v0.1.md)
 - [Concept collection](concepts/README.md)
 - [Kernel SDK](docs/kernel-sdk.md)
+- [GGUF Inspector V1](docs/gguf-inspector.md)
 
 ## License
 
