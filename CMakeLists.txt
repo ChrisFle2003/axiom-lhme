@@ -208,6 +208,34 @@ target_include_directories(table_storage_tests PRIVATE
 target_link_libraries(table_storage_tests PRIVATE bruce_lhme_core)
 add_test(NAME table_storage_tests COMMAND table_storage_tests)
 
+add_executable(fair_benchmark_contract_tests
+  tests/support/test_main.cpp
+  tests/fair_benchmark_contract_tests.cpp
+)
+target_include_directories(fair_benchmark_contract_tests PRIVATE
+  tests/support
+  include
+  demos/lhme/benchmarks/fair
+)
+target_link_libraries(fair_benchmark_contract_tests PRIVATE bruce_lhme_core)
+add_test(NAME fair_benchmark_contract_tests COMMAND fair_benchmark_contract_tests)
+
+add_executable(lhme_fair_storage_benchmark
+  demos/lhme/benchmarks/fair/fair_storage_benchmark.cpp
+)
+target_include_directories(lhme_fair_storage_benchmark PRIVATE
+  include demos/lhme/support demos/lhme/benchmarks/fair demos/lhme/benchmarks/stress
+)
+target_link_libraries(lhme_fair_storage_benchmark PRIVATE bruce_lhme_core)
+add_test(NAME lhme_fair_storage_benchmark COMMAND lhme_fair_storage_benchmark --quick)
+
+add_test(
+  NAME fair_benchmark_docs_test
+  COMMAND ${CMAKE_COMMAND}
+    -DREVIEW_FILE=${CMAKE_CURRENT_SOURCE_DIR}/docs/benchmark-review-2026-10-21.md
+    -P ${CMAKE_CURRENT_SOURCE_DIR}/tests/fair_benchmark_docs_test.cmake
+)
+
 add_executable(storage_policy_tests
   tests/support/test_main.cpp
   tests/storage_policy_tests.cpp

@@ -18,6 +18,94 @@ und Filterebene, kein Wertspeicher. Die Pipeline filterte 4,096 virtuelle
 Zellen mit null Exact-Materialisierungen und blieb bei 1, 2, 4 und 8 Workern
 deterministisch.
 
+## Fair comparison: Track A
+
+Track A beantwortet ausschließlich die Speicherfrage: Wie verhalten sich fünf
+Repräsentationen **derselben modularen Skalare**? Die Rezeptur lautet
+`h(i) = 100 * (2^i - 1) mod M` mit
+`M = 2,305,843,009,213,693,951`. Gemessen wurden `FormulaRecipe`,
+`FormulaRecipeWithOverrides`, `DenseVector`, `SortedPairs` und `HashTable`.
+Alle verwenden dieselben deterministischen Adressen, denselben Seed
+`284849161029` und eine ausgeschaltete Recipe-Cache-Konfiguration.
+
+Die vollständige Release-Matrix lief mit Exit-Status 0 über die Domänen 1.024,
+65.536 und 1.000.000, die angeforderten Override-Dichten 0 %, 0,1 %, 1 %,
+10 % und 100 % sowie sequential, pseudo-random und repeat-heavy. Jeder Fall
+hat einen nicht gewerteten Warm-up-Lauf und danach **eleven samples**; der
+Bericht enthält Minimum, Median und Maximum. Kleine Domänen können die
+angeforderte Dichte nicht exakt ganzzahlig darstellen: die Ausgabe nennt dann
+den tatsächlich realisierten Anteil, beispielsweise 1 von 1.024 als 0,0977 %.
+
+Ausgewählte rohe Release-Werte des 1.024-Adressen-Sequential-Falls:
+
+| Repräsentation | Aufbau | Lookup min / median / max | isolierter Peak RAM |
+|---|---:|---:|---:|
+| FormulaRecipe | 16 µs | 186 / 186 / 236 µs | 1.482.752 B |
+| FormulaRecipeWithOverrides, 0 % | 3 µs | 481 / 495 / 726 µs | 1.470.464 B |
+| DenseVector, 0 % | 635 µs | 4 / 4 / 4 µs | 1.290.240 B |
+| SortedPairs, 0 % | 441 µs | 4 / 4 / 7 µs | 1.298.432 B |
+| HashTable, 0 % | 597 µs | 2 / 2 / 2 µs | 1.515.520 B |
+
+Das ist **not a global ranking**: FormulaRecipe vermeidet die Materialisierung
+und ist daher eine Speicherrepräsentation für regelhafte Daten. Dichte und
+Hash-Repräsentationen bezahlen Aufbau- und RAM-Kosten, erhalten dafür aber
+direkte `UInt64`-Zugriffe. Bei vielen Ausnahmen muss die Entscheidung daher
+pro Datenform und Zugriffsmuster fallen.
+
+## Fair comparison: Track B
+
+Track B ist ein archiviertes Messergebnis eines begrenzten, öffentlich erzeugten BSGS-Lehrbeispiels mit
+`p = 1019`, Generator `2` und bekanntem Exponenten `777`. Es misst einen
+linearen Referenzscan und Baby-Step Giant-Step jeweils mit elf Läufen:
+
+| Solver | Minimum | Median | Maximum |
+|---|---:|---:|---:|
+| Linear scan | 2 µs | 2 µs | 2 µs |
+| Baby-Step Giant-Step | 3 µs | 3 µs | 9 µs |
+
+Das Ergebnis ist nicht vergleichbar mit Track A (`not comparable to Track A`):
+hier geht es um eine andere algebraische Aufgabe und eine winzige feste Gruppe,
+nicht um die Speicherung einer Million Formelwerte. Es werden keine Passwörter,
+Secrets oder produktiven Kryptoparameter verarbeitet.
+Die zugehörige ausführbare Toy-Implementierung wird nicht ausgeliefert; dieser
+Abschnitt bewahrt ausschließlich das Ergebnis und seine Sicherheitsgrenzen.
+
+## Fair comparison: Track C
+
+Track C ist `PrecomputedChainToy`: ein **synthetic non-security toy** über
+einen öffentlichen 16-Bit-Zustandsraum. Es ist ausdrücklich keine Rainbow-
+Table und nicht für Sicherheits- oder Credential-Anwendungen bestimmt.
+
+| Parameter / Ergebnis | Wert |
+|---|---:|
+| deterministische Ketten | 128 |
+| Kettenlänge | 64 |
+| gespeicherte Endpunkte | 256 B |
+| beobachtete Abdeckung | 128 / 128 erzeugte Token |
+| Prüfarbeit | 1.067.790 Schritte |
+| Endpunkt-Kandidaten | 142 |
+| replay-verifizierte Auflösungen | 128 |
+
+Ein gleicher Endpunkt ist nur ein Kandidat. Erst die Wiederholung der zugehörigen
+Ursprungskette darf eine Auflösung bestätigen. Auch Track C ist `not comparable
+to Track A`: Er bewertet keine RAM-Repräsentation derselben Werte, sondern die
+Verifikation eines synthetischen Kettenmodells. Die ausführbare Toy-
+Implementierung wird nicht ausgeliefert; erhalten bleibt nur dieses Ergebnis.
+
+## Limitations
+
+- Die Vollmatrix ist ein einzelner Release-Lauf auf diesem Host. Sie ersetzt
+  keine Verteilungsanalyse über CPU-Takt, Temperatur, Allocator oder mehrere
+  Maschinen.
+- Die dokumentierten 1.024er Rohwerte sind eine ausgewählte, lesbare Ansicht;
+  sie sind keine Zusammenfassung zu einer Gesamtwertung.
+- Isolierter Peak-RAM ist ein Linux-Kindprozesswert und enthält Runtime- sowie
+  Allocator-Overhead. Auf nicht unterstützten Plattformen meldet der Runner
+  `unavailable`.
+- Track B und Track C sind ausschließlich begrenzte, öffentliche Lernexperimente.
+  Aus ihren Zeiten oder Trefferzahlen folgt keine Aussage über Kryptografie,
+  Passwortsuche oder reale Angriffe.
+
 ## Messaufbau
 
 | Eigenschaft | Wert |
