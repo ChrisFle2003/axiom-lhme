@@ -39,6 +39,10 @@ endif()
 include(CTest)
 
 add_library(bruce_lhme_core STATIC
+  src/gguf/reader.cpp
+  src/gguf/pattern_scanner.cpp
+  src/gguf/report.cpp
+  src/gguf/storage_planner.cpp
   src/core/formula.cpp
   src/core/fibonacci_kernel.cpp
   src/core/power_offset_kernel.cpp
@@ -79,6 +83,48 @@ add_executable(core_formula_tests
 target_include_directories(core_formula_tests PRIVATE tests/support include)
 target_link_libraries(core_formula_tests PRIVATE bruce_lhme_core)
 add_test(NAME core_formula_tests COMMAND core_formula_tests)
+
+add_executable(gguf_reader_tests
+  tests/support/test_main.cpp
+  tests/gguf_reader_tests.cpp
+)
+target_include_directories(gguf_reader_tests PRIVATE tests/support include)
+target_link_libraries(gguf_reader_tests PRIVATE bruce_lhme_core)
+add_test(NAME gguf_reader_tests COMMAND gguf_reader_tests)
+
+add_executable(gguf_storage_plan_tests
+  tests/support/test_main.cpp
+  tests/gguf_storage_plan_tests.cpp
+)
+target_include_directories(gguf_storage_plan_tests PRIVATE tests/support include)
+target_link_libraries(gguf_storage_plan_tests PRIVATE bruce_lhme_core)
+add_test(NAME gguf_storage_plan_tests COMMAND gguf_storage_plan_tests)
+
+add_executable(gguf_pattern_scan_tests
+  tests/support/test_main.cpp
+  tests/gguf_pattern_scan_tests.cpp
+)
+target_include_directories(gguf_pattern_scan_tests PRIVATE tests/support include)
+target_link_libraries(gguf_pattern_scan_tests PRIVATE bruce_lhme_core)
+add_test(NAME gguf_pattern_scan_tests COMMAND gguf_pattern_scan_tests)
+
+add_executable(gguf_report_tests
+  tests/support/test_main.cpp
+  tests/gguf_report_tests.cpp
+)
+target_include_directories(gguf_report_tests PRIVATE
+  tests/support include tools/gguf_inspect
+)
+target_link_libraries(gguf_report_tests PRIVATE bruce_lhme_core)
+target_sources(gguf_report_tests PRIVATE tools/gguf_inspect/command.cpp)
+add_test(NAME gguf_report_tests COMMAND gguf_report_tests)
+
+add_executable(bruce_gguf_inspect
+  tools/gguf_inspect/command.cpp
+  tools/gguf_inspect/main.cpp
+)
+target_include_directories(bruce_gguf_inspect PRIVATE include tools/gguf_inspect)
+target_link_libraries(bruce_gguf_inspect PRIVATE bruce_lhme_core)
 
 add_executable(core_budget_trace_tests
   tests/support/test_main.cpp
@@ -207,6 +253,34 @@ target_include_directories(table_storage_tests PRIVATE
 )
 target_link_libraries(table_storage_tests PRIVATE bruce_lhme_core)
 add_test(NAME table_storage_tests COMMAND table_storage_tests)
+
+add_executable(fair_benchmark_contract_tests
+  tests/support/test_main.cpp
+  tests/fair_benchmark_contract_tests.cpp
+)
+target_include_directories(fair_benchmark_contract_tests PRIVATE
+  tests/support
+  include
+  demos/lhme/benchmarks/fair
+)
+target_link_libraries(fair_benchmark_contract_tests PRIVATE bruce_lhme_core)
+add_test(NAME fair_benchmark_contract_tests COMMAND fair_benchmark_contract_tests)
+
+add_executable(lhme_fair_storage_benchmark
+  demos/lhme/benchmarks/fair/fair_storage_benchmark.cpp
+)
+target_include_directories(lhme_fair_storage_benchmark PRIVATE
+  include demos/lhme/support demos/lhme/benchmarks/fair demos/lhme/benchmarks/stress
+)
+target_link_libraries(lhme_fair_storage_benchmark PRIVATE bruce_lhme_core)
+add_test(NAME lhme_fair_storage_benchmark COMMAND lhme_fair_storage_benchmark --quick)
+
+add_test(
+  NAME fair_benchmark_docs_test
+  COMMAND ${CMAKE_COMMAND}
+    -DREVIEW_FILE=${CMAKE_CURRENT_SOURCE_DIR}/docs/benchmark-review-2026-10-21.md
+    -P ${CMAKE_CURRENT_SOURCE_DIR}/tests/fair_benchmark_docs_test.cmake
+)
 
 add_executable(storage_policy_tests
   tests/support/test_main.cpp

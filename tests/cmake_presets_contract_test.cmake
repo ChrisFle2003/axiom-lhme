@@ -37,3 +37,22 @@ foreach(array_name IN ITEMS buildPresets testPresets)
     endif()
   endforeach()
 endforeach()
+
+foreach(entry IN ITEMS gcc-ninja-debug gcc-ninja-release)
+  find_preset(configurePresets ${entry} entry_index)
+  string(JSON generator GET "${presets_json}" configurePresets ${entry_index} generator)
+  if(NOT generator STREQUAL "Ninja")
+    message(FATAL_ERROR "${entry} must select the Ninja generator")
+  endif()
+
+  string(JSON c_compiler GET "${presets_json}" configurePresets ${entry_index}
+         cacheVariables CMAKE_C_COMPILER)
+  string(JSON cxx_compiler GET "${presets_json}" configurePresets ${entry_index}
+         cacheVariables CMAKE_CXX_COMPILER)
+  if(NOT c_compiler STREQUAL "gcc" OR NOT cxx_compiler STREQUAL "g++")
+    message(FATAL_ERROR "${entry} must explicitly select GCC and G++")
+  endif()
+
+  find_preset(buildPresets ${entry} build_index)
+  find_preset(testPresets ${entry} test_index)
+endforeach()

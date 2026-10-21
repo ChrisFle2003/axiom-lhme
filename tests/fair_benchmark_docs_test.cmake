@@ -1,0 +1,21 @@
+if(NOT DEFINED REVIEW_FILE)
+  message(FATAL_ERROR "REVIEW_FILE must name the benchmark review")
+endif()
+
+file(READ "${REVIEW_FILE}" review)
+
+function(require_review_text expected)
+  string(FIND "${review}" "${expected}" position)
+  if(position EQUAL -1)
+    message(FATAL_ERROR "Benchmark review is missing required text: ${expected}")
+  endif()
+endfunction()
+
+require_review_text("## Fair comparison: Track A")
+require_review_text("## Fair comparison: Track B")
+require_review_text("## Fair comparison: Track C")
+require_review_text("not comparable to Track A")
+require_review_text("2,305,843,009,213,693,951")
+require_review_text("eleven samples")
+require_review_text("synthetic non-security toy")
+require_review_text("## Limitations")

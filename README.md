@@ -55,6 +55,21 @@ cmake --build --preset release
 ctest --preset release
 ```
 
+### Optional: GCC + Ninja
+
+Wenn Ninja installiert ist, bleiben GCC und G++ die Compiler; Ninja ersetzt
+nur den Build-Generator. Die Profile verwenden getrennte Build-Ordner:
+
+```bash
+cmake --preset gcc-ninja-debug
+cmake --build --preset gcc-ninja-debug --parallel 2
+ctest --preset gcc-ninja-debug
+
+cmake --preset gcc-ninja-release
+cmake --build --preset gcc-ninja-release --parallel 2
+ctest --preset gcc-ninja-release
+```
+
 Additional diagnostic profiles are `address`, `undefined` and `thread`.
 They instrument the runtime and are intended for development, not release
 binaries.
@@ -77,9 +92,11 @@ The checked external example lives in
 
 - [Implemented architecture](docs/architecture.md)
 - [Benchmark review — 2026-10-21](docs/benchmark-review-2026-10-21.md)
+  - [Fair comparison: separate Tracks A, B and C](docs/benchmark-review-2026-10-21.md#fair-comparison-track-a)
 - [v0.1 release contract](docs/release-v0.1.md)
 - [Concept collection](concepts/README.md)
 - [Kernel SDK](docs/kernel-sdk.md)
+- [GGUF Inspector V1](docs/gguf-inspector.md)
 
 ## License
 
