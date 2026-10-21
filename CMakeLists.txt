@@ -40,6 +40,7 @@ include(CTest)
 
 add_library(bruce_lhme_core STATIC
   src/gguf/reader.cpp
+  src/gguf/pattern_scanner.cpp
   src/gguf/storage_planner.cpp
   src/core/formula.cpp
   src/core/fibonacci_kernel.cpp
@@ -97,6 +98,14 @@ add_executable(gguf_storage_plan_tests
 target_include_directories(gguf_storage_plan_tests PRIVATE tests/support include)
 target_link_libraries(gguf_storage_plan_tests PRIVATE bruce_lhme_core)
 add_test(NAME gguf_storage_plan_tests COMMAND gguf_storage_plan_tests)
+
+add_executable(gguf_pattern_scan_tests
+  tests/support/test_main.cpp
+  tests/gguf_pattern_scan_tests.cpp
+)
+target_include_directories(gguf_pattern_scan_tests PRIVATE tests/support include)
+target_link_libraries(gguf_pattern_scan_tests PRIVATE bruce_lhme_core)
+add_test(NAME gguf_pattern_scan_tests COMMAND gguf_pattern_scan_tests)
 
 add_executable(core_budget_trace_tests
   tests/support/test_main.cpp
