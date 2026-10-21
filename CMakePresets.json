@@ -33,6 +33,26 @@
       }
     },
     {
+      "name": "gcc-ninja-debug",
+      "displayName": "GCC + Ninja Debug",
+      "inherits": "debug",
+      "generator": "Ninja",
+      "cacheVariables": {
+        "CMAKE_C_COMPILER": "gcc",
+        "CMAKE_CXX_COMPILER": "g++"
+      }
+    },
+    {
+      "name": "gcc-ninja-release",
+      "displayName": "GCC + Ninja Release",
+      "inherits": "release",
+      "generator": "Ninja",
+      "cacheVariables": {
+        "CMAKE_C_COMPILER": "gcc",
+        "CMAKE_CXX_COMPILER": "g++"
+      }
+    },
+    {
       "name": "address",
       "displayName": "AddressSanitizer",
       "inherits": "debug",
@@ -69,6 +89,16 @@
       "configuration": "Release"
     },
     {
+      "name": "gcc-ninja-debug",
+      "configurePreset": "gcc-ninja-debug",
+      "configuration": "Debug"
+    },
+    {
+      "name": "gcc-ninja-release",
+      "configurePreset": "gcc-ninja-release",
+      "configuration": "Release"
+    },
+    {
       "name": "address",
       "configurePreset": "address",
       "configuration": "Debug"
@@ -96,6 +126,22 @@
     {
       "name": "release",
       "configurePreset": "release",
+      "configuration": "Release",
+      "output": {
+        "outputOnFailure": true
+      }
+    },
+    {
+      "name": "gcc-ninja-debug",
+      "configurePreset": "gcc-ninja-debug",
+      "configuration": "Debug",
+      "output": {
+        "outputOnFailure": true
+      }
+    },
+    {
+      "name": "gcc-ninja-release",
+      "configurePreset": "gcc-ninja-release",
       "configuration": "Release",
       "output": {
         "outputOnFailure": true
