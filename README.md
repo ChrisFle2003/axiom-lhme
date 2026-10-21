@@ -55,6 +55,21 @@ cmake --build --preset release
 ctest --preset release
 ```
 
+### Optional: GCC + Ninja
+
+Wenn Ninja installiert ist, bleiben GCC und G++ die Compiler; Ninja ersetzt
+nur den Build-Generator. Die Profile verwenden getrennte Build-Ordner:
+
+```bash
+cmake --preset gcc-ninja-debug
+cmake --build --preset gcc-ninja-debug --parallel 2
+ctest --preset gcc-ninja-debug
+
+cmake --preset gcc-ninja-release
+cmake --build --preset gcc-ninja-release --parallel 2
+ctest --preset gcc-ninja-release
+```
+
 Additional diagnostic profiles are `address`, `undefined` and `thread`.
 They instrument the runtime and are intended for development, not release
 binaries.
