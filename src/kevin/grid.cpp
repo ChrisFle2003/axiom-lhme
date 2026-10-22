@@ -1,6 +1,6 @@
-#include "bruce/lhme/kevin_grid.hpp"
+#include "axiom/lhme/kevin_grid.hpp"
 
-namespace bruce::lhme {
+namespace axiom::lhme {
 namespace {
 
 constexpr std::size_t kMaximumDepth = 10;
@@ -13,4 +13,4 @@ bool valid_grid_spec(const GridSpec& spec) {
          spec.canonical_parameters.size() <= 4096 && spec.max_depth <= kMaximumDepth;
 }
 
-}  // namespace bruce::lhme
+}  // namespace axiom::lhme

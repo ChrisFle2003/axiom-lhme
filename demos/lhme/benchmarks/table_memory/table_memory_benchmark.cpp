@@ -21,13 +21,13 @@
 
 namespace {
 
-using bruce::lhme::benchmark::table::DenseValueTable;
-using bruce::lhme::benchmark::table::FormulaRecipeTable;
-using bruce::lhme::benchmark::table::HashValueTable;
-using bruce::lhme::benchmark::table::FormulaOverrideTable;
-using bruce::lhme::benchmark::table::SortedPairTable;
-using bruce::lhme::benchmark::table::StorageMetrics;
-using bruce::lhme::benchmark::table::synthetic_value_at;
+using axiom::lhme::benchmark::table::DenseValueTable;
+using axiom::lhme::benchmark::table::FormulaRecipeTable;
+using axiom::lhme::benchmark::table::HashValueTable;
+using axiom::lhme::benchmark::table::FormulaOverrideTable;
+using axiom::lhme::benchmark::table::SortedPairTable;
+using axiom::lhme::benchmark::table::StorageMetrics;
+using axiom::lhme::benchmark::table::synthetic_value_at;
 
 constexpr std::uint64_t kRecordCount = 1'000'000;
 constexpr std::uint32_t kReportMagic = 0x54424c45U;  // "TBLE"
@@ -180,7 +180,7 @@ struct BuiltTable {
   const auto built = build_and_check(kind, correct_lookup);
   const auto elapsed = std::chrono::duration_cast<std::chrono::milliseconds>(
       std::chrono::steady_clock::now() - started);
-  const auto peak = bruce::lhme::demo::stress::process_peak_memory();
+  const auto peak = axiom::lhme::demo::stress::process_peak_memory();
 
   return {.kind = static_cast<std::uint32_t>(kind),
           .status = correct_lookup ? 0U : 1U,
@@ -289,7 +289,7 @@ struct BuiltTable {
 #endif
 }
 
-void display_measurement(bruce::lhme::demo::Report& report, TableKind kind,
+void display_measurement(axiom::lhme::demo::Report& report, TableKind kind,
                          const IsolatedMeasurement& measurement) {
   const auto name = kind_name(kind);
   report.expect_true(std::string{name} + " measurement available",
@@ -316,10 +316,10 @@ void display_measurement(bruce::lhme::demo::Report& report, TableKind kind,
 }
 
 [[nodiscard]] int run_parent() {
-  bruce::lhme::demo::Report report;
+  axiom::lhme::demo::Report report;
   report.heading("LHME Million-Value Table Memory Comparison");
   report.row("value model",
-             "materialized tables use deterministic UInt64 payloads; BRUCE stores h(x)=100*(2^x-1) as a FormulaRecipe");
+             "materialized tables use deterministic UInt64 payloads; AXIOM stores h(x)=100*(2^x-1) as a FormulaRecipe");
   report.row("process peak RAM", "measured in isolated Linux child processes");
   report.row("container bytes",
              "analytic lower bounds; allocator and runtime overhead are visible only in process peak");

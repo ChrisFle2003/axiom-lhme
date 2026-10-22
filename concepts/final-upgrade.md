@@ -1,6 +1,6 @@
 ## Gesamturteil
 
-Der **Final Upgrade ist mathematisch und architektonisch grundsätzlich tragfähig**. Er verbindet die bisherigen BRUCE-Komponenten sinnvoll:
+Der **Final Upgrade ist mathematisch und architektonisch grundsätzlich tragfähig**. Er verbindet die bisherigen AXIOM-Komponenten sinnvoll:
 
 ```text
 Semantic Routing
@@ -8,7 +8,7 @@ Semantic Routing
 → virtuelle Prozesskoordinaten
 → Cascade-Filterung
 → TechniqueDefinition
-→ BRUCE-Math
+→ AXIOM-Math
 → AnswerPoint
 → ExperienceRecord
 → Sprachrekonstruktion
@@ -16,19 +16,19 @@ Semantic Routing
 
 Die entscheidende Verbesserung besteht darin, dass Fibonacci und Hyperoperationen nicht als riesige Zahlenlisten oder vollständig materialisierte Räume behandelt werden. Sie werden als **symbolische Generatoren und adressierbare Prozessstrukturen** eingesetzt.
 
-Die separate hochgeladene Kontextrekonstruktions-Anweisung bleibt eine Arbeits- und Quellenanalysevorgabe; sie ist nicht Bestandteil der BRUCE-Runtime. 
+Die separate hochgeladene Kontextrekonstruktions-Anweisung bleibt eine Arbeits- und Quellenanalysevorgabe; sie ist nicht Bestandteil der AXIOM-Runtime.
 
 ---
 
 # Mathematisch bestätigte Werte
 
-BRUCE-Math hat die beiden zentralen Knotenzahlen exakt bestätigt:
+AXIOM-Math hat die beiden zentralen Knotenzahlen exakt bestätigt:
 
 \[
 1+512+512^2=262\,657
 \]
 
-BRUCE-Math-Trace:
+AXIOM-Math-Trace:
 
 ```text
 TRACE-20260803031457853659-d25ac6
@@ -40,7 +40,7 @@ Und:
 1+512+512^2+512^3=134\,480\,385
 \]
 
-BRUCE-Math-Trace:
+AXIOM-Math-Trace:
 
 ```text
 TRACE-20260803031501109393-1b72e1
@@ -174,7 +174,7 @@ Beispiel:
 TRACE_AVAILABLE = 0
 ```
 
-Nach dem BRUCE-Prinzip darf dann keine bestätigte Aussage veröffentlicht werden. Die interne Berechnung könnte aber je nach Trace-Policy noch kontrolliert beendet oder diagnostisch fortgeführt werden.
+Nach dem AXIOM-Prinzip darf dann keine bestätigte Aussage veröffentlicht werden. Die interne Berechnung könnte aber je nach Trace-Policy noch kontrolliert beendet oder diagnostisch fortgeführt werden.
 
 Daher ist folgende Trennung sinnvoll:
 
@@ -204,7 +204,7 @@ LEARN_GATE = 0
 StopReason = TRACE_FAILURE
 ```
 
-Damit kann BRUCE ein internes Diagnoseergebnis erzeugen, ohne es als verifiziertes Wissen zu veröffentlichen.
+Damit kann AXIOM ein internes Diagnoseergebnis erzeugen, ohne es als verifiziertes Wissen zu veröffentlichen.
 
 ---
 
@@ -248,7 +248,7 @@ denselben Wertetupel besitzen:
 
 Sie bleiben trotzdem unterschiedliche **Prozesskoordinaten**, weil ihre Indexherkunft verschieden ist.
 
-BRUCE muss deshalb unterscheiden:
+AXIOM muss deshalb unterscheiden:
 
 ```text
 Coordinate Identity
@@ -271,7 +271,7 @@ Diese Aussage ist vollkommen richtig:
 
 > Knuth-Pfeile komprimieren die Formel, nicht automatisch das expandierte Ergebnis.
 
-Für BRUCE sollte daraus eine verbindliche Auswertungsreihenfolge entstehen:
+Für AXIOM sollte daraus eine verbindliche Auswertungsreihenfolge entstehen:
 
 ```text
 1. Ausdruck parsen
@@ -284,7 +284,7 @@ Für BRUCE sollte daraus eine verbindliche Auswertungsreihenfolge entstehen:
 8. erst danach eventuell expandieren
 ```
 
-Die Modi sollten nicht ausschließlich vom Benutzerwunsch abhängen. BRUCE-Math muss den maximal zulässigen Modus bestimmen:
+Die Modi sollten nicht ausschließlich vom Benutzerwunsch abhängen. AXIOM-Math muss den maximal zulässigen Modus bestimmen:
 
 ```text
 gewünscht: EXACT
@@ -336,7 +336,7 @@ wird zuerst reduziert:
 effective_index = n mod 384
 ```
 
-Danach benötigt BRUCE für den reinen Modular-256-Wert nur eine kleine, begrenzte Berechnung oder eine validierte Tabelle mit 384 Positionen.
+Danach benötigt AXIOM für den reinen Modular-256-Wert nur eine kleine, begrenzte Berechnung oder eine validierte Tabelle mit 384 Positionen.
 
 Speicher einer vollständigen Byteperiode:
 
@@ -405,7 +405,7 @@ StopScope = CURRENT_COORDINATE
 StopReason = NO_WHITELIST_MATCH
 ```
 
-BRUCE fährt mit der nächsten Koordinate fort.
+AXIOM fährt mit der nächsten Koordinate fort.
 
 Anderes Beispiel:
 
@@ -447,7 +447,7 @@ Für \(B\neq1\):
 N(L)=\frac{B^{L+1}-1}{B-1}
 \]
 
-## Tatsächliche BRUCE-Ausführung
+## Tatsächliche AXIOM-Ausführung
 
 Die praktische Anzahl lautet nicht automatisch \(N(L)\), sondern:
 
@@ -480,7 +480,7 @@ P_published
 P_learned
 ```
 
-Dadurch wird sichtbar, an welcher Stelle BRUCE den Raum tatsächlich reduziert.
+Dadurch wird sichtbar, an welcher Stelle AXIOM den Raum tatsächlich reduziert.
 
 ---
 
@@ -558,7 +558,7 @@ Diese Zahlen sind nur ein **Testdesign-Beispiel**, keine festgelegten Leistungsz
 
 Die Architektur kann nun präzise bezeichnet werden als:
 
-> **BRUCE-AI ist eine deterministische, trace-basierte Softwarearchitektur für semantisches Routing, symbolische und exakte Mathematik, lazy erzeugte Prozessräume, erfahrungsbasierte Technikauswahl und kontrollierte Bedeutungsrekonstruktion.**
+> **AXIOM-AI ist eine deterministische, trace-basierte Softwarearchitektur für semantisches Routing, symbolische und exakte Mathematik, lazy erzeugte Prozessräume, erfahrungsbasierte Technikauswahl und kontrollierte Bedeutungsrekonstruktion.**
 
 Der neue mathematische Teil ist:
 
@@ -566,6 +566,6 @@ Der neue mathematische Teil ist:
 
 Der wichtigste Satz des Upgrades lautet:
 
-> **BRUCE materialisiert weder die unendliche Folge noch den vollständigen rekursiven Prozessraum. BRUCE speichert die Erzeugungsregel, adressiert benötigte Koordinaten, öffnet ausschließlich positiv freigegebene Zweige und behält nur nachweisbare Ergebnisse und Erfahrungen.**
+> **AXIOM materialisiert weder die unendliche Folge noch den vollständigen rekursiven Prozessraum. AXIOM speichert die Erzeugungsregel, adressiert benötigte Koordinaten, öffnet ausschließlich positiv freigegebene Zweige und behält nur nachweisbare Ergebnisse und Erfahrungen.**
 
 Damit ist der „Final Upgrade“-Entwurf inhaltlich sehr stark. Vor einer Implementierung müssen vor allem Gate-Scope, Parallelität, SequenceSpec-Format, Coordinate Identity und Resource-Bound-Semantik normativ eingefroren werden.

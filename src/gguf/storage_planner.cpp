@@ -1,4 +1,4 @@
-#include "bruce/lhme/gguf_storage_plan.hpp"
+#include "axiom/lhme/gguf_storage_plan.hpp"
 
 #include <algorithm>
 #include <limits>
@@ -7,7 +7,7 @@
 #include <utility>
 #include <vector>
 
-namespace bruce::lhme {
+namespace axiom::lhme {
 namespace {
 
 [[nodiscard]] bool checked_add(std::uint64_t left, std::uint64_t right,
@@ -195,4 +195,4 @@ GgufStoragePlan make_gguf_storage_plan(const GgufInventory& inventory,
   return plan;
 }
 
-}  // namespace bruce::lhme
+}  // namespace axiom::lhme

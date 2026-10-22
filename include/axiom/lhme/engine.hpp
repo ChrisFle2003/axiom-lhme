@@ -7,11 +7,11 @@
 #include <memory>
 #include <shared_mutex>
 
-#include "bruce/lhme/cache.hpp"
-#include "bruce/lhme/reduction.hpp"
-#include "bruce/lhme/technique.hpp"
+#include "axiom/lhme/cache.hpp"
+#include "axiom/lhme/reduction.hpp"
+#include "axiom/lhme/technique.hpp"
 
-namespace bruce::lhme {
+namespace axiom::lhme {
 
 struct EngineConfig {
   std::size_t cache_max_entries = 0;
@@ -48,4 +48,4 @@ class Engine {
   std::shared_ptr<std::shared_mutex> registry_mutex_;
 };
 
-}  // namespace bruce::lhme
+}  // namespace axiom::lhme

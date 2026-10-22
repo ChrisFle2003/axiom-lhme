@@ -4,9 +4,9 @@
 #include <string>
 #include <vector>
 
-#include "bruce/lhme/types.hpp"
+#include "axiom/lhme/types.hpp"
 
-namespace bruce::lhme {
+namespace axiom::lhme {
 
 enum class GateScope {
   Branch,
@@ -33,4 +33,4 @@ struct TraceRecord {
 [[nodiscard]] std::shared_ptr<const TraceRecord> make_trace(
     std::vector<GateEvent> events);
 
-}  // namespace bruce::lhme
+}  // namespace axiom::lhme

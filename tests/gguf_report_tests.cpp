@@ -3,8 +3,8 @@
 #include "gguf_fixture.hpp"
 
 #include "command.hpp"
-#include "bruce/lhme/gguf_report.hpp"
-#include "bruce/lhme/trace.hpp"
+#include "axiom/lhme/gguf_report.hpp"
+#include "axiom/lhme/trace.hpp"
 
 #include <array>
 #include <sstream>
@@ -13,14 +13,14 @@
 
 namespace {
 
-using bruce::lhme::GgufInspectionLimits;
-using bruce::lhme::GgufLoadingPolicy;
-using bruce::lhme::GgufPlanConfig;
-using bruce::lhme::Status;
-using bruce::lhme::inspect_gguf_file;
-using bruce::lhme::make_gguf_storage_plan;
-using bruce::lhme::render_gguf_json_plan;
-using bruce::lhme::render_gguf_text_report;
+using axiom::lhme::GgufInspectionLimits;
+using axiom::lhme::GgufLoadingPolicy;
+using axiom::lhme::GgufPlanConfig;
+using axiom::lhme::Status;
+using axiom::lhme::inspect_gguf_file;
+using axiom::lhme::make_gguf_storage_plan;
+using axiom::lhme::render_gguf_json_plan;
+using axiom::lhme::render_gguf_text_report;
 
 }  // namespace
 
@@ -49,12 +49,12 @@ TEST(gguf_report_includes_stable_inventory_plan_and_trace_fields) {
 }
 
 TEST(gguf_command_rejects_missing_required_arguments) {
-  const std::array<std::string_view, 2> arguments = {"bruce_gguf_inspect", "model.gguf"};
+  const std::array<std::string_view, 2> arguments = {"axiom_gguf_inspect", "model.gguf"};
   std::istringstream input;
   std::ostringstream output;
   std::ostringstream error;
 
-  const auto exit_code = bruce::lhme::tool::run_gguf_inspect(arguments, input, output, error);
+  const auto exit_code = axiom::lhme::tool::run_gguf_inspect(arguments, input, output, error);
 
   CHECK(exit_code != 0);
   CHECK(!error.str().empty());
@@ -64,28 +64,28 @@ TEST(gguf_command_returns_a_budget_exit_code_when_pattern_scan_exceeds_its_limit
   const auto path = test::gguf::write_file("scan-budget", test::gguf::valid_f32_file());
   const auto model_path = path.string();
   const std::array<std::string_view, 9> arguments = {
-      "bruce_gguf_inspect", model_path, "--memory-budget", "4", "--chunk-size",
+      "axiom_gguf_inspect", model_path, "--memory-budget", "4", "--chunk-size",
       "8", "--policy", "budgeted", "--scan"};
   std::istringstream input;
   std::ostringstream output;
   std::ostringstream error;
 
-  const auto exit_code = bruce::lhme::tool::run_gguf_inspect(arguments, input, output, error);
+  const auto exit_code = axiom::lhme::tool::run_gguf_inspect(arguments, input, output, error);
 
   CHECK(exit_code == 4);
   CHECK(output.str().find("pattern_scan_status=budget_exceeded") != std::string::npos);
 }
 
 TEST(gguf_text_report_escapes_control_characters_from_tensor_names) {
-  const bruce::lhme::GgufInspection inspection{
+  const axiom::lhme::GgufInspection inspection{
       .status = Status::Confirmed,
-      .inventory = bruce::lhme::GgufInventory{.version = 3,
+      .inventory = axiom::lhme::GgufInventory{.version = 3,
                                                .input_fingerprint = "fixture"}};
-  const bruce::lhme::GgufStoragePlan plan{
+  const axiom::lhme::GgufStoragePlan plan{
       .status = Status::Confirmed,
       .items = {{.tensor_name = "weight\x1b[2J",
-                 .placement = bruce::lhme::GgufPlacement::Deferred}},
-      .trace = bruce::lhme::make_trace({})};
+                 .placement = axiom::lhme::GgufPlacement::Deferred}},
+      .trace = axiom::lhme::make_trace({})};
 
   const auto text = render_gguf_text_report(inspection, plan);
 

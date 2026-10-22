@@ -127,7 +127,7 @@ inline std::filesystem::path write_file(std::string_view stem,
                                         const std::vector<std::byte>& bytes) {
   const auto nonce = std::chrono::steady_clock::now().time_since_epoch().count();
   const auto path = std::filesystem::temp_directory_path() /
-                    ("bruce-gguf-" + std::string(stem) + "-" +
+                    ("axiom-gguf-" + std::string(stem) + "-" +
                      std::to_string(nonce) + ".gguf");
   std::ofstream output(path, std::ios::binary | std::ios::trunc);
   output.write(reinterpret_cast<const char*>(bytes.data()),

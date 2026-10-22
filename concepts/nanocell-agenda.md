@@ -1,20 +1,20 @@
 ```markdown
-# BRUCE NanoCell - Agenda und Roadmap
+# AXIOM NanoCell - Agenda und Roadmap
 
-> BRUCE NanoCell ist eine deterministische CPU-RAM-NPU-Architektur aus kompakten NanoNeuronen und ExecutionCells. Aus einem kleinen kanonischen Zustand werden bei Bedarf virtuelle Aufgabenuniversen aus Shift, Rotation, Gate, Maske, Kontext und erlernten Techniken berechnet. Die Ergebnisse werden zu überprüfbaren AnswerPoints verdichtet, als Erfahrungen gespeichert und später als nachvollziehbare Fähigkeiten wiederverwendet. Diese Datei dient als zentrale Agenda, Roadmap, Aufgabenliste, Fortschrittsübersicht, Entscheidungsgrundlage und Dokumentationsnavigation.
+> AXIOM NanoCell ist eine deterministische CPU-RAM-NPU-Architektur aus kompakten NanoNeuronen und ExecutionCells. Aus einem kleinen kanonischen Zustand werden bei Bedarf virtuelle Aufgabenuniversen aus Shift, Rotation, Gate, Maske, Kontext und erlernten Techniken berechnet. Die Ergebnisse werden zu überprüfbaren AnswerPoints verdichtet, als Erfahrungen gespeichert und später als nachvollziehbare Fähigkeiten wiederverwendet. Diese Datei dient als zentrale Agenda, Roadmap, Aufgabenliste, Fortschrittsübersicht, Entscheidungsgrundlage und Dokumentationsnavigation.
 
 ## Dokumentstatus
 
 | Feld | Wert |
 |---|---|
-| Projekt | BRUCE NanoCell |
+| Projekt | AXIOM NanoCell |
 | Dokumenttyp | Agenda und Roadmap |
 | Version | 0.1 |
 | Gesamtstatus | In Arbeit |
 | Letzte Aktualisierung | 2026-07-27 |
 | Hauptziel | Deterministische mehrdimensionale Erfahrungs- und Bedeutungsverarbeitung mit kompakten NanoNeuronen |
 | Aktuelle Phase | Phase 0 - Architekturverträge und Begriffe festlegen |
-| Referenzarchitektur | allgemeine CPU-RAM-NPU mit BRUCE als Referenzimplementierung |
+| Referenzarchitektur | allgemeine CPU-RAM-NPU mit AXIOM als Referenzimplementierung |
 | MVP-ID-Breite | 16 Bit |
 | Kanonische NanoNeuron-Größe | 8 Byte |
 | Vorgesehene aktive Projektion | möglichst 1 Byte je verarbeitetem NanoNeuron |
@@ -26,7 +26,7 @@
 
 ## Kurzbeschreibung
 
-BRUCE NanoCell soll keine gewöhnliche Black-Box-KI werden, deren Wissen ausschließlich implizit in sehr vielen statistischen Modellparametern liegt. Das System soll Wissen, Regeln, Berechnungen, Erfahrungen und Entscheidungen möglichst explizit, reproduzierbar und prüfbar verarbeiten.
+AXIOM NanoCell soll keine gewöhnliche Black-Box-KI werden, deren Wissen ausschließlich implizit in sehr vielen statistischen Modellparametern liegt. Das System soll Wissen, Regeln, Berechnungen, Erfahrungen und Entscheidungen möglichst explizit, reproduzierbar und prüfbar verarbeiten.
 
 Ein NanoNeuron bleibt als kanonischer Datensatz acht Byte groß:
 
@@ -52,7 +52,7 @@ Die acht Byte des kanonischen Datensatzes und das eine Byte der aktiven Verarbei
 1 Byte aktive Projektion im Hot Path
 ```
 
-Aus dem aktiven Zustand erzeugt BRUCE mehrere deterministisch definierte Berechnungsperspektiven. Diese werden im Projekt metaphorisch als Paralleluniversen bezeichnet. Sie sind keine physikalischen Parallelwelten und keine quantenmechanische Superposition. Technisch handelt es sich um kurzlebige Aufgaben- und Berechnungszweige.
+Aus dem aktiven Zustand erzeugt AXIOM mehrere deterministisch definierte Berechnungsperspektiven. Diese werden im Projekt metaphorisch als Paralleluniversen bezeichnet. Sie sind keine physikalischen Parallelwelten und keine quantenmechanische Superposition. Technisch handelt es sich um kurzlebige Aufgaben- und Berechnungszweige.
 
 ```text
 NanoNeuron-Zustand
@@ -78,7 +78,7 @@ Situation erkennen
 → Erfahrung speichern
 ```
 
-BRUCE erhält dabei keine Lemmings-orientierte Wissensbasis. BRUCE soll BRUCE-spezifische Techniken lernen, beispielsweise:
+AXIOM erhält dabei keine Lemmings-orientierte Wissensbasis. AXIOM soll AXIOM-spezifische Techniken lernen, beispielsweise:
 
 ```text
 Wenn Formelüberlauf,
@@ -99,7 +99,7 @@ dann seinen verifizierten Technikrang erhöhen.
 
 Die vollständigen Erfahrungen werden vorzugsweise persistent auf SSD gespeichert. Häufige, erfolgreiche, verifizierte und thematisch passende Fähigkeiten können verdichtet in RAM oder Cache geladen werden.
 
-> **BRUCE-Prinzip:** Nicht nur die Antwort speichern, sondern Situation, Technik, Ergebnis, Bewertung, Gültigkeitsbereich und Nachweis miteinander verbinden.
+> **AXIOM-Prinzip:** Nicht nur die Antwort speichern, sondern Situation, Technik, Ergebnis, Bewertung, Gültigkeitsbereich und Nachweis miteinander verbinden.
 
 ---
 
@@ -193,7 +193,7 @@ Zusätzliche Kennzeichnungen:
    4. [Phase 3 - AnswerPoint-System](#64-phase-3---answerpoint-system)
    5. [Phase 4 - Experience Ledger](#65-phase-4---experience-ledger)
    6. [Phase 5 - Erfahrungsabruf und Skill-Cache](#66-phase-5---erfahrungsabruf-und-skill-cache)
-   7. [Phase 6 - Integration mit BRUCE-Kernsystemen](#67-phase-6---integration-mit-bruce-kernsystemen)
+   7. [Phase 6 - Integration mit AXIOM-Kernsystemen](#67-phase-6---integration-mit-axiom-kernsystemen)
    8. [Phase 7 - Sprachrekonstruktion](#68-phase-7---sprachrekonstruktion)
    9. [Phase 8 - Optimierung und Härtung](#69-phase-8---optimierung-und-härtung)
    10. [Phase 9 - Referenzfreigabe](#610-phase-9---referenzfreigabe)
@@ -246,7 +246,7 @@ Zusätzliche Kennzeichnungen:
 
 15. [Fortschrittsübersicht](#15-fortschrittsübersicht)
 
-16. [BRUCE-Schlagwörter](#16-bruce-schlagwörter)
+16. [AXIOM-Schlagwörter](#16-axiom-schlagwörter)
 
 ---
 
@@ -256,10 +256,10 @@ Dieser Abschnitt beschreibt den fachlichen Ursprung, den aktuellen Projektstand 
 
 ## 1.1 Ausgangslage
 
-BRUCE ist als deterministische, nachvollziehbare Denk-, Routing-, Rechen- und Prüfarchitektur angelegt. Das Gesamtprojekt enthält bereits mehrere miteinander verwandte Teilsysteme:
+AXIOM ist als deterministische, nachvollziehbare Denk-, Routing-, Rechen- und Prüfarchitektur angelegt. Das Gesamtprojekt enthält bereits mehrere miteinander verwandte Teilsysteme:
 
 - PeacemakerLLM für deterministische Wissens- und Relationsverarbeitung,
-- BRUCE-Math für exakte Mathematik, Formelprüfung und Safe Shutdown,
+- AXIOM-Math für exakte Mathematik, Formelprüfung und Safe Shutdown,
 - die CPU-RAM-NPU-Idee aus ExecutionCells und NanoNeuronen,
 - Trace- und Nachweisprinzipien,
 - Capability-orientierte Service-Zellen,
@@ -273,7 +273,7 @@ Der NanoCell-Teil soll diese Grundlagen in eine kompakte Verarbeitungseinheit ü
 - [x] `[FESTGELEGT]` Die übergeordnete Einheit heißt ExecutionCell.
 - [x] `[FESTGELEGT]` Eine ExecutionCell ist ein zusammenhängender Block von NanoNeuronen.
 - [x] `[FESTGELEGT]` Der MVP verwendet 16-Bit-IDs beziehungsweise kompakte lokale Indizes.
-- [x] `[FESTGELEGT]` Der Konzept-Scope ist eine allgemeine CPU-RAM-NPU mit BRUCE als Referenzimplementierung.
+- [x] `[FESTGELEGT]` Der Konzept-Scope ist eine allgemeine CPU-RAM-NPU mit AXIOM als Referenzimplementierung.
 - [x] `[FESTGELEGT]` Ein NanoNeuron soll kanonisch acht Byte groß bleiben.
 - [x] `[ABGELEITET]` Eine aktive Projektion kann ein Byte je NanoNeuron umfassen.
 - [x] `[FESTGELEGT]` Shift, Rotation, Gate, Maske und Kontext bilden spezielle Aufgaben- und Berechnungsperspektiven.
@@ -301,7 +301,7 @@ Der NanoCell-Teil soll diese Grundlagen in eine kompakte Verarbeitungseinheit ü
 - [ ] Die Ausgangslage unterscheidet Konzept, vorhandene Komponenten und noch fehlende Implementierung.
 - [ ] Alle verbindlichen Speicher- und Architekturentscheidungen sind sichtbar.
 - [ ] Keine experimentelle Metapher wird als physikalische Tatsache dargestellt.
-- [ ] Der aktive NanoCell-Arbeitsumfang ist vom gesamten BRUCE-Projekt abgegrenzt.
+- [ ] Der aktive NanoCell-Arbeitsumfang ist vom gesamten AXIOM-Projekt abgegrenzt.
 
 [Zurück zur Agenda](#agenda)
 
@@ -326,7 +326,7 @@ kompakter Zustand
 - [x] `[FESTGELEGT]` Hauptidee als kompakte deterministische Erfahrungsverarbeitung definieren.
 - [ ] Hauptziel in eine testbare MVP-Spezifikation übersetzen.
 - [ ] Minimalen End-to-End-Ablauf festlegen.
-- [ ] Hauptziel mit PeacemakerLLM und BRUCE-Math abgleichen.
+- [ ] Hauptziel mit PeacemakerLLM und AXIOM-Math abgleichen.
 - [ ] Zielgrenze zwischen NanoCell-Kern und späterem SLM festlegen.
 - [ ] Zielgrenze zwischen Erfahrungslernen und klassischem Deep Learning dokumentieren.
 
@@ -448,7 +448,7 @@ Status:
 - [ ] Peacemaker-Statusmodell mit NanoCell-Zuständen harmonisieren.
 - [ ] vorhandene Trace-Verträge auf Universe- und Experience-Traces erweitern.
 
-### BRUCE-Math
+### AXIOM-Math
 
 Bekannte Funktion:
 
@@ -490,7 +490,7 @@ Status:
 - [ ] NanoCell-spezifische Validierungsregeln definieren.
 - [ ] ADR-Duplikate und widersprüchliche Primärquellen verhindern.
 
-> **Architektur:** NanoCell soll vorhandene BRUCE-Komponenten integrieren und nicht parallel dieselben Verantwortungen neu implementieren.
+> **Architektur:** NanoCell soll vorhandene AXIOM-Komponenten integrieren und nicht parallel dieselben Verantwortungen neu implementieren.
 
 [Zurück zur Agenda](#agenda)
 
@@ -517,7 +517,7 @@ Die folgenden Quellen wurden als Ausgangspunkte für die Begriffs- und Architekt
 
 - [ ] jede Quelle nach verwendbaren Definitionen prüfen.
 - [ ] technische Definitionen von Projektmetaphern trennen.
-- [ ] Quellenbegriffe in ein BRUCE-Glossar übertragen.
+- [ ] Quellenbegriffe in ein AXIOM-Glossar übertragen.
 - [ ] Aussagen mit Implementierungsrelevanz kennzeichnen.
 - [ ] Begriffe ohne direkte technische Relevanz nur als Inspiration dokumentieren.
 - [ ] Quellenstand und Abrufdatum in der späteren Spezifikation erfassen.
@@ -526,7 +526,7 @@ Die folgenden Quellen wurden als Ausgangspunkte für die Begriffs- und Architekt
 
 ### Abnahmekriterien
 
-- [ ] Jeder übernommene Begriff besitzt eine BRUCE-spezifische Definition.
+- [ ] Jeder übernommene Begriff besitzt eine AXIOM-spezifische Definition.
 - [ ] Keine Metapher wird unbemerkt als technischer Mechanismus behandelt.
 - [ ] Implementierungsentscheidungen werden nicht allein mit einer Analogie begründet.
 
@@ -694,7 +694,7 @@ Cube-to-Cube:
 512 × 512 = 262.144 Beziehungen
 ```
 
-> **Präzisierung:** Diese Layer sind BRUCE-Prozessräume. Sie sind nicht automatisch identisch mit mathematisch unabhängigen Raumdimensionen.
+> **Präzisierung:** Diese Layer sind AXIOM-Prozessräume. Sie sind nicht automatisch identisch mit mathematisch unabhängigen Raumdimensionen.
 
 ### Aufgaben
 
@@ -801,7 +801,7 @@ Das gespeicherte NanoNeuron bleibt unverändert. Universen erzeugen temporäre A
 
 ### Erfahrung statt bloßer Antwort
 
-BRUCE speichert den Zusammenhang zwischen Situation, Technik, Ergebnis und Bewertung.
+AXIOM speichert den Zusammenhang zwischen Situation, Technik, Ergebnis und Bewertung.
 
 ### Keine Behauptung ohne Trace
 
@@ -809,7 +809,7 @@ Jede bestätigte Aussage benötigt eine nachvollziehbare Herkunft.
 
 ### Trennung von Bedeutung und Formulierung
 
-BRUCE berechnet die Aussage. Der Renderer formuliert sie.
+AXIOM berechnet die Aussage. Der Renderer formuliert sie.
 
 ### Fehler als Wissen
 
@@ -867,7 +867,7 @@ Bei fehlenden Pflichtinformationen oder Sicherheitsnachweisen wird keine kritisc
 - [ ] jeden Begriff mit gültigen und ungültigen Beispielen ergänzen.
 - [ ] Benennung von `Paralleluniversum` und internem `UniverseSpec` verbindlich trennen.
 - [ ] den Begriff `Logikfamilie` für Hardwarekontexte reservieren.
-- [ ] für BRUCE stattdessen `Operator Family`, `Gate Profile` oder `Technique Family` verwenden.
+- [ ] für AXIOM stattdessen `Operator Family`, `Gate Profile` oder `Technique Family` verwenden.
 
 [Zurück zur Agenda](#agenda)
 
@@ -1238,7 +1238,7 @@ vollständige Technikbewertung
 - [ ] Shape-Match und Semantik-Match getrennt protokollieren.
 - [ ] Filterwirkung messen.
 
-> **BRUCE-Prinzip:** Erst den Suchraum reduzieren, danach teure Detailprüfungen ausführen.
+> **AXIOM-Prinzip:** Erst den Suchraum reduzieren, danach teure Detailprüfungen ausführen.
 
 [Zurück zur Agenda](#agenda)
 
@@ -1263,7 +1263,7 @@ TechniqueDefinition
 └─ Herkunft
 ```
 
-### Beispielhafte BRUCE-Techniken
+### Beispielhafte AXIOM-Techniken
 
 ```text
 WORD_SENSE_DISAMBIGUATION
@@ -1444,7 +1444,7 @@ RAM
 ### Architekturgrenze
 
 ```text
-BRUCE berechnet Bedeutung.
+AXIOM berechnet Bedeutung.
 Renderer formuliert Bedeutung.
 Validator prüft Formulierung.
 ```
@@ -1540,9 +1540,9 @@ Eingabe
 | Consolidation Interface | Ledger, Consolidator | ExperienceCells erzeugen | privilegierte Ableitung |
 | Renderer Interface | Constellation Builder, Renderer | Ausgabe formulieren | Renderer nicht voll vertrauenswürdig |
 | Validation Interface | Renderer, Roundtrip Validator | Ausgabe prüfen | Freigabegrenze |
-| Actuator Interface | BRUCE, externe Systeme | kontrollierte Aktion | kritische Vertrauensgrenze |
+| Actuator Interface | AXIOM, externe Systeme | kontrollierte Aktion | kritische Vertrauensgrenze |
 | Peacemaker Interface | NanoCell, Wissenssystem | Relationen und Status | Integrationsgrenze |
-| BRUCE-Math Interface | NanoCell, Formula Engine | exakte Rechenoperationen | Integrationsgrenze |
+| AXIOM-Math Interface | NanoCell, Formula Engine | exakte Rechenoperationen | Integrationsgrenze |
 
 ### Aufgaben
 
@@ -2262,14 +2262,14 @@ Alle verbindlichen Kernbegriffe, Speicherverträge, Datenmodelle und Architektur
 
 - vorhandenes NanoCell-Konzept,
 - bekannte ExecutionCell-Entscheidungen,
-- BRUCE-, Peacemaker- und BRUCE-Math-Dokumentation,
+- AXIOM-, Peacemaker- und AXIOM-Math-Dokumentation,
 - die in diesem Dokument erfassten offenen Fragen.
 
 **Aufgaben:**
 
 - [x] ExecutionCell als zusammenhängenden NanoNeuron-Block festlegen.
 - [x] MVP-ID-Breite von 16 Bit festhalten.
-- [x] allgemeine CPU-RAM-NPU mit BRUCE als Referenz festlegen.
+- [x] allgemeine CPU-RAM-NPU mit AXIOM als Referenz festlegen.
 - [x] kanonische NanoNeuron-Größe von acht Byte festhalten.
 - [x] aktive Projektion als separates Konzept festhalten.
 - [x] Paralleluniversum als deterministischen Berechnungszweig abgrenzen.
@@ -2658,18 +2658,18 @@ neue Situation
 - Konsolidierung generalisiert zu stark,
 - Cache bevorzugt nur häufige Skills.
 
-> **BRUCE-Prinzip:** Der passende Slot wird zuerst bestimmt; innerhalb des Slots wird weitergesucht.
+> **AXIOM-Prinzip:** Der passende Slot wird zuerst bestimmt; innerhalb des Slots wird weitergesucht.
 
 [Zurück zur Roadmap](#6-roadmap) · [Zurück zur Agenda](#agenda)
 
 ---
 
-## 6.7 Phase 6 - Integration mit BRUCE-Kernsystemen
+## 6.7 Phase 6 - Integration mit AXIOM-Kernsystemen
 
 **Status:** Noch nicht begonnen
 
 **Phasenziel:**  
-NanoCell mit PeacemakerLLM, BRUCE-Math und dem gemeinsamen Trace- und Statusmodell verbinden.
+NanoCell mit PeacemakerLLM, AXIOM-Math und dem gemeinsamen Trace- und Statusmodell verbinden.
 
 **Voraussetzungen:**
 
@@ -2687,7 +2687,7 @@ NanoCell mit PeacemakerLLM, BRUCE-Math und dem gemeinsamen Trace- und Statusmode
 - [ ] Word-Sense- und Kontexttechniken integrieren.
 - [ ] Peacemaker-Trace referenzieren.
 
-### BRUCE-Math
+### AXIOM-Math
 
 - [ ] Formula Evaluation als Technik definieren.
 - [ ] Domain Enforcement als Pflichtuniversum abbilden.
@@ -2706,7 +2706,7 @@ NanoCell mit PeacemakerLLM, BRUCE-Math und dem gemeinsamen Trace- und Statusmode
 
 **Ergebnis dieser Phase:**
 
-- gemeinsames BRUCE-Statusmodell,
+- gemeinsames AXIOM-Statusmodell,
 - gemeinsame Trace-Referenzen,
 - wiederverwendbare Wissens- und Mathematiktechniken,
 - klare Vertrauensgrenzen.
@@ -2714,7 +2714,7 @@ NanoCell mit PeacemakerLLM, BRUCE-Math und dem gemeinsamen Trace- und Statusmode
 **Abnahmekriterien:**
 
 - [ ] Peacemaker-Ergebnis kann ohne Bedeutungsverlust übertragen werden.
-- [ ] BRUCE-Math-Safe-Shutdown bleibt erhalten.
+- [ ] AXIOM-Math-Safe-Shutdown bleibt erhalten.
 - [ ] NanoCell verändert bestehende Primärquellen nicht.
 - [ ] Integrationsfehler bleiben lokal.
 - [ ] End-to-End-Trace verbindet alle beteiligten Systeme.
@@ -2797,7 +2797,7 @@ AnswerPoints
 - SLM fügt plausible, aber unbelegte Details hinzu,
 - thematisches SLM benötigt zu viele Ressourcen.
 
-> **Erinnerung:** BRUCE denkt, der Renderer spricht.
+> **Erinnerung:** AXIOM denkt, der Renderer spricht.
 
 [Zurück zur Roadmap](#6-roadmap) · [Zurück zur Agenda](#agenda)
 
@@ -2880,7 +2880,7 @@ Leistung, Ressourcenverbrauch, Ausfallsicherheit und Missbrauchsresistenz der Re
 **Status:** Noch nicht begonnen
 
 **Phasenziel:**  
-Eine dokumentierte, reproduzierbare BRUCE-NanoCell-Referenzversion veröffentlichungs- oder integrationsbereit machen.
+Eine dokumentierte, reproduzierbare AXIOM-NanoCell-Referenzversion veröffentlichungs- oder integrationsbereit machen.
 
 **Voraussetzungen:**
 
@@ -2941,7 +2941,7 @@ Eine dokumentierte, reproduzierbare BRUCE-NanoCell-Referenzversion veröffentlic
 | M3 | Semantic Points | AnswerPoints und Konstellationen erzeugen | strukturierte Ausgabe ohne SLM | Offen |
 | M4 | Experience Roundtrip | Erfahrung speichern, laden und erneut ausführen | Replay und Integritätsprüfung bestehen | Offen |
 | M5 | Skill Reuse | passende Technik aus früheren Erfahrungen abrufen | Gegenbeispiele und Themenkontext wirken | Offen |
-| M6 | BRUCE Integration | Peacemaker und BRUCE-Math anbinden | gemeinsamer End-to-End-Trace | Offen |
+| M6 | AXIOM Integration | Peacemaker und AXIOM-Math anbinden | gemeinsamer End-to-End-Trace | Offen |
 | M7 | Language Reconstruction | Text sicher aus AnswerPoints erzeugen | Roundtrip und Fallback bestehen | Offen |
 | M8 | Hardened Reference | Leistung, Recovery und Sicherheit geprüft | vollständige Abnahmematrix | Offen |
 | M9 | Reference Release | dokumentierte Referenzversion | reproduzierbare Installation | Offen |
@@ -3043,7 +3043,7 @@ Benötigt:
 - Statusmapping,
 - Trace-Referenzen.
 
-### BRUCE-Math
+### AXIOM-Math
 
 Benötigt:
 
@@ -3083,7 +3083,7 @@ Benötigt:
 | Consolidator | ExperienceRecords, Gruppierungsregeln | ExperienceCells | Ähnlichkeit offen |
 | Hot-Skill-Cache | Ranking, ExperienceCells | aktive Skills | Promotion offen |
 | Renderer | Konstellation, Ausgabegrenzen | Text | Roundtrip offen |
-| BRUCE Integration | stabile interne Verträge | End-to-End-Funktion | Statusmapping offen |
+| AXIOM Integration | stabile interne Verträge | End-to-End-Funktion | Statusmapping offen |
 
 [Zurück zur Agenda](#agenda)
 
@@ -3139,7 +3139,7 @@ Lazy Auswertung, Cascade-Filterung, explizite TechniqueDefinitions und Ressource
 ### C-004 - Lernen gegenüber Unveränderlichkeit
 
 **Konflikt:**  
-BRUCE soll lernen, gleichzeitig sollen kanonische Daten nicht unkontrolliert überschrieben werden.
+AXIOM soll lernen, gleichzeitig sollen kanonische Daten nicht unkontrolliert überschrieben werden.
 
 **Empfohlene Auflösung:**  
 Append-only ExperienceRecords, getrennte Bewertungen, versionierte ExperienceCells und kontrollierte Promotion.
@@ -3323,7 +3323,7 @@ Jedes Hauptziel benötigt mindestens einen Nachweis:
 - [ ] mehrere Records zu ExperienceCell.
 - [ ] ExperienceCell zu Hot-Skill-Cache.
 - [ ] Peacemaker-Ergebnis zu AnswerPoints.
-- [ ] BRUCE-Math-Ergebnis zu AnswerPoints.
+- [ ] AXIOM-Math-Ergebnis zu AnswerPoints.
 - [ ] Renderer zu Roundtrip Validator.
 
 [Zurück zur Agenda](#agenda)
@@ -3902,7 +3902,7 @@ Nach jeder relevanten Änderung aktualisieren:
 
 # 13. Erinnerungen und Arbeitsregeln
 
-> **BRUCE-Prinzip:** Erst den passenden Slot bestimmen, danach innerhalb dieses Slots weiterarbeiten.
+> **AXIOM-Prinzip:** Erst den passenden Slot bestimmen, danach innerhalb dieses Slots weiterarbeiten.
 
 > **Cascade-Filterung:** Grobe und kostengünstige Prüfungen vor teuren Detailberechnungen ausführen.
 
@@ -3959,7 +3959,7 @@ Nach jeder relevanten Änderung aktualisieren:
   - offene Frage: Wie wird Suchraumexplosion verhindert?
 
 - [ ] `[SPÄTER]` binäre Semantic State Reconstruction
-  - Nutzen: AnswerPoints direkt zwischen BRUCE-Systemen übertragen.
+  - Nutzen: AnswerPoints direkt zwischen AXIOM-Systemen übertragen.
   - Voraussetzung: stabiler AnswerPoint-Vertrag.
   - mögliche Phase: nach Phase 7.
   - offene Frage: Kompatibilität zwischen Wissensversionen.
@@ -3977,7 +3977,7 @@ Nach jeder relevanten Änderung aktualisieren:
   - offene Frage: Paketgrenzen und Versionskompatibilität.
 
 - [ ] `[SPÄTER]` verteilte Experience Stores
-  - Nutzen: mehrere BRUCE-Instanzen teilen bestätigte Erfahrungen.
+  - Nutzen: mehrere AXIOM-Instanzen teilen bestätigte Erfahrungen.
   - Voraussetzung: Provenienz, Signaturen und Konfliktmodell.
   - mögliche Phase: nach Phase 9.
   - offene Frage: Wie werden widersprüchliche Erfahrungen zusammengeführt?
@@ -4021,7 +4021,7 @@ Nach jeder relevanten Änderung aktualisieren:
 | Experience Consolidation | Nicht begonnen | 0 | Nicht bewertet | 1 | SituationSignature definieren |
 | Hot-Skill-Cache | Nicht begonnen | 0 | Nicht bewertet | 1 | Ranking-Modell definieren |
 | Peacemaker-Integration | Nicht begonnen | 0 | Nicht bewertet | 0 | Status- und ID-Mapping planen |
-| BRUCE-Math-Integration | Nicht begonnen | 0 | Nicht bewertet | 0 | Formula-Technikvertrag planen |
+| AXIOM-Math-Integration | Nicht begonnen | 0 | Nicht bewertet | 0 | Formula-Technikvertrag planen |
 | Sprachrekonstruktion | Nicht begonnen | 0 | Nicht bewertet | 1 | AnswerPoint-System zuerst abschließen |
 | Optimierung und Härtung | Nicht begonnen | 0 | Nicht bewertet | 0 | erst nach End-to-End-Prototyp |
 | Referenzfreigabe | Nicht begonnen | 0 | Nicht bewertet | 0 | alle vorherigen Phasen |
@@ -4045,15 +4045,15 @@ Nach jeder relevanten Änderung aktualisieren:
 
 ---
 
-# 16. BRUCE-Schlagwörter
+# 16. AXIOM-Schlagwörter
 
-## Zentrale BRUCE-Begriffe
+## Zentrale AXIOM-Begriffe
 
-`BRUCE` · `BRUCE-Architektur` · `BRUCE-Prinzip` · `BRUCE-Hierarchie` · `BRUCE NanoCell` · `NanoCell` · `deterministische Bedeutungsverarbeitung` · `deterministische Erfahrungsverarbeitung`
+`AXIOM` · `AXIOM-Architektur` · `AXIOM-Prinzip` · `AXIOM-Hierarchie` · `AXIOM NanoCell` · `NanoCell` · `deterministische Bedeutungsverarbeitung` · `deterministische Erfahrungsverarbeitung`
 
 ## Struktur und Routing
 
-`Semantic Routing` · `BRUCE-Semantic-Routing-Architecture` · `Cascade-Filterung` · `Suchraum-Reduktion` · `Slot-Prinzip` · `Montessori-Formenbrett-Prinzip` · `Shape Matching` · `Hierarchisches Routing` · `Deterministisches Routing` · `SituationSignature` · `Context Routing` · `Match-Routing` · `Miss-Routing`
+`Semantic Routing` · `AXIOM-Semantic-Routing-Architecture` · `Cascade-Filterung` · `Suchraum-Reduktion` · `Slot-Prinzip` · `Montessori-Formenbrett-Prinzip` · `Shape Matching` · `Hierarchisches Routing` · `Deterministisches Routing` · `SituationSignature` · `Context Routing` · `Match-Routing` · `Miss-Routing`
 
 ## Verarbeitung und Ausführung
 
@@ -4061,7 +4061,7 @@ Nach jeder relevanten Änderung aktualisieren:
 
 ## Paralleluniversen und Prozessdimensionen
 
-`Paralleluniversum` · `UniverseSpec` · `Universe Generator` · `virtueller Prozessraum` · `BRUCE-Prozessdimension` · `lazy evaluation` · `bedarfsorientierte Berechnung` · `Dimensionsraum` · `Cube-to-Cube` · `AnswerPoint Projection` · `Semantic State Reconstruction`
+`Paralleluniversum` · `UniverseSpec` · `Universe Generator` · `virtueller Prozessraum` · `AXIOM-Prozessdimension` · `lazy evaluation` · `bedarfsorientierte Berechnung` · `Dimensionsraum` · `Cube-to-Cube` · `AnswerPoint Projection` · `Semantic State Reconstruction`
 
 ## Bitoperationen und Logik
 
@@ -4085,7 +4085,7 @@ Nach jeder relevanten Änderung aktualisieren:
 
 ## Mathematik und Formeln
 
-`BRUCE-Math` · `BigInt` · `Rational Arithmetic` · `Modular Arithmetic` · `Formula Engine` · `Domain Enforcement` · `Safe Shutdown` · `Formula Trace` · `Exact Evaluation` · `Parameter Validation` · `Cost Formula` · `Resource Bound`
+`AXIOM-Math` · `BigInt` · `Rational Arithmetic` · `Modular Arithmetic` · `Formula Engine` · `Domain Enforcement` · `Safe Shutdown` · `Formula Trace` · `Exact Evaluation` · `Parameter Validation` · `Cost Formula` · `Resource Bound`
 
 ## Architektur und Isolation
 
@@ -4109,5 +4109,5 @@ Nach jeder relevanten Änderung aktualisieren:
 
 ## Projektspezifische Phasen
 
-`Phase 0 Architekturverträge` · `Phase 1 Bit-Universe-Prototyp` · `Phase 2 ExecutionCell-Runtime` · `Phase 3 AnswerPoint-System` · `Phase 4 Experience Ledger` · `Phase 5 Erfahrungsabruf` · `Phase 6 BRUCE-Integration` · `Phase 7 Sprachrekonstruktion` · `Phase 8 Optimierung und Härtung` · `Phase 9 Referenzfreigabe`
+`Phase 0 Architekturverträge` · `Phase 1 Bit-Universe-Prototyp` · `Phase 2 ExecutionCell-Runtime` · `Phase 3 AnswerPoint-System` · `Phase 4 Experience Ledger` · `Phase 5 Erfahrungsabruf` · `Phase 6 AXIOM-Integration` · `Phase 7 Sprachrekonstruktion` · `Phase 8 Optimierung und Härtung` · `Phase 9 Referenzfreigabe`
 ```

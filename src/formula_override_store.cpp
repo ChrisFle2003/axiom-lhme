@@ -1,12 +1,12 @@
-#include "bruce/lhme/formula_override_store.hpp"
+#include "axiom/lhme/formula_override_store.hpp"
 
-#include "bruce/lhme/trace.hpp"
+#include "axiom/lhme/trace.hpp"
 
 #include <algorithm>
 #include <mutex>
 #include <utility>
 
-namespace bruce::lhme {
+namespace axiom::lhme {
 namespace {
 
 std::string technique_binding_identity(const TechniqueBinding& binding) {
@@ -235,4 +235,4 @@ FormulaOverrideStoreStatistics FormulaOverrideStore::inspect() const {
           .engine_cache = engine_.inspect()};
 }
 
-}  // namespace bruce::lhme
+}  // namespace axiom::lhme

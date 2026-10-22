@@ -4,9 +4,9 @@
 #include <optional>
 #include <string>
 
-#include "bruce/lhme/kevin_domain.hpp"
+#include "axiom/lhme/kevin_domain.hpp"
 
-namespace bruce::lhme {
+namespace axiom::lhme {
 
 struct ProjectionIdentity {
   std::string id;
@@ -33,4 +33,4 @@ class DepthPathProjection final : public DomainProjection {
       const GridAddress& address) const override;
 };
 
-}  // namespace bruce::lhme
+}  // namespace axiom::lhme

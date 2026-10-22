@@ -4,16 +4,16 @@
 
 namespace {
 
-using bruce::lhme::Status;
-using bruce::lhme::demo::stress::ChildReport;
-using bruce::lhme::demo::stress::Scenario;
-using bruce::lhme::demo::stress::valid_child_report;
+using axiom::lhme::Status;
+using axiom::lhme::demo::stress::ChildReport;
+using axiom::lhme::demo::stress::Scenario;
+using axiom::lhme::demo::stress::valid_child_report;
 
 ChildReport valid_report() {
   ChildReport report{};
   report.scenario = static_cast<std::uint32_t>(Scenario::AdaptiveHits);
   report.status = static_cast<std::uint32_t>(Status::Confirmed);
-  report.retention_mode = static_cast<std::uint32_t>(bruce::lhme::RetentionMode::TopK);
+  report.retention_mode = static_cast<std::uint32_t>(axiom::lhme::RetentionMode::TopK);
   report.peak_bytes = 1;
   return report;
 }

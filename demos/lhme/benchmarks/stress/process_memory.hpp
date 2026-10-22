@@ -6,7 +6,7 @@
 #include <sys/resource.h>
 #endif
 
-namespace bruce::lhme::demo::stress {
+namespace axiom::lhme::demo::stress {
 
 struct ProcessPeakMemory {
   bool available = false;
@@ -24,4 +24,4 @@ struct ProcessPeakMemory {
 #endif
 }
 
-}  // namespace bruce::lhme::demo::stress
+}  // namespace axiom::lhme::demo::stress

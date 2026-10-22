@@ -1,12 +1,12 @@
-#include "bruce/lhme/formula.hpp"
+#include "axiom/lhme/formula.hpp"
 
-#include "bruce/lhme/trace.hpp"
+#include "axiom/lhme/trace.hpp"
 
 #include <array>
 #include <cstdint>
 #include <string>
 
-namespace bruce::lhme {
+namespace axiom::lhme {
 namespace {
 
 constexpr std::uint64_t kFnvOffset = 14695981039346656037ULL;
@@ -307,4 +307,4 @@ EvaluationResult evaluate(const EvaluationRequest& request) {
   return result;
 }
 
-}  // namespace bruce::lhme
+}  // namespace axiom::lhme

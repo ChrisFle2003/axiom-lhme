@@ -1,13 +1,13 @@
 #pragma once
 
-#include "bruce/lhme/streaming.hpp"
+#include "axiom/lhme/streaming.hpp"
 
 #include <cstdint>
 #include <optional>
 #include <string_view>
 #include <type_traits>
 
-namespace bruce::lhme::demo::stress {
+namespace axiom::lhme::demo::stress {
 
 inline constexpr std::uint32_t kChildReportMagic = 0x4c484d45U;  // "LHME"
 inline constexpr std::uint32_t kChildReportVersion = 1;
@@ -103,4 +103,4 @@ static_assert(std::is_trivially_copyable_v<ChildReport>);
          report.peak_bytes > 0;
 }
 
-}  // namespace bruce::lhme::demo::stress
+}  // namespace axiom::lhme::demo::stress

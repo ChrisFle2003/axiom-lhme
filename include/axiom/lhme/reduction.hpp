@@ -3,9 +3,9 @@
 #include <cstdint>
 #include <vector>
 
-#include "bruce/lhme/formula.hpp"
+#include "axiom/lhme/formula.hpp"
 
-namespace bruce::lhme {
+namespace axiom::lhme {
 
 struct AddressRange { std::int64_t start = 0; std::int64_t end = -1; };
 struct CpuExecutionOptions { std::uint32_t worker_count = 1; std::uint64_t tile_size = 1; };
@@ -24,4 +24,4 @@ struct RangeResult {
 [[nodiscard]] RangeResult evaluate_range(const EvaluationRequest& request,
                                          AddressRange range,
                                          CpuExecutionOptions options);
-}  // namespace bruce::lhme
+}  // namespace axiom::lhme

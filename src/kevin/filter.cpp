@@ -1,11 +1,11 @@
-#include "bruce/lhme/kevin_filter.hpp"
+#include "axiom/lhme/kevin_filter.hpp"
 
-#include "bruce/lhme/trace.hpp"
+#include "axiom/lhme/trace.hpp"
 
 #include <algorithm>
 #include <future>
 #include <string>
-namespace bruce::lhme {
+namespace axiom::lhme {
 namespace {
 
 Budget stricter_budget(Budget first, const Budget& second) {
@@ -192,4 +192,4 @@ ExactTileResult evaluate_survivors_exact(KevinMemoryStore& store,const GridIdent
 TileReductionSummary filter_tiles(KevinMemoryStore& store,const GridIdentity& grid,std::span<const GridAddress> parents,const BigInt& modulus,const BigInt& residue,std::uint64_t minimum,std::uint64_t maximum){ TileReductionSummary out{.tile_count=parents.size()}; for(const auto& parent:parents){const auto tile=filter_tile(store,grid,parent,modulus,residue,minimum,maximum);out.checked+=tile.checked;out.modular_survivors+=tile.modular_survivors;out.metric_survivors+=tile.metric_survivors;out.final_survivors+=tile.final_survivors;out.candidates.insert(out.candidates.end(),tile.candidates.begin(),tile.candidates.end());}return out;}
 TileReductionSummary filter_tiles_cpu(KevinMemoryStore& store,const GridIdentity& grid,std::span<const GridAddress> parents,const BigInt& modulus,const BigInt& residue,std::uint64_t minimum,std::uint64_t maximum,std::uint32_t worker_count){ TileReductionSummary out{.tile_count=parents.size()}; if(worker_count==0){out.status=Status::InvalidArgument;return out;} for(std::size_t next=0;next<parents.size();){std::vector<std::future<TileSummary>> batch; const auto count=std::min<std::size_t>(worker_count,parents.size()-next);batch.reserve(count);for(std::size_t slot=0;slot<count;++slot){const auto parent=parents[next++];batch.push_back(std::async(std::launch::async,[&store,&grid,&modulus,&residue,minimum,maximum,parent]{return filter_tile(store,grid,parent,modulus,residue,minimum,maximum);}));}for(auto& future:batch){const auto tile=future.get();out.checked+=tile.checked;out.modular_survivors+=tile.modular_survivors;out.metric_survivors+=tile.metric_survivors;out.final_survivors+=tile.final_survivors;out.candidates.insert(out.candidates.end(),tile.candidates.begin(),tile.candidates.end());}}return out;}
 ExactTileReductionResult evaluate_reduced_exact(KevinMemoryStore& store,const GridIdentity& grid,TileReductionSummary summary,std::uint64_t limit,Budget budget){ ExactTileReductionResult out{.summary=std::move(summary)}; for(const auto& address:out.summary.candidates){if(out.values.size()>=limit)break;out.values.push_back(store.get(grid,address,EvaluationMode::Exact,budget));++out.summary.exact_evaluations;}return out;}
-}  // namespace bruce::lhme
+}  // namespace axiom::lhme

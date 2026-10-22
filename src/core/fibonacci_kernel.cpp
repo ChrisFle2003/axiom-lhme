@@ -1,11 +1,11 @@
-#include "bruce/lhme/fibonacci_kernel.hpp"
+#include "axiom/lhme/fibonacci_kernel.hpp"
 
-#include "bruce/lhme/trace.hpp"
+#include "axiom/lhme/trace.hpp"
 
 #include <limits>
 #include <optional>
 
-namespace bruce::lhme {
+namespace axiom::lhme {
 namespace {
 
 struct FibonacciPair {
@@ -121,7 +121,7 @@ std::optional<FibonacciPair> fibonacci_pair(
 }  // namespace
 
 TechniqueIdentity FibonacciKernel::identity() const {
-  return {.id = "bruce.fibonacci", .version = 1};
+  return {.id = "axiom.fibonacci", .version = 1};
 }
 
 EvaluationResult FibonacciKernel::evaluate(const TechniqueRequest& request) const {
@@ -194,4 +194,4 @@ EvaluationResult FibonacciKernel::evaluate(const TechniqueRequest& request) cons
                 "unknown fibonacci evaluation mode");
 }
 
-}  // namespace bruce::lhme
+}  // namespace axiom::lhme

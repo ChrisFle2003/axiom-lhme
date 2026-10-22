@@ -2,7 +2,7 @@
 
 #include "gguf_fixture.hpp"
 
-#include "bruce/lhme/gguf_pattern_scan.hpp"
+#include "axiom/lhme/gguf_pattern_scan.hpp"
 
 #include <algorithm>
 #include <bit>
@@ -13,13 +13,13 @@
 
 namespace {
 
-using bruce::lhme::GgufInspectionLimits;
-using bruce::lhme::GgufPatternKind;
-using bruce::lhme::GgufPatternScanConfig;
-using bruce::lhme::GgufPlanItem;
-using bruce::lhme::Status;
-using bruce::lhme::inspect_gguf_file;
-using bruce::lhme::scan_gguf_pattern_candidates;
+using axiom::lhme::GgufInspectionLimits;
+using axiom::lhme::GgufPatternKind;
+using axiom::lhme::GgufPatternScanConfig;
+using axiom::lhme::GgufPlanItem;
+using axiom::lhme::Status;
+using axiom::lhme::inspect_gguf_file;
+using axiom::lhme::scan_gguf_pattern_candidates;
 
 std::vector<std::byte> f32_file(std::initializer_list<float> values) {
   auto bytes = test::gguf::tensor_file({values.size()}, test::gguf::kTypeF32,
@@ -34,7 +34,7 @@ std::vector<std::byte> f32_file(std::initializer_list<float> values) {
   return bytes;
 }
 
-GgufPlanItem selected_chunk(const bruce::lhme::GgufInventory& inventory) {
+GgufPlanItem selected_chunk(const axiom::lhme::GgufInventory& inventory) {
   const auto& tensor = inventory.tensors.front();
   return {.tensor_name = tensor.name,
           .chunk_index = 0,
@@ -43,7 +43,7 @@ GgufPlanItem selected_chunk(const bruce::lhme::GgufInventory& inventory) {
           .decoded_ram_bytes = *tensor.decoded_ram_bytes};
 }
 
-bool has_kind(const bruce::lhme::GgufPatternScanResult& result,
+bool has_kind(const axiom::lhme::GgufPatternScanResult& result,
               GgufPatternKind kind) {
   return std::any_of(result.candidates.begin(), result.candidates.end(),
                      [kind](const auto& candidate) { return candidate.kind == kind; });

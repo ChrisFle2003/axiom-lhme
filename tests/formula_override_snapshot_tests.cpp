@@ -1,16 +1,16 @@
 #include "test.hpp"
 
-#include "bruce/lhme/formula_override_snapshot.hpp"
-#include "bruce/lhme/power_offset_kernel.hpp"
+#include "axiom/lhme/formula_override_snapshot.hpp"
+#include "axiom/lhme/power_offset_kernel.hpp"
 
 #include <filesystem>
 #include <fstream>
 #include <memory>
 
 TEST(formula_override_snapshot_round_trips_binding_and_value) {
-  using namespace bruce::lhme;
+  using namespace axiom::lhme;
   const auto path = std::filesystem::temp_directory_path() /
-                    "bruce-formula-override-snapshot-test.bin";
+                    "axiom-formula-override-snapshot-test.bin";
   std::filesystem::remove(path);
 
   auto source_engine = Engine::create({});
@@ -35,13 +35,13 @@ TEST(formula_override_snapshot_round_trips_binding_and_value) {
   std::filesystem::remove(path);
 }
 
-TEST(formula_override_snapshot_rejects_bruce_kevin_legacy_magic) {
-  using namespace bruce::lhme;
+TEST(formula_override_snapshot_rejects_axiom_kevin_legacy_magic) {
+  using namespace axiom::lhme;
   const auto path = std::filesystem::temp_directory_path() /
-                    "bruce-formula-override-legacy-magic.bin";
+                    "axiom-formula-override-legacy-magic.bin";
   {
     std::ofstream output(path, std::ios::binary | std::ios::trunc);
-    output << "BRUCE-KEVIN-1\n";
+    output << "AXIOM-KEVIN-1\n";
   }
   auto engine = Engine::create({});
   const auto binding = engine.register_formula(make_power_offset_spec(2, 100, 1));
@@ -59,14 +59,14 @@ TEST(formula_override_snapshot_rejects_bruce_kevin_legacy_magic) {
 }
 
 TEST(formula_override_snapshot_round_trips_a_technique_binding) {
-  using namespace bruce::lhme;
+  using namespace axiom::lhme;
   const auto path = std::filesystem::temp_directory_path() /
-                    "bruce-formula-override-technique-test.bin";
+                    "axiom-formula-override-technique-test.bin";
   std::filesystem::remove(path);
 
   auto source_engine = Engine::create({});
   CHECK(source_engine.register_technique(std::make_shared<PowerOffsetKernel>()));
-  const TechniqueBinding binding{{.id = "bruce.power_offset", .version = 1},
+  const TechniqueBinding binding{{.id = "axiom.power_offset", .version = 1},
                                  encode_power_offset_parameters(2, 100)};
   FormulaOverrideStore source{source_engine};
   CHECK(source.set_override(binding, {.index = 8}, BigInt{13}) == Status::Confirmed);
@@ -88,9 +88,9 @@ TEST(formula_override_snapshot_round_trips_a_technique_binding) {
 }
 
 TEST(formula_override_snapshot_rejects_trailing_data_without_mutating_store) {
-  using namespace bruce::lhme;
+  using namespace axiom::lhme;
   const auto path = std::filesystem::temp_directory_path() /
-                    "bruce-formula-override-trailing-test.bin";
+                    "axiom-formula-override-trailing-test.bin";
   std::filesystem::remove(path);
 
   auto source_engine = Engine::create({});

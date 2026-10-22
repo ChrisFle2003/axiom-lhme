@@ -1,7 +1,7 @@
 #include "demo_report.hpp"
 
-#include "bruce/lhme/domain_projection.hpp"
-#include "bruce/lhme/kevin_filter.hpp"
+#include "axiom/lhme/domain_projection.hpp"
+#include "axiom/lhme/kevin_filter.hpp"
 
 #include <algorithm>
 #include <array>
@@ -20,31 +20,31 @@ constexpr std::array<std::uint32_t, 4> kWorkerCounts{1, 2, 4, 8};
 constexpr std::uint32_t kRunsPerExecutor = 4;
 
 struct FilterMeasurement {
-  bruce::lhme::TileReductionSummary summary;
+  axiom::lhme::TileReductionSummary summary;
   std::int64_t elapsed_microseconds = 0;
 };
 
-class EngineFormulaEvaluator final : public bruce::lhme::FormulaEvaluator {
+class EngineFormulaEvaluator final : public axiom::lhme::FormulaEvaluator {
  public:
-  EngineFormulaEvaluator(bruce::lhme::Engine& engine, bruce::lhme::FormulaSpec spec)
+  EngineFormulaEvaluator(axiom::lhme::Engine& engine, axiom::lhme::FormulaSpec spec)
       : engine_(engine), spec_(std::move(spec)) {}
 
-  bruce::lhme::EvaluationResult evaluate(
-      bruce::lhme::FormulaAddress address, bruce::lhme::EvaluationMode mode,
-      bruce::lhme::Budget budget,
-      std::optional<bruce::lhme::BigInt> modulus) override {
+  axiom::lhme::EvaluationResult evaluate(
+      axiom::lhme::FormulaAddress address, axiom::lhme::EvaluationMode mode,
+      axiom::lhme::Budget budget,
+      std::optional<axiom::lhme::BigInt> modulus) override {
     return engine_.evaluate({.spec = spec_, .address = address, .mode = mode,
                              .budget = budget, .modulus = std::move(modulus)});
   }
 
  private:
-  bruce::lhme::Engine& engine_;
-  bruce::lhme::FormulaSpec spec_;
+  axiom::lhme::Engine& engine_;
+  axiom::lhme::FormulaSpec spec_;
 };
 
-void add_tile(bruce::lhme::TileReductionSummary& total,
-              const bruce::lhme::TileSummary& tile) {
-  if (tile.status != bruce::lhme::Status::Confirmed) total.status = tile.status;
+void add_tile(axiom::lhme::TileReductionSummary& total,
+              const axiom::lhme::TileSummary& tile) {
+  if (tile.status != axiom::lhme::Status::Confirmed) total.status = tile.status;
   total.checked += tile.checked;
   total.modular_survivors += tile.modular_survivors;
   total.metric_survivors += tile.metric_survivors;
@@ -53,8 +53,8 @@ void add_tile(bruce::lhme::TileReductionSummary& total,
                           tile.candidates.end());
 }
 
-[[nodiscard]] std::vector<bruce::lhme::GridAddress> make_parent_tiles() {
-  using namespace bruce::lhme;
+[[nodiscard]] std::vector<axiom::lhme::GridAddress> make_parent_tiles() {
+  using namespace axiom::lhme;
   std::vector<GridAddress> parents;
   parents.reserve(kTileCount);
   for (std::uint8_t y = 0; y < 8; ++y) {
@@ -67,12 +67,12 @@ void add_tile(bruce::lhme::TileReductionSummary& total,
 }
 
 [[nodiscard]] FilterMeasurement measure_filter(std::uint32_t worker_count,
-                                                const std::vector<bruce::lhme::GridAddress>& parents) {
-  using namespace bruce::lhme;
+                                                const std::vector<axiom::lhme::GridAddress>& parents) {
+  using namespace axiom::lhme;
   auto engine = Engine::create({});
   const auto formula = engine.register_formula(make_power_offset_spec(2, 100, 1));
   EngineFormulaEvaluator evaluator{engine, formula};
-  const GridDomainSpec domain{{.id = "bruce.benchmark.cpu", .version = 1}, 2};
+  const GridDomainSpec domain{{.id = "axiom.benchmark.cpu", .version = 1}, 2};
   DepthPathProjection projection;
   const DomainEvaluationContext context{.domain = domain, .projection = &projection,
                                         .evaluator = evaluator};
@@ -105,7 +105,7 @@ void add_tile(bruce::lhme::TileReductionSummary& total,
 }  // namespace
 
 int main() {
-  using namespace bruce::lhme;
+  using namespace axiom::lhme;
 
   demo::Report report;
   report.heading("KEVIN Domain Projection and Filter Overhead");

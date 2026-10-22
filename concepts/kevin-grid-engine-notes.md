@@ -1,4 +1,4 @@
-Das **KEVIN Grid Engine V1** ist ein sinnvoller Schritt für BRUCE-AI, weil es einen wichtigen Punkt sauber trennt:
+Das **KEVIN Grid Engine V1** ist ein sinnvoller Schritt für AXIOM-AI, weil es einen wichtigen Punkt sauber trennt:
 
 > **Adresse ≠ Feldwert ≠ Berechnungsregel ≠ gespeichertes Ergebnis.**
 
@@ -6,10 +6,10 @@ Damit wird aus dem bisherigen „riesigen virtuellen Prozessraum“ ein konkret 
 
 ## Der wichtigste Architekturgewinn
 
-KEVIN sollte unter BRUCE als generische **virtuelle Prozessraum-Engine** sitzen:
+KEVIN sollte unter AXIOM als generische **virtuelle Prozessraum-Engine** sitzen:
 
 ```text
-BRUCE Semantic Routing
+AXIOM Semantic Routing
         ↓
 passender Wissens-/Technikslot
         ↓
@@ -22,7 +22,7 @@ KEVIN Grid Engine
         ↓
 TechniqueDefinition
         ↓
-BRUCE-Math
+AXIOM-Math
         ↓
 AnswerPoint
         ↓
@@ -34,7 +34,7 @@ Damit muss beispielsweise Fibonacci nicht mehr die eigentliche Raumstruktur defi
 ```text
 GridAddress = Wo wird gearbeitet?
 GridSpec    = Wie wird dort gerechnet?
-BRUCE-Math  = Wie wird die Mathematik korrekt ausgeführt?
+AXIOM-Math  = Wie wird die Mathematik korrekt ausgeführt?
 AnswerPoint = Was wurde daraus gelernt?
 ```
 
@@ -157,10 +157,10 @@ Value Identity
 = berechneter mathematischer Wert
 
 Semantic Identity
-= Bedeutung dieses Wertes im aktuellen BRUCE-Kontext
+= Bedeutung dieses Wertes im aktuellen AXIOM-Kontext
 ```
 
-Das ist exakt die Trennung, die BRUCE braucht.
+Das ist exakt die Trennung, die AXIOM braucht.
 
 ---
 
@@ -575,7 +575,7 @@ sentinelScope = GlobalExecution
 
 würde das globale ExecutionGate geschlossen.
 
-Das entspricht der zuvor aufgebauten BRUCE-Gate-Hierarchie.
+Das entspricht der zuvor aufgebauten AXIOM-Gate-Hierarchie.
 
 ---
 
@@ -658,7 +658,7 @@ Ein Cacheeintrag ist nur ein wiederverwendbares Berechnungsergebnis.
 
 Er darf jederzeit verschwinden.
 
-Das eigentliche BRUCE-Lernen erfolgt weiterhin über:
+Das eigentliche AXIOM-Lernen erfolgt weiterhin über:
 
 ```text
 ExperienceRecord
@@ -672,7 +672,7 @@ Damit bleiben zwei Ebenen getrennt:
 KEVIN Cache
 = Rechenbeschleunigung
 
-BRUCE Experience
+AXIOM Experience
 = erlernte Erfahrung
 ```
 
@@ -685,7 +685,7 @@ Diese Trennung würde ich unbedingt beibehalten.
 Ein kompletter Lauf könnte so aussehen:
 
 ```text
-BRUCE bekommt Aufgabe
+AXIOM bekommt Aufgabe
         ↓
 Semantic Routing
         ↓
@@ -707,14 +707,14 @@ popcount
         ↓
 nur verbleibende Adressen evaluieren
         ↓
-BRUCE-Math
+AXIOM-Math
         ↓
 AnswerPoints
         ↓
 ExperienceRecord
 ```
 
-Beim nächsten ähnlichen Problem kann BRUCE bereits wissen:
+Beim nächsten ähnlichen Problem kann AXIOM bereits wissen:
 
 ```text
 Diese TechniqueDefinition
@@ -798,16 +798,16 @@ Ich würde deine Kriterien so einfrieren:
 
 > **KEVIN speichert nicht das Gitter. KEVIN speichert die Regel, mit der jede Adresse bei Bedarf zu einem überprüfbaren Ergebnis wird.**
 
-Und innerhalb BRUCE-AI ergibt sich damit eine sehr klare Arbeitsteilung:
+Und innerhalb AXIOM-AI ergibt sich damit eine sehr klare Arbeitsteilung:
 
 ```text
-BRUCE
+AXIOM
 = entscheidet, WO gesucht werden soll
 
 KEVIN
 = adressiert und reduziert den virtuellen Suchraum
 
-BRUCE-Math
+AXIOM-Math
 = berechnet die ausgewählten Felder korrekt
 
 NanoCell

@@ -12,7 +12,7 @@
 #include <unistd.h>
 #endif
 
-namespace bruce::lhme::demo::stress {
+namespace axiom::lhme::demo::stress {
 
 struct IsolatedRunResult {
   bool available = false;
@@ -109,4 +109,4 @@ namespace detail {
 #endif
 }
 
-}  // namespace bruce::lhme::demo::stress
+}  // namespace axiom::lhme::demo::stress

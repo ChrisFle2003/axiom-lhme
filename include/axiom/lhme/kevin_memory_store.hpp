@@ -7,10 +7,10 @@
 #include <shared_mutex>
 #include <vector>
 
-#include "bruce/lhme/engine.hpp"
-#include "bruce/lhme/kevin_grid.hpp"
+#include "axiom/lhme/engine.hpp"
+#include "axiom/lhme/kevin_grid.hpp"
 
-namespace bruce::lhme {
+namespace axiom::lhme {
 enum class SnapshotStatus { Confirmed, IoError, InvalidSnapshot };
 struct SnapshotOverrideRecord { GridIdentity identity; GridAddress address; BigInt value; };
 struct KevinSnapshot { std::vector<GridSpec> grids; std::vector<SnapshotOverrideRecord> overrides; };
@@ -43,4 +43,4 @@ class KevinMemoryStore {
   std::atomic<std::uint64_t> computed_exact_evaluation_count_ = 0;
   std::shared_ptr<std::shared_mutex> mutex_;
 };
-}  // namespace bruce::lhme
+}  // namespace axiom::lhme

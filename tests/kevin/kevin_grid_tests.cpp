@@ -1,25 +1,25 @@
 #include "test.hpp"
 
-#include "bruce/lhme/domain_projection.hpp"
-#include "bruce/lhme/kevin_grid.hpp"
+#include "axiom/lhme/domain_projection.hpp"
+#include "axiom/lhme/kevin_grid.hpp"
 
 #include <vector>
 
 namespace {
 
-using bruce::lhme::GridAddress;
-using bruce::lhme::GridIdentity;
-using bruce::lhme::GridStep;
-using bruce::lhme::DepthPathProjection;
-using bruce::lhme::valid_grid_identity;
+using axiom::lhme::GridAddress;
+using axiom::lhme::GridIdentity;
+using axiom::lhme::GridStep;
+using axiom::lhme::DepthPathProjection;
+using axiom::lhme::valid_grid_identity;
 
 }  // namespace
 
 TEST(grid_identity_requires_ascii_name_and_positive_version) {
-  CHECK(valid_grid_identity({.id = "bruce.grid", .version = 1}));
+  CHECK(valid_grid_identity({.id = "axiom.grid", .version = 1}));
   CHECK(!valid_grid_identity({.id = "", .version = 1}));
-  CHECK(!valid_grid_identity({.id = "bruce.grid", .version = 0}));
-  CHECK(!valid_grid_identity({.id = "bruce/grid", .version = 1}));
+  CHECK(!valid_grid_identity({.id = "axiom.grid", .version = 0}));
+  CHECK(!valid_grid_identity({.id = "axiom/grid", .version = 1}));
 }
 
 TEST(depth_path_projection_encodes_path_depth_without_zero_step_collisions) {

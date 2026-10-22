@@ -9,7 +9,7 @@
 #include <unistd.h>
 #endif
 
-namespace bruce::lhme::benchmark::fair {
+namespace axiom::lhme::benchmark::fair {
 
 struct IsolatedPeakMemory {
   bool available = false;
@@ -53,4 +53,4 @@ struct IsolatedPeakMemory {
 #endif
 }
 
-}  // namespace bruce::lhme::benchmark::fair
+}  // namespace axiom::lhme::benchmark::fair

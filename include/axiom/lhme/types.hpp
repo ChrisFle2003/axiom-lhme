@@ -11,7 +11,7 @@
 
 #include <boost/multiprecision/cpp_int.hpp>
 
-namespace bruce::lhme {
+namespace axiom::lhme {
 
 struct TraceRecord;
 
@@ -64,4 +64,4 @@ struct EvaluationResult {
   }
 };
 
-}  // namespace bruce::lhme
+}  // namespace axiom::lhme

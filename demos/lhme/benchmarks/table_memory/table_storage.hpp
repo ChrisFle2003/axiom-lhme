@@ -1,6 +1,6 @@
 #pragma once
 
-#include "bruce/lhme/formula.hpp"
+#include "axiom/lhme/formula.hpp"
 
 #include <algorithm>
 #include <cstddef>
@@ -11,7 +11,7 @@
 #include <unordered_map>
 #include <vector>
 
-namespace bruce::lhme::benchmark::table {
+namespace axiom::lhme::benchmark::table {
 
 struct StorageMetrics {
   std::uint64_t record_count = 0;
@@ -166,4 +166,4 @@ class FormulaRecipeTable {
   FormulaSpec specification_{};
 };
 
-}  // namespace bruce::lhme::benchmark::table
+}  // namespace axiom::lhme::benchmark::table

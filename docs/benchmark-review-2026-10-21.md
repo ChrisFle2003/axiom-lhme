@@ -1,4 +1,4 @@
-# BRUCE LHME Benchmark Review — 2026-10-21
+# AXIOM LHME Benchmark Review — 2026-10-21
 
 ## Kurzfazit
 
@@ -128,10 +128,10 @@ Worker-Konfiguration; die anderen Zeitwerte sind einzelne Durchläufe.
 ## Verifikation
 
 Die vier als CTest registrierten Benchmarks wurden frisch im Release-Profil
-ausgeführt und bestanden: `lhme_streaming_benchmark`,
-`lhme_table_memory_benchmark`, `lhme_kevin_cpu_benchmark` und
-`lhme_hybrid_storage_benchmark` (4/4, 2.44 s). Zusätzlich wurden der
-Hybrid-Test mit `--full-overrides` sowie `lhme_controlled_stress` direkt
+ausgeführt und bestanden: `axiom_lhme_streaming_benchmark`,
+`axiom_lhme_table_memory_benchmark`, `axiom_lhme_kevin_cpu_benchmark` und
+`axiom_lhme_hybrid_storage_benchmark` (4/4, 2.44 s). Zusätzlich wurden der
+Hybrid-Test mit `--full-overrides` sowie `axiom_lhme_controlled_stress` direkt
 ausgeführt; beide bestanden.
 
 ## 1. Eine Million virtuelle Werte: Speicherform

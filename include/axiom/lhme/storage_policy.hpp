@@ -2,9 +2,9 @@
 
 #include <cstdint>
 
-#include "bruce/lhme/types.hpp"
+#include "axiom/lhme/types.hpp"
 
-namespace bruce::lhme {
+namespace axiom::lhme {
 
 enum class AccessPattern { Sequential, Random };
 
@@ -36,4 +36,4 @@ struct StorageDecision {
 [[nodiscard]] StorageDecision choose_storage_strategy(
     StorageDecisionInput input, const StoragePolicy& policy);
 
-}  // namespace bruce::lhme
+}  // namespace axiom::lhme

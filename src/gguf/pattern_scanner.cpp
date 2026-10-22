@@ -1,4 +1,4 @@
-#include "bruce/lhme/gguf_pattern_scan.hpp"
+#include "axiom/lhme/gguf_pattern_scan.hpp"
 
 #include <algorithm>
 #include <bit>
@@ -9,7 +9,7 @@
 #include <map>
 #include <utility>
 
-namespace bruce::lhme {
+namespace axiom::lhme {
 namespace {
 
 constexpr std::uint32_t kGgmlTypeF32 = 0;
@@ -193,4 +193,4 @@ GgufPatternScanResult scan_gguf_pattern_candidates(
   return result;
 }
 
-}  // namespace bruce::lhme
+}  // namespace axiom::lhme

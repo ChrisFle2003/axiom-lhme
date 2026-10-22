@@ -1,6 +1,6 @@
-#include "bruce/lhme/streaming.hpp"
+#include "axiom/lhme/streaming.hpp"
 
-#include "bruce/lhme/trace.hpp"
+#include "axiom/lhme/trace.hpp"
 
 #include <algorithm>
 #include <condition_variable>
@@ -11,7 +11,7 @@
 #include <thread>
 #include <utility>
 
-namespace bruce::lhme {
+namespace axiom::lhme {
 namespace {
 
 struct Tile {
@@ -367,4 +367,4 @@ StreamingRangeResult evaluate_streaming_range(const EvaluationRequest& exact_req
   return output;
 }
 
-}  // namespace bruce::lhme
+}  // namespace axiom::lhme

@@ -1,6 +1,6 @@
 #include "test.hpp"
 
-#include "bruce/lhme/formula_override_store.hpp"
+#include "axiom/lhme/formula_override_store.hpp"
 
 #include <atomic>
 #include <future>
@@ -9,7 +9,7 @@
 
 namespace {
 
-using namespace bruce::lhme;
+using namespace axiom::lhme;
 
 FormulaBinding power_binding(Engine& engine, BigInt base = 2) {
   return engine.register_formula(make_power_offset_spec(base, 100, 1));

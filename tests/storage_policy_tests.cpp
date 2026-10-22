@@ -1,16 +1,16 @@
 #include "test.hpp"
 
-#include "bruce/lhme/storage_policy.hpp"
+#include "axiom/lhme/storage_policy.hpp"
 
 #include <cstdint>
 
 namespace {
 
-using bruce::lhme::AccessPattern;
-using bruce::lhme::Status;
-using bruce::lhme::StoragePolicy;
-using bruce::lhme::StorageStrategy;
-using bruce::lhme::choose_storage_strategy;
+using axiom::lhme::AccessPattern;
+using axiom::lhme::Status;
+using axiom::lhme::StoragePolicy;
+using axiom::lhme::StorageStrategy;
+using axiom::lhme::choose_storage_strategy;
 
 }  // namespace
 

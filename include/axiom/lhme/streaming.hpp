@@ -3,9 +3,9 @@
 #include <cstdint>
 #include <vector>
 
-#include "bruce/lhme/reduction.hpp"
+#include "axiom/lhme/reduction.hpp"
 
-namespace bruce::lhme {
+namespace axiom::lhme {
 
 enum class RetentionMode {
   SummaryOnly,
@@ -47,4 +47,4 @@ struct StreamingRangeResult {
     const EvaluationRequest& exact_request, AddressRange range,
     StreamingOptions options);
 
-}  // namespace bruce::lhme
+}  // namespace axiom::lhme

@@ -1,9 +1,9 @@
-#include "bruce/lhme/power_offset_kernel.hpp"
+#include "axiom/lhme/power_offset_kernel.hpp"
 
 #include <charconv>
 #include <cctype>
 
-namespace bruce::lhme {
+namespace axiom::lhme {
 namespace {
 
 [[nodiscard]] std::optional<std::string_view> parse_decimal_field(
@@ -75,7 +75,7 @@ std::optional<PowerOffsetParameters> parse_power_offset_parameters(
 }
 
 TechniqueIdentity PowerOffsetKernel::identity() const {
-  return {.id = "bruce.power_offset", .version = 1};
+  return {.id = "axiom.power_offset", .version = 1};
 }
 
 EvaluationResult PowerOffsetKernel::evaluate(const TechniqueRequest& request) const {
@@ -85,7 +85,7 @@ EvaluationResult PowerOffsetKernel::evaluate(const TechniqueRequest& request) co
   const auto parameters = parse_power_offset_parameters(request.parameters);
   if (!parameters.has_value()) return invalid_request(request.mode);
 
-  return bruce::lhme::evaluate({
+  return axiom::lhme::evaluate({
       .spec = make_power_offset_spec(parameters->base, parameters->scale,
                                      request.identity.version),
       .address = request.address,
@@ -95,4 +95,4 @@ EvaluationResult PowerOffsetKernel::evaluate(const TechniqueRequest& request) co
       .cancellation_signal = request.cancellation_signal});
 }
 
-}  // namespace bruce::lhme
+}  // namespace axiom::lhme

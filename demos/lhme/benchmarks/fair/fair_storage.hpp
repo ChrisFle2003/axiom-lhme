@@ -2,8 +2,8 @@
 
 #include "benchmark_contract.hpp"
 
-#include "bruce/lhme/engine.hpp"
-#include "bruce/lhme/formula_override_store.hpp"
+#include "axiom/lhme/engine.hpp"
+#include "axiom/lhme/formula_override_store.hpp"
 
 #include <algorithm>
 #include <cstdint>
@@ -15,7 +15,7 @@
 #include <utility>
 #include <vector>
 
-namespace bruce::lhme::benchmark::fair {
+namespace axiom::lhme::benchmark::fair {
 
 enum class StorageStrategyKind {
   FormulaRecipe,
@@ -221,4 +221,4 @@ struct FairStorageCase {
          "100-percent-overrides";
 }
 
-}  // namespace bruce::lhme::benchmark::fair
+}  // namespace axiom::lhme::benchmark::fair

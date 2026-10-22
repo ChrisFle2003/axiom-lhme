@@ -2,9 +2,9 @@
 
 #include <optional>
 
-#include "bruce/lhme/types.hpp"
+#include "axiom/lhme/types.hpp"
 
-namespace bruce::lhme {
+namespace axiom::lhme {
 
 class FormulaEvaluator {
  public:
@@ -15,4 +15,4 @@ class FormulaEvaluator {
       std::optional<BigInt> modulus = std::nullopt) = 0;
 };
 
-}  // namespace bruce::lhme
+}  // namespace axiom::lhme

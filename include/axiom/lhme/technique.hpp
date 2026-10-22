@@ -6,9 +6,9 @@
 #include <optional>
 #include <string>
 
-#include "bruce/lhme/formula.hpp"
+#include "axiom/lhme/formula.hpp"
 
-namespace bruce::lhme {
+namespace axiom::lhme {
 
 struct TechniqueIdentity {
   std::string id;
@@ -52,4 +52,4 @@ class TechniqueKernel {
       const TechniqueRequest& request) const = 0;
 };
 
-}  // namespace bruce::lhme
+}  // namespace axiom::lhme

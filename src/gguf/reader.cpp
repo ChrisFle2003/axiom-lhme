@@ -1,4 +1,4 @@
-#include "bruce/lhme/gguf_inspector.hpp"
+#include "axiom/lhme/gguf_inspector.hpp"
 
 #include <algorithm>
 #include <array>
@@ -10,7 +10,7 @@
 #include <string_view>
 #include <utility>
 
-namespace bruce::lhme {
+namespace axiom::lhme {
 namespace {
 
 constexpr std::uint32_t kGgufMagic = 0x46554747U;
@@ -449,4 +449,4 @@ GgufInspection inspect_gguf_file(const std::filesystem::path& path,
           .trace = trace};
 }
 
-}  // namespace bruce::lhme
+}  // namespace axiom::lhme

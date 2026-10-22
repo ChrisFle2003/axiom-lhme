@@ -7,8 +7,8 @@ implementiert oder getestet sind. Den belastbaren Bestand beschreibt die
 
 | Dokument | Thema |
 | --- | --- |
-| [BRUCE 8×8 Bit](bruce-8x8-bit.md) | früher C++-Blueprint und Pipeline |
-| [BRUCE Scope-Korrektur](bruce-scope-correction.md) | Abgrenzung, Dienste und Zähler |
+| [AXIOM 8×8 Bit](axiom-8x8-bit.md) | früher C++-Blueprint und Pipeline |
+| [AXIOM Scope-Korrektur](axiom-scope-correction.md) | Abgrenzung, Dienste und Zähler |
 | [Lazy Parameter Grid V1](lazy-parameter-grid-v1.md) | begrenzte Parameterraumsuche |
 | [Lazy Hierarchical Memory Engine](lazy-hierarchical-memory-engine.md) | formelbasierter Speicher, Tiles und hierarchische Reduktion |
 | [KEVIN Grid Engine V1](kevin-grid-engine-v1.md) | Grid-Adressen, Werte und Cache |

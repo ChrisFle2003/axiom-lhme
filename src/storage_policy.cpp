@@ -1,8 +1,8 @@
-#include "bruce/lhme/storage_policy.hpp"
+#include "axiom/lhme/storage_policy.hpp"
 
-#include "bruce/lhme/formula.hpp"
+#include "axiom/lhme/formula.hpp"
 
-namespace bruce::lhme {
+namespace axiom::lhme {
 namespace {
 
 constexpr std::uint32_t kBasisPointsPerWhole = 10'000;
@@ -34,4 +34,4 @@ StorageDecision choose_storage_strategy(StorageDecisionInput input,
                           : StorageStrategy::HashTable};
 }
 
-}  // namespace bruce::lhme
+}  // namespace axiom::lhme

@@ -1,8 +1,8 @@
-## Korrektur des BRUCE-Scopes
+## Korrektur des AXIOM-Scopes
 
-**Festgelegt:** BRUCE-AI ist ausschließlich ein **Softwareprojekt**.
+**Festgelegt:** AXIOM-AI ist ausschließlich ein **Softwareprojekt**.
 
-Nicht Bestandteil von BRUCE-AI sind:
+Nicht Bestandteil von AXIOM-AI sind:
 
 - Hosting-Architekturen,
 - Service-Zellen für Kundenhosting,
@@ -12,7 +12,7 @@ Nicht Bestandteil von BRUCE-AI sind:
 - spezielle Hardwareprodukte,
 - physikalische „Paralleluniversen“ oder Quantensysteme.
 
-CPU-RAM-NPU, NanoCell, NanoNeuron und ExecutionCell sind innerhalb von BRUCE-AI **Software- und Runtime-Architekturen**. „NPU“ beschreibt hier zunächst die Art der Ausführung, nicht zwingend einen herzustellenden Chip.
+CPU-RAM-NPU, NanoCell, NanoNeuron und ExecutionCell sind innerhalb von AXIOM-AI **Software- und Runtime-Architekturen**. „NPU“ beschreibt hier zunächst die Art der Ausführung, nicht zwingend einen herzustellenden Chip.
 
 Hardware wird nur abstrakt betrachtet:
 
@@ -23,14 +23,14 @@ Hardware wird nur abstrakt betrachtet:
 - **VRAM:** nur bei GPU-Ausführung oder Training.
 - **SSD:** kanonisches Wissen, Erfahrungen, Traces, Trainingsdaten und Modellstände.
 
-Die aktuelle Nutzerkorrektur ersetzt damit ältere oder zu breit gefasste Verbindungen. Die hochgeladene Schlagwortsammlung bestätigt den BRUCE-Kern aus NanoCell, CPU-RAM-NPU, ExecutionCell, NanoNeuron, Universe Engine, AnswerPoints, Experience-System, PeacemakerLLM, BRUCE-Math und Semantic Routing; nicht zum Softwarekern passende Begriffe werden aus dem aktiven Scope entfernt. 
+Die aktuelle Nutzerkorrektur ersetzt damit ältere oder zu breit gefasste Verbindungen. Die hochgeladene Schlagwortsammlung bestätigt den AXIOM-Kern aus NanoCell, CPU-RAM-NPU, ExecutionCell, NanoNeuron, Universe Engine, AnswerPoints, Experience-System, PeacemakerLLM, AXIOM-Math und Semantic Routing; nicht zum Softwarekern passende Begriffe werden aus dem aktiven Scope entfernt.
 
-## Korrigierte BRUCE-AI-Hierarchie
+## Korrigierte AXIOM-AI-Hierarchie
 
 ```text
-BRUCE-AI
+AXIOM-AI
 │
-├─ BRUCE-Core
+├─ AXIOM-Core
 │  ├─ Eingabeverständnis
 │  ├─ Semantic Routing
 │  ├─ Cascade-Filterung
@@ -49,7 +49,7 @@ BRUCE-AI
 │  ├─ statische Lücken-/Baustein-Templates
 │  └─ nachvollziehbare Antworten
 │
-├─ BRUCE-Math
+├─ AXIOM-Math
 │  ├─ exakte Formelauswertung
 │  ├─ BigInt
 │  ├─ rationale Arithmetik
@@ -120,7 +120,7 @@ Ein konkretes NanoNeuron könnte beispielsweise aktuell enthalten:
 10110100
 ```
 
-BRUCE speichert diesen Ausgangswert nicht tausendfach. Stattdessen führt BRUCE verschiedene Berechnungsrezepte auf demselben Wert aus.
+AXIOM speichert diesen Ausgangswert nicht tausendfach. Stattdessen führt AXIOM verschiedene Berechnungsrezepte auf demselben Wert aus.
 
 ---
 
@@ -206,9 +206,9 @@ Dabei ist \(D\) die Anzahl der Achtfachachsen.
 
 Der wichtige Unterschied:
 
-> BRUCE kann einen Raum mit theoretisch 281 Billionen Prozesspunkten **beschreiben**, ohne 256 TiB an Resultaten anzulegen.
+> AXIOM kann einen Raum mit theoretisch 281 Billionen Prozesspunkten **beschreiben**, ohne 256 TiB an Resultaten anzulegen.
 
-BRUCE muss trotzdem die tatsächlich besuchten Punkte berechnen. Der virtuelle Raum beseitigt den Speicherbedarf, aber nicht automatisch den Rechenaufwand.
+AXIOM muss trotzdem die tatsächlich besuchten Punkte berechnen. Der virtuelle Raum beseitigt den Speicherbedarf, aber nicht automatisch den Rechenaufwand.
 
 ---
 
@@ -265,7 +265,7 @@ Cube-to-Cube:
 512 × 512 = 262.144 Beziehungen
 ```
 
-Innerhalb von BRUCE kann das trotzdem eine eigene logische Ebene heißen, beispielsweise:
+Innerhalb von AXIOM kann das trotzdem eine eigene logische Ebene heißen, beispielsweise:
 
 ```text
 Relation Layer
@@ -365,7 +365,7 @@ Dann gibt es sechs Gate-Auswahlen.
 
 ---
 
-# 6. Konkretes Beispiel für den theoretischen BRUCE-Raum
+# 6. Konkretes Beispiel für den theoretischen AXIOM-Raum
 
 Wenn eine Technik frei kombinieren dürfte:
 
@@ -477,7 +477,7 @@ Erfahrungsfilter
 4 gültige AnswerPoints
 ```
 
-Das ist die eigentliche Funktion der BRUCE-Cascade-Filterung.
+Das ist die eigentliche Funktion der AXIOM-Cascade-Filterung.
 
 Damit müssen wir drei Zahlen getrennt messen:
 
@@ -544,7 +544,7 @@ Bei einem acht Byte großen Ergebnis:
 
 ## Lazy verarbeitet
 
-BRUCE benötigt gleichzeitig möglicherweise nur:
+AXIOM benötigt gleichzeitig möglicherweise nur:
 
 ```text
 1 Byte aktive NanoNeuron-Projektion
@@ -583,7 +583,7 @@ O(P_executed)
 
 # 9. Sehr wichtiger Unterschied: Prozesspfade und Ergebnisse
 
-Obwohl BRUCE Millionen Prozesse aus einem Byte definieren kann, kann ein reines 8-Bit-Ergebnis weiterhin nur einen von 256 Werten besitzen:
+Obwohl AXIOM Millionen Prozesse aus einem Byte definieren kann, kann ein reines 8-Bit-Ergebnis weiterhin nur einen von 256 Werten besitzen:
 
 \[
 0\ldots255
@@ -607,7 +607,7 @@ Resultat: 00110100
 
 Das Byteergebnis ist gleich, aber die Bedeutung kann verschieden sein.
 
-Deshalb benötigt BRUCE zusätzlich:
+Deshalb benötigt AXIOM zusätzlich:
 
 ```text
 Universe-ID
@@ -680,7 +680,7 @@ Diese Werte zeigen:
 
 > Ein Byte besitzt nur 256 Zustände, aber eine astronomische Menge möglicher Regeln, die diese Zustände auf Ergebnisse abbilden können.
 
-BRUCE soll selbstverständlich nicht all diese Funktionen durchsuchen. BRUCE nutzt eine kleine, strukturierte und erfahrungsbasierte Auswahl aus:
+AXIOM soll selbstverständlich nicht all diese Funktionen durchsuchen. AXIOM nutzt eine kleine, strukturierte und erfahrungsbasierte Auswahl aus:
 
 - Shifts,
 - Rotationen,
@@ -692,7 +692,7 @@ BRUCE soll selbstverständlich nicht all diese Funktionen durchsuchen. BRUCE nut
 
 ---
 
-# 11. Reale Speicherrollen in BRUCE-AI
+# 11. Reale Speicherrollen in AXIOM-AI
 
 ## Cache
 
@@ -845,4 +845,4 @@ Nicht alle theoretischen Prozesse, sondern nur die durch:
 
 ausgewählten Kandidaten.
 
-> **BRUCE speichert nicht Millionen Kopien eines Bytes. BRUCE speichert den Bytezustand, die ausführbaren Regeln und die Erfahrungen darüber, welche wenigen Wege durch den theoretisch riesigen Prozessraum tatsächlich sinnvoll sind.**
+> **AXIOM speichert nicht Millionen Kopien eines Bytes. AXIOM speichert den Bytezustand, die ausführbaren Regeln und die Erfahrungen darüber, welche wenigen Wege durch den theoretisch riesigen Prozessraum tatsächlich sinnvoll sind.**

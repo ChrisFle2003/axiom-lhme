@@ -7,10 +7,10 @@
 #include <string>
 #include <vector>
 
-#include "bruce/lhme/trace.hpp"
-#include "bruce/lhme/types.hpp"
+#include "axiom/lhme/trace.hpp"
+#include "axiom/lhme/types.hpp"
 
-namespace bruce::lhme {
+namespace axiom::lhme {
 
 enum class GgufValidationError {
   None,
@@ -70,4 +70,4 @@ struct GgufInspection {
     const std::filesystem::path& path,
     const GgufInspectionLimits& limits = {});
 
-}  // namespace bruce::lhme
+}  // namespace axiom::lhme

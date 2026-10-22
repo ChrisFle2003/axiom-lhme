@@ -4,12 +4,12 @@
 #include "process_memory.hpp"
 #include "reference_values.hpp"
 
-#include "bruce/lhme/streaming.hpp"
+#include "axiom/lhme/streaming.hpp"
 
 #include <chrono>
 #include <cstdint>
 
-namespace bruce::lhme::demo::stress {
+namespace axiom::lhme::demo::stress {
 
 inline constexpr std::uint64_t kMillionAddressCount = 1'000'001;
 
@@ -117,4 +117,4 @@ inline constexpr std::uint64_t kMillionAddressCount = 1'000'001;
           .peak_bytes = peak.available ? peak.bytes : 0};
 }
 
-}  // namespace bruce::lhme::demo::stress
+}  // namespace axiom::lhme::demo::stress

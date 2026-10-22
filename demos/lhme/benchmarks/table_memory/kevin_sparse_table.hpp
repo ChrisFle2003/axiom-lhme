@@ -1,12 +1,12 @@
 #pragma once
 
-#include "bruce/lhme/formula_override_store.hpp"
+#include "axiom/lhme/formula_override_store.hpp"
 
 #include <cstdint>
 #include <limits>
 #include <stdexcept>
 
-namespace bruce::lhme::benchmark::table {
+namespace axiom::lhme::benchmark::table {
 
 // Kept in the former fixture path so downstream benchmark include paths do not
 // change. The fixture deliberately has no GridAddress or KEVIN dependency.
@@ -69,4 +69,4 @@ class FormulaOverrideTable {
   std::uint64_t override_count_ = 0;
 };
 
-}  // namespace bruce::lhme::benchmark::table
+}  // namespace axiom::lhme::benchmark::table

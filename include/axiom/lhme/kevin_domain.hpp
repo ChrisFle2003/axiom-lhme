@@ -7,9 +7,9 @@
 #include <string>
 #include <vector>
 
-#include "bruce/lhme/types.hpp"
+#include "axiom/lhme/types.hpp"
 
-namespace bruce::lhme {
+namespace axiom::lhme {
 
 struct GridIdentity {
   std::string id;
@@ -53,4 +53,4 @@ struct GridDomainSpec {
 
 [[nodiscard]] bool valid_grid_domain_spec(const GridDomainSpec& spec);
 
-}  // namespace bruce::lhme
+}  // namespace axiom::lhme

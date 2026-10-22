@@ -1,12 +1,12 @@
-#include "bruce/lhme/kevin_memory_store.hpp"
+#include "axiom/lhme/kevin_memory_store.hpp"
 
-#include "bruce/lhme/domain_projection.hpp"
-#include "bruce/lhme/trace.hpp"
+#include "axiom/lhme/domain_projection.hpp"
+#include "axiom/lhme/trace.hpp"
 
 #include <algorithm>
 #include <mutex>
 
-namespace bruce::lhme { namespace {
+namespace axiom::lhme { namespace {
 std::string key(const GridIdentity& id) { return std::to_string(id.id.size()) + ":" + id.id + ":" + std::to_string(id.version); }
 FormulaAddress legacy_depth_path_address(const GridAddress& address) {
   static const DepthPathProjection projection;
@@ -108,4 +108,4 @@ SnapshotStatus KevinMemoryStore::replace_snapshot(const KevinSnapshot& snapshot)
   const std::unique_lock lock(*mutex_);
   grids_=std::move(grids); overrides_=std::move(overrides); return SnapshotStatus::Confirmed;
 }
-}  // namespace bruce::lhme
+}  // namespace axiom::lhme

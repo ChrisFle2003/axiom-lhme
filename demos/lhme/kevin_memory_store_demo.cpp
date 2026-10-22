@@ -1,17 +1,17 @@
 #include "demo_report.hpp"
-#include "bruce/lhme/domain_projection.hpp"
-#include "bruce/lhme/kevin_memory_store.hpp"
-#include "bruce/lhme/power_offset_kernel.hpp"
+#include "axiom/lhme/domain_projection.hpp"
+#include "axiom/lhme/kevin_memory_store.hpp"
+#include "axiom/lhme/power_offset_kernel.hpp"
 #include <memory>
 #include <vector>
 int main() {
-  using namespace bruce::lhme;
+  using namespace axiom::lhme;
   demo::Report report; report.heading("KEVIN Memory Store");
   auto engine = Engine::create({.cache_max_entries=8, .cache_max_bytes=4096});
   report.expect_true("kernel registered",
                      engine.register_technique(std::make_shared<PowerOffsetKernel>()));
   KevinMemoryStore store{engine};
-  GridSpec grid{{.id="bruce.demo.kevin",.version=1}, {.id="bruce.power_offset",.version=1}, encode_power_offset_parameters(2,100), 10};
+  GridSpec grid{{.id="axiom.demo.kevin",.version=1}, {.id="axiom.power_offset",.version=1}, encode_power_offset_parameters(2,100), 10};
   report.expect_true("grid registered", store.register_grid(grid));
   report.expect_equal("cache before read", std::size_t(0), store.inspect().engine_cache.resident_entries);
   std::vector<GridStep> steps(10, GridStep{.x=7,.y=7}); auto address=*GridAddress::from_steps(steps);

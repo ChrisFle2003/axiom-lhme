@@ -4,9 +4,9 @@
 #include <utility>
 #include <vector>
 
-#include "bruce/lhme/streaming.hpp"
+#include "axiom/lhme/streaming.hpp"
 
-namespace bruce::lhme::benchmark::algorithm {
+namespace axiom::lhme::benchmark::algorithm {
 
 struct Result {
   Status status = Status::InternalError;
@@ -22,4 +22,4 @@ inline bool cancelled(const EvaluationRequest& request) {
           request.cancellation_signal->load());
 }
 
-}  // namespace bruce::lhme::benchmark::algorithm
+}  // namespace axiom::lhme::benchmark::algorithm
