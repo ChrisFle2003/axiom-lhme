@@ -1,10 +1,10 @@
-# BRUCE Lazy Parameter Grid V1 – Software-Plan
+# AXIOM Lazy Parameter Grid V1 – Software-Plan
 
-**Ziel:** BRUCE soll große, regelhaft beschriebene Parameteräume gezielt untersuchen, ohne sie vollständig zu speichern oder auszurechnen.
+**Ziel:** AXIOM soll große, regelhaft beschriebene Parameteräume gezielt untersuchen, ohne sie vollständig zu speichern oder auszurechnen.
 
-**Architektur:** Das Grid ist eine interne Research-Strategie des BRUCE Research Core. Es erzeugt Kandidaten bei Bedarf, führt günstige Filter vor der teuren Rechnung aus und akzeptiert Treffer nur nach exaktem Replay auf allen bekannten Paaren.
+**Architektur:** Das Grid ist eine interne Research-Strategie des AXIOM Research Core. Es erzeugt Kandidaten bei Bedarf, führt günstige Filter vor der teuren Rechnung aus und akzeptiert Treffer nur nach exaktem Replay auf allen bekannten Paaren.
 
-**Technik:** C++20, bestehender BRUCE Research Core, signed-512-Bit-Arithmetik, SSE-Trace und Cockpit.
+**Technik:** C++20, bestehender AXIOM Research Core, signed-512-Bit-Arithmetik, SSE-Trace und Cockpit.
 
 ## Was das Upgrade kann
 
@@ -118,7 +118,7 @@ Ein tatsächlicher Abbruch geschieht separat über `ExecutionGate` mit Gründen 
 Neue Kernbausteine:
 
 ```text
-include/bruce/lazy_parameter_grid.hpp
+include/axiom/lazy_parameter_grid.hpp
 src/lazy_parameter_grid.cpp
 tests/test_lazy_parameter_grid.cpp
 ```
@@ -146,7 +146,7 @@ Tests:
 Neue Strategie:
 
 ```text
-include/bruce/power_grid_strategy.hpp
+include/axiom/power_grid_strategy.hpp
 src/power_grid_strategy.cpp
 tests/test_power_grid_strategy.cpp
 ```
@@ -193,7 +193,7 @@ Keine neue separate Oberfläche: Die Strategie erscheint neben den bestehenden m
 
 ## Abnahmekriterien
 
-- BRUCE kann einen Raum von mindestens \(64^{12}\) **beschreiben**, ohne ihn vollständig zu materialisieren.
+- AXIOM kann einen Raum von mindestens \(64^{12}\) **beschreiben**, ohne ihn vollständig zu materialisieren.
 - Es werden nur angeforderte oder nachweislich aussichtsreiche Kandidaten berechnet.
 - Jeder Ausschluss besitzt eine lesbare Begründung.
 - Jeder Treffer wird exakt replayt; es gibt kein Runden und keine stillschweigende Interpolation.

@@ -1,6 +1,6 @@
 #include "command.hpp"
 
-#include "bruce/lhme/gguf_report.hpp"
+#include "axiom/lhme/gguf_report.hpp"
 
 #include <charconv>
 #include <fstream>
@@ -8,7 +8,7 @@
 #include <string>
 #include <vector>
 
-namespace bruce::lhme::tool {
+namespace axiom::lhme::tool {
 namespace {
 
 struct Arguments {
@@ -42,7 +42,7 @@ struct Arguments {
 [[nodiscard]] bool parse_arguments(std::span<const std::string_view> values,
                                    Arguments& parsed, std::ostream& error) {
   if (values.size() < 2U) {
-    error << "usage: bruce_gguf_inspect MODEL.gguf --memory-budget BYTES "
+    error << "usage: axiom_gguf_inspect MODEL.gguf --memory-budget BYTES "
              "--chunk-size BYTES --policy all-resident|budgeted|metadata-only\n";
     return false;
   }
@@ -161,4 +161,4 @@ int run_gguf_inspect(std::span<const std::string_view> arguments,
   return exit_code;
 }
 
-}  // namespace bruce::lhme::tool
+}  // namespace axiom::lhme::tool

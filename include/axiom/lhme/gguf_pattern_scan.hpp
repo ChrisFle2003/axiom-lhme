@@ -7,12 +7,12 @@
 #include <string>
 #include <vector>
 
-#include "bruce/lhme/gguf_inspector.hpp"
-#include "bruce/lhme/gguf_storage_plan.hpp"
-#include "bruce/lhme/trace.hpp"
-#include "bruce/lhme/types.hpp"
+#include "axiom/lhme/gguf_inspector.hpp"
+#include "axiom/lhme/gguf_storage_plan.hpp"
+#include "axiom/lhme/trace.hpp"
+#include "axiom/lhme/types.hpp"
 
-namespace bruce::lhme {
+namespace axiom::lhme {
 
 enum class GgufPatternKind {
   ConstantBytes,
@@ -46,4 +46,4 @@ struct GgufPatternScanResult {
     std::span<const GgufPlanItem> selected_chunks,
     const GgufPatternScanConfig& config);
 
-}  // namespace bruce::lhme
+}  // namespace axiom::lhme

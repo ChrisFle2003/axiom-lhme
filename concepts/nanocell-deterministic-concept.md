@@ -1,4 +1,4 @@
-# BRUCE NanoCell: Deterministische mehrdimensionale Erfahrungs- und Bedeutungsverarbeitung
+# AXIOM NanoCell: Deterministische mehrdimensionale Erfahrungs- und Bedeutungsverarbeitung
 
 ## Dokumentstatus und Kennzeichnung
 
@@ -17,7 +17,7 @@ Die folgenden Kennzeichnungen werden verwendet:
 
 ## 1. Kurzfassung
 
-BRUCE NanoCell ist eine deterministische Rechen- und Wissensarchitektur, in der kompakte NanoNeuronen nicht sämtliche möglichen Bedeutungen, Muster und Reaktionen dauerhaft speichern. Stattdessen bildet jedes NanoNeuron einen kleinen kanonischen Ausgangszustand, aus dem bei Bedarf mehrere isolierte Berechnungsvarianten erzeugt werden.
+AXIOM NanoCell ist eine deterministische Rechen- und Wissensarchitektur, in der kompakte NanoNeuronen nicht sämtliche möglichen Bedeutungen, Muster und Reaktionen dauerhaft speichern. Stattdessen bildet jedes NanoNeuron einen kleinen kanonischen Ausgangszustand, aus dem bei Bedarf mehrere isolierte Berechnungsvarianten erzeugt werden.
 
 Diese Berechnungsvarianten werden im Projekt metaphorisch als **Paralleluniversen** bezeichnet. Ein Paralleluniversum beschreibt keine physikalische Parallelwelt und keinen quantenmechanischen Zustand. Es ist ein deterministisch definierter Verarbeitungspfad, der denselben Ausgangszustand mit einer bestimmten Kombination aus Verschiebung, Rotation, Logikgatter, Maske, Kontext und Technik betrachtet.
 
@@ -34,9 +34,9 @@ Ausgangszustand
 
 Jedes berechnete Universum liefert einen kleinen, typisierten **AnswerPoint**. Mehrere AnswerPoints bilden gemeinsam eine semantische Konstellation. Diese Konstellation kann anschließend von einem themenorientierten Small Language Model, einem regelbasierten Renderer oder einem anderen Decoder in Text, Binärcode, eine Formel oder eine Steuerungsaktion übersetzt werden.
 
-Das Sprachmodell soll nicht die eigentliche Antwort erfinden. BRUCE berechnet die zugrunde liegenden Aussagen, Relationen, Negationen und Nachweise. Das Sprachmodell übernimmt ausschließlich die sprachliche Darstellung. Seine Ausgabe wird anschließend gegen die ursprünglichen AnswerPoints zurückgeprüft.
+Das Sprachmodell soll nicht die eigentliche Antwort erfinden. AXIOM berechnet die zugrunde liegenden Aussagen, Relationen, Negationen und Nachweise. Das Sprachmodell übernimmt ausschließlich die sprachliche Darstellung. Seine Ausgabe wird anschließend gegen die ursprünglichen AnswerPoints zurückgeprüft.
 
-Zusätzlich soll BRUCE aus angewandten Techniken lernen. Eine Technik besteht aus einer geordneten Kombination von Operationen und Entscheidungsregeln. Wird eine Technik auf eine erkannte Situation angewandt, entsteht eine Erfahrung:
+Zusätzlich soll AXIOM aus angewandten Techniken lernen. Eine Technik besteht aus einer geordneten Kombination von Operationen und Entscheidungsregeln. Wird eine Technik auf eine erkannte Situation angewandt, entsteht eine Erfahrung:
 
 ```text
 Situation
@@ -47,9 +47,9 @@ Situation
 = Erfahrung
 ```
 
-Die vollständigen Erfahrungen werden persistent auf SSD gespeichert. Häufige, erfolgreiche und für das aktuelle Thema relevante Techniken können in verdichteter Form in RAM oder Cache geladen werden. BRUCE lernt dadurch nicht primär durch die unkontrollierte Veränderung eines großen Gewichtsmodells, sondern durch nachvollziehbares Speichern, Vergleichen, Bewerten, Verdichten und Wiederverwenden von Erfahrungen.
+Die vollständigen Erfahrungen werden persistent auf SSD gespeichert. Häufige, erfolgreiche und für das aktuelle Thema relevante Techniken können in verdichteter Form in RAM oder Cache geladen werden. AXIOM lernt dadurch nicht primär durch die unkontrollierte Veränderung eines großen Gewichtsmodells, sondern durch nachvollziehbares Speichern, Vergleichen, Bewerten, Verdichten und Wiederverwenden von Erfahrungen.
 
-Die Lemmings-Metapher beschreibt lediglich das Grundprinzip: Ein laufender Prozess trifft auf eine Situation, eine passende Fähigkeit wird ausgewählt, die Wirkung wird beobachtet und die Erfahrung wird gespeichert. Im Spiel greifen Aktionen gezielt in einen sonst automatisch ablaufenden Weg ein. Dieses Prinzip wird auf BRUCE verallgemeinert und erhält keine spielbezogene Wissensorientierung. citeturn430988view9turn906457view2
+Die Lemmings-Metapher beschreibt lediglich das Grundprinzip: Ein laufender Prozess trifft auf eine Situation, eine passende Fähigkeit wird ausgewählt, die Wirkung wird beobachtet und die Erfahrung wird gespeichert. Im Spiel greifen Aktionen gezielt in einen sonst automatisch ablaufenden Weg ein. Dieses Prinzip wird auf AXIOM verallgemeinert und erhält keine spielbezogene Wissensorientierung. citeturn430988view9turn906457view2
 
 ---
 
@@ -59,7 +59,7 @@ Die Lemmings-Metapher beschreibt lediglich das Grundprinzip: Ein laufender Proze
 
 Gewöhnliche neuronale Modelle speichern einen großen Teil ihrer Fähigkeiten implizit in zahlreichen Parametern. Einzelne Entscheidungen lassen sich deshalb häufig nicht unmittelbar auf eine kleine, eindeutig lesbare Regel oder Erfahrung zurückführen.
 
-BRUCE verfolgt einen anderen Ansatz:
+AXIOM verfolgt einen anderen Ansatz:
 
 - Wissen soll möglichst explizit referenzierbar sein.
 - Berechnungen sollen reproduzierbar sein.
@@ -73,7 +73,7 @@ Bitweise Operatoren eignen sich als elementare Grundlage, weil sie direkt auf ei
 
 Logikgatter bilden binäre Eingangswerte durch eine boolesche Funktion auf ein binäres Ergebnis ab. Logische Verknüpfungen sind dadurch eindeutig durch ihre Eingaben beziehungsweise Wahrheitstabellen bestimmt. Diese Eigenschaft passt zur angestrebten deterministischen Verarbeitung. citeturn906457view0turn430988view5
 
-Mustererkennung bezeichnet allgemein das Erkennen von Regelmäßigkeiten, Wiederholungen, Ähnlichkeiten oder Gesetzmäßigkeiten in Daten. BRUCE soll diese Aufgabe nicht ausschließlich durch ein trainiertes statistisches Gesamtmodell lösen, sondern zusätzlich durch explizite Masken, Gatterfolgen, Formen, Kontexte und gespeicherte Erfahrungen. citeturn430988view3
+Mustererkennung bezeichnet allgemein das Erkennen von Regelmäßigkeiten, Wiederholungen, Ähnlichkeiten oder Gesetzmäßigkeiten in Daten. AXIOM soll diese Aufgabe nicht ausschließlich durch ein trainiertes statistisches Gesamtmodell lösen, sondern zusätzlich durch explizite Masken, Gatterfolgen, Formen, Kontexte und gespeicherte Erfahrungen. citeturn430988view3
 
 ### 2.2 Speicherproblem
 
@@ -108,7 +108,7 @@ Damit gelten weiterhin:
 
 Während einer konkreten Verarbeitung kann jedoch nur das relevante Zustandsbyte oder ein anderer kompakter Ausschnitt in einem zusammenhängenden Arbeitsbereich liegen.
 
-Ein 64-Bit-Datenwort ist acht Byte breit. Eine 64-Bit-Architektur arbeitet mit entsprechend breiten Registern oder Datenoperationen, auch wenn reale Adressräume nicht zwingend alle 64 möglichen Adressbits verwenden. Für BRUCE ergibt sich daraus die Möglichkeit, einen vollständigen 8-Byte-Datensatz oder acht aktive Zustandsbytes in einer 64-Bit-Einheit zu betrachten. citeturn861276view0
+Ein 64-Bit-Datenwort ist acht Byte breit. Eine 64-Bit-Architektur arbeitet mit entsprechend breiten Registern oder Datenoperationen, auch wenn reale Adressräume nicht zwingend alle 64 möglichen Adressbits verwenden. Für AXIOM ergibt sich daraus die Möglichkeit, einen vollständigen 8-Byte-Datensatz oder acht aktive Zustandsbytes in einer 64-Bit-Einheit zu betrachten. citeturn861276view0
 
 ### 2.3 Problem exponentieller Prozessräume
 
@@ -132,7 +132,7 @@ Das Konzept darf daraus nicht ableiten, dass alle möglichen Kombinationen gleic
 
 Die zentrale Herausforderung lautet daher:
 
-> Wie kann BRUCE sehr große virtuelle Such- und Beziehungsräume nutzen, ohne deren vollständige Zustände dauerhaft zu speichern?
+> Wie kann AXIOM sehr große virtuelle Such- und Beziehungsräume nutzen, ohne deren vollständige Zustände dauerhaft zu speichern?
 
 Die vorgesehene Antwort ist eine lazy beziehungsweise bedarfsgesteuerte Ausführung:
 
@@ -148,7 +148,7 @@ Koordinate oder Kandidat bestimmen
 
 Das reine Speichern einer fertigen Antwort reicht nicht aus, um eine wiederverwendbare Fähigkeit zu erzeugen.
 
-BRUCE muss nachvollziehen können:
+AXIOM muss nachvollziehen können:
 
 - Welche Situation wurde erkannt?
 - Welche Technik wurde ausgewählt?
@@ -188,7 +188,7 @@ Entwicklung einer kompakten, deterministischen CPU-RAM-NPU-Architektur, in der N
 11. Aufbau eines themenbezogenen Hot-Skill-Caches in RAM.
 12. Speicherung und Berücksichtigung erfolgreicher sowie gescheiterter Anwendungen.
 13. Reproduzierbare Bewertung und Rangfolge von Techniken.
-14. Integration in die vorhandene ExecutionCell-, Trace- und BRUCE-Architektur.
+14. Integration in die vorhandene ExecutionCell-, Trace- und AXIOM-Architektur.
 15. Vorbereitung einer späteren CPU-, SIMD-, GPU- oder spezialisierten NPU-Ausführung.
 
 ### 3.3 Nicht-Ziele
@@ -252,7 +252,7 @@ Jeder bestätigte AnswerPoint, jede verdichtete Erfahrung und jede ausgegebene A
 
 ### 4.6 Trennung von Denken und Formulieren
 
-Die Berechnung der Aussage erfolgt durch BRUCE. Ein SLM oder Renderer darf die Aussage sprachlich darstellen, aber ihren Inhalt nicht eigenmächtig erweitern.
+Die Berechnung der Aussage erfolgt durch AXIOM. Ein SLM oder Renderer darf die Aussage sprachlich darstellen, aber ihren Inhalt nicht eigenmächtig erweitern.
 
 ### 4.7 Lernen ohne unkontrollierte Mutation
 
@@ -330,7 +330,7 @@ Projektspezifische Achse, über die alternative Berechnungen oder Relationen erz
 Systematische Organisation von Bitpositionen, Transformationen, Gattern, Masken oder Kontexten.
 
 **Abgrenzung:**  
-Der Begriff ist nicht automatisch mit mathematischer Raumdimension gleichzusetzen. In der Mathematik kann Dimension etwa die Anzahl unabhängiger Freiheitsgrade bezeichnen; bei Arrays wird häufig die Zahl der Indizes als Dimension bezeichnet. BRUCE muss daher seine eigene Prozessdimension ausdrücklich definieren. citeturn430988view2
+Der Begriff ist nicht automatisch mit mathematischer Raumdimension gleichzusetzen. In der Mathematik kann Dimension etwa die Anzahl unabhängiger Freiheitsgrade bezeichnen; bei Arrays wird häufig die Zahl der Indizes als Dimension bezeichnet. AXIOM muss daher seine eigene Prozessdimension ausdrücklich definieren. citeturn430988view2
 
 ---
 
@@ -470,7 +470,7 @@ Darf nicht eigenständig den Wahrheitsgehalt festlegen.
 Rekonstruktion einer Ausgabe aus kompakten, nachweisbaren Bedeutungspunkten.
 
 **Abgrenzung:**  
-Nur metaphorisch mit Quantenteleportation vergleichbar. Reale Quantenteleportation überträgt einen quantenmechanischen Zustand unter Nutzung eines Quanten- und eines klassischen Kanals; diese physikalischen Voraussetzungen existieren im BRUCE-Konzept nicht. citeturn430988view10turn906457view3
+Nur metaphorisch mit Quantenteleportation vergleichbar. Reale Quantenteleportation überträgt einen quantenmechanischen Zustand unter Nutzung eines Quanten- und eines klassischen Kanals; diese physikalischen Voraussetzungen existieren im AXIOM-Konzept nicht. citeturn430988view10turn906457view3
 
 ---
 
@@ -761,7 +761,7 @@ Führt boolesche Verknüpfungen aus.
 Ein Gate verarbeitet binäre Eingänge zu einem binären Ergebnis. Mehrere Gates können als virtuelle Logikbausteine zu einer komplexeren Funktion zusammengesetzt werden. Der Begriff „Logikbaustein“ kann neben realer Hardware auch eine virtuelle Beschreibung digitaler Schaltfunktionen bezeichnen. citeturn906457view0turn430988view7
 
 **Begriffliche Abgrenzung:**  
-„Logikfamilie“ bezeichnet in der Digitaltechnik normalerweise kompatible Bausteine mit gemeinsamer Fertigungs- und Schaltungstechnik. Für BRUCE sollte deshalb besser von **Gate Profile**, **Operator Family** oder **Technique Family** gesprochen werden. citeturn430988view6
+„Logikfamilie“ bezeichnet in der Digitaltechnik normalerweise kompatible Bausteine mit gemeinsamer Fertigungs- und Schaltungstechnik. Für AXIOM sollte deshalb besser von **Gate Profile**, **Operator Family** oder **Technique Family** gesprochen werden. citeturn430988view6
 
 ---
 
@@ -1452,7 +1452,7 @@ Erfahrung:
     Situation + Technik + Resultat + Kosten + Trace
 ```
 
-Die BRUCE-Übertragung könnte lauten:
+Die AXIOM-Übertragung könnte lauten:
 
 ```text
 Wenn Formelüberlauf,
@@ -1964,7 +1964,7 @@ Eine GPU-Ausführung soll erst nach einem profilierten CPU-Referenzmodell erfolg
 
 ## 16.5 Mikrocontroller-Perspektive
 
-Mikrocontroller integrieren Rechenkern, Speicher- und Peripheriefunktionen für konkrete eingebettete Aufgaben. Einige besitzen programmierbare digitale oder hybride Funktionsblöcke. Das unterstützt als Architekturmetapher die Idee kleiner spezialisierter BRUCE-Funktionsblöcke, beweist jedoch noch keine direkte Hardwareeffizienz des NanoNeuron-Formats. citeturn906457view1
+Mikrocontroller integrieren Rechenkern, Speicher- und Peripheriefunktionen für konkrete eingebettete Aufgaben. Einige besitzen programmierbare digitale oder hybride Funktionsblöcke. Das unterstützt als Architekturmetapher die Idee kleiner spezialisierter AXIOM-Funktionsblöcke, beweist jedoch noch keine direkte Hardwareeffizienz des NanoNeuron-Formats. citeturn906457view1
 
 ---
 
@@ -2354,14 +2354,14 @@ Bessere Isolation und kleinere Hot-Sets.
 
 ### Selbstständige Technikkomposition
 
-BRUCE kombiniert bekannte Werkzeuge zu einer neuen Technik.
+AXIOM kombiniert bekannte Werkzeuge zu einer neuen Technik.
 
 **Bedingung:**  
 Neue Technik bleibt zunächst Kandidat und benötigt Tests sowie Freigabe.
 
 ### Binäre Semantic State Reconstruction
 
-Eine Antwort wird nicht als Text, sondern als kompakter Zustandsvertrag an ein anderes BRUCE-System übertragen.
+Eine Antwort wird nicht als Text, sondern als kompakter Zustandsvertrag an ein anderes AXIOM-System übertragen.
 
 ### Hardware-NanoCell
 
@@ -2495,11 +2495,11 @@ Dieser Aufbau besitzt den größten Erkenntniswert bei geringstem Risiko.
 - Experience Ledger,
 - Speicherung von Erfolgen und Fehlschlägen,
 - thematischer Hot-Skill-Cache,
-- Trennung von BRUCE-Logik und SLM-Sprache.
+- Trennung von AXIOM-Logik und SLM-Sprache.
 
 ### Verändern beziehungsweise präzisieren
 
-- „Dimension“ als **BRUCE-Prozessdimension** definieren,
+- „Dimension“ als **AXIOM-Prozessdimension** definieren,
 - „Paralleluniversum“ intern als UniverseSpec implementieren,
 - „Quantenteleportation“ nur als Metapher verwenden,
 - Häufigkeitsranking um Erfolg, Verifikation, Kosten und Risiko ergänzen,
@@ -2559,7 +2559,7 @@ Beispielsituationen:
 
 ## 25. Schlussfolgerung
 
-Das BRUCE-NanoCell-Konzept verbindet kompakte Bitrepräsentation, deterministische Mehrfachauswertung, Mustererkennung und erfahrungsbasiertes Lernen zu einer eigenständigen Architektur.
+Das AXIOM-NanoCell-Konzept verbindet kompakte Bitrepräsentation, deterministische Mehrfachauswertung, Mustererkennung und erfahrungsbasiertes Lernen zu einer eigenständigen Architektur.
 
 Der entscheidende Gedanke besteht nicht darin, immer mehr neuronale Zustände zu speichern. Stattdessen wird ein kleiner kanonischer Zustand unter mehreren klar definierten Perspektiven geprüft. Jede Perspektive existiert nur lange genug, um einen nachweisbaren Ergebnisbeitrag zu liefern.
 
@@ -2586,7 +2586,7 @@ Der nächste entscheidende Schritt ist deshalb kein großes Sprachmodell und kei
 
 # Festgelegte Bestandteile
 
-- BRUCE als deterministische Prüf- und Verarbeitungsarchitektur.
+- AXIOM als deterministische Prüf- und Verarbeitungsarchitektur.
 - ExecutionCell als zusammenhängender NanoNeuron-Block.
 - 16-Bit-IDs beziehungsweise lokale Indizes im MVP-Rahmen.
 - ein kanonisches NanoNeuron soll acht Byte umfassen.
@@ -2597,7 +2597,7 @@ Der nächste entscheidende Schritt ist deshalb kein großes Sprachmodell und kei
 - mehrere AnswerPoints bilden die Grundlage einer Antwort.
 - Erfahrungen werden persistent gespeichert.
 - häufige und geeignete Techniken können in den aktiven Speicher geladen werden.
-- BRUCE soll aus erfolgreichen und gescheiterten Anwendungen lernen.
+- AXIOM soll aus erfolgreichen und gescheiterten Anwendungen lernen.
 - Lemmings dient nur als Funktionsmetapher.
 - Quantenteleportation dient nur als philosophische Metapher.
 
@@ -2638,7 +2638,7 @@ Der nächste entscheidende Schritt ist deshalb kein großes Sprachmodell und kei
    Neue Erfahrungen werden append-only gespeichert; kanonisches Wissen wird nicht still überschrieben.
 
 5. **SLM-Ausgabe gegenüber deterministischer Wahrheit:**  
-   Das SLM formuliert, während BRUCE Bedeutung und Nachweis vorgibt.
+   Das SLM formuliert, während AXIOM Bedeutung und Nachweis vorgibt.
 
 6. **Logikfamilie als Projektbegriff gegenüber elektrotechnischer Bedeutung:**  
    Intern besser Operator Family oder Gate Profile verwenden.
@@ -2672,4 +2672,4 @@ Implementierung eines kleinen CPU-Referenzprototyps:
 
 Dieser Prototyp sollte zunächst ausschließlich die technische Kernfrage beantworten:
 
-> Kann BRUCE aus kompakten NanoNeuron-Zuständen mehrere virtuelle Aufgabenperspektiven berechnen, deren Ergebnisse zu einer Technik verbinden und deren Erfolg oder Fehlschlag reproduzierbar als neue Erfahrung speichern?
+> Kann AXIOM aus kompakten NanoNeuron-Zuständen mehrere virtuelle Aufgabenperspektiven berechnen, deren Ergebnisse zu einer Technik verbinden und deren Erfolg oder Fehlschlag reproduzierbar als neue Erfahrung speichern?

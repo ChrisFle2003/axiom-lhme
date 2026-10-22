@@ -1,10 +1,10 @@
-#include "bruce/lhme/gguf_report.hpp"
+#include "axiom/lhme/gguf_report.hpp"
 
 #include <iomanip>
 #include <sstream>
 #include <string_view>
 
-namespace bruce::lhme {
+namespace axiom::lhme {
 namespace {
 
 [[nodiscard]] std::string_view status_name(Status status) {
@@ -143,4 +143,4 @@ std::string render_gguf_json_plan(const GgufInspection& inspection,
   return output.str();
 }
 
-}  // namespace bruce::lhme
+}  // namespace axiom::lhme

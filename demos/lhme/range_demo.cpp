@@ -1,12 +1,12 @@
 #include "demo_report.hpp"
 #include "reference_values.hpp"
 
-#include "bruce/lhme/engine.hpp"
+#include "axiom/lhme/engine.hpp"
 
 namespace {
 
-bool same_candidates(const bruce::lhme::RangeResult& left,
-                     const bruce::lhme::RangeResult& right) {
+bool same_candidates(const axiom::lhme::RangeResult& left,
+                     const axiom::lhme::RangeResult& right) {
   if (left.status != right.status) return false;
   if (left.candidates.size() != right.candidates.size()) return false;
   for (std::size_t index = 0; index < left.candidates.size(); ++index) {
@@ -23,38 +23,38 @@ bool same_candidates(const bruce::lhme::RangeResult& left,
   return true;
 }
 
-bruce::lhme::EvaluationRequest exact_request(
-    const bruce::lhme::FormulaSpec& formula) {
+axiom::lhme::EvaluationRequest exact_request(
+    const axiom::lhme::FormulaSpec& formula) {
   return {.spec = formula,
-          .mode = bruce::lhme::EvaluationMode::Exact,
-          .budget = bruce::lhme::Budget::unlimited()};
+          .mode = axiom::lhme::EvaluationMode::Exact,
+          .budget = axiom::lhme::Budget::unlimited()};
 }
 
 }  // namespace
 
 int main() {
-  bruce::lhme::demo::Report report;
+  axiom::lhme::demo::Report report;
   report.heading("LHME CPU Range Reduction");
-  auto serial_engine = bruce::lhme::Engine::create(
+  auto serial_engine = axiom::lhme::Engine::create(
       {.worker_count = 1, .tile_size = 4});
-  auto parallel_engine = bruce::lhme::Engine::create(
+  auto parallel_engine = axiom::lhme::Engine::create(
       {.worker_count = 4, .tile_size = 4});
-  auto branch_engine = bruce::lhme::Engine::create(
+  auto branch_engine = axiom::lhme::Engine::create(
       {.worker_count = 2, .tile_size = 1});
   const auto serial_formula = serial_engine.register_formula(
-      bruce::lhme::demo::reference_spec());
+      axiom::lhme::demo::reference_spec());
   const auto parallel_formula = parallel_engine.register_formula(
-      bruce::lhme::demo::reference_spec());
+      axiom::lhme::demo::reference_spec());
   const auto branch_formula = branch_engine.register_formula(
-      bruce::lhme::demo::reference_spec());
+      axiom::lhme::demo::reference_spec());
 
   const auto serial = serial_engine.evaluate_range(exact_request(serial_formula), {0, 20});
   const auto parallel = parallel_engine.evaluate_range(exact_request(parallel_formula), {0, 20});
   const auto branch = branch_engine.evaluate_range(exact_request(branch_formula), {-1, 5});
 
-  report.expect_equal("serial status", bruce::lhme::Status::Confirmed, serial.status);
-  report.expect_equal("parallel status", bruce::lhme::Status::Confirmed, parallel.status);
-  report.expect_equal("branch status", bruce::lhme::Status::Confirmed, branch.status);
+  report.expect_equal("serial status", axiom::lhme::Status::Confirmed, serial.status);
+  report.expect_equal("parallel status", axiom::lhme::Status::Confirmed, parallel.status);
+  report.expect_equal("branch status", axiom::lhme::Status::Confirmed, branch.status);
   report.row("serial candidates", std::to_string(serial.candidates.size()));
   report.row("parallel candidates", std::to_string(parallel.candidates.size()));
   if (!parallel.candidates.empty() && parallel.candidates.back().integer.has_value()) {
@@ -69,10 +69,10 @@ int main() {
   report.expect_equal("candidate count", std::size_t(21), parallel.candidates.size());
   report.expect_true("last candidate exists", !parallel.candidates.empty());
   if (!parallel.candidates.empty()) {
-    report.expect_equal("last candidate status", bruce::lhme::Status::Confirmed,
+    report.expect_equal("last candidate status", axiom::lhme::Status::Confirmed,
                         parallel.candidates.back().status);
-    report.expect_equal("last exact candidate", bruce::lhme::demo::exact_at_20(),
-                        parallel.candidates.back().integer.value_or(bruce::lhme::BigInt(0)));
+    report.expect_equal("last exact candidate", axiom::lhme::demo::exact_at_20(),
+                        parallel.candidates.back().integer.value_or(axiom::lhme::BigInt(0)));
   }
   report.expect_equal("branch invalid count", std::uint64_t(1),
                       branch.summary.invalid_argument_count);

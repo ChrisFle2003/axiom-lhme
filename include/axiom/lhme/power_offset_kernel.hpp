@@ -5,9 +5,9 @@
 #include <string>
 #include <string_view>
 
-#include "bruce/lhme/technique.hpp"
+#include "axiom/lhme/technique.hpp"
 
-namespace bruce::lhme {
+namespace axiom::lhme {
 
 struct PowerOffsetParameters {
   BigInt base;
@@ -35,4 +35,4 @@ class PowerOffsetKernel final : public TechniqueKernel {
       const TechniqueRequest& request) const override;
 };
 
-}  // namespace bruce::lhme
+}  // namespace axiom::lhme

@@ -7,12 +7,12 @@
 
 namespace {
 
-using bruce::lhme::benchmark::table::DenseValueTable;
-using bruce::lhme::benchmark::table::FormulaRecipeTable;
-using bruce::lhme::benchmark::table::HashValueTable;
-using bruce::lhme::benchmark::table::FormulaOverrideTable;
-using bruce::lhme::benchmark::table::SortedPairTable;
-using bruce::lhme::benchmark::table::synthetic_value_at;
+using axiom::lhme::benchmark::table::DenseValueTable;
+using axiom::lhme::benchmark::table::FormulaRecipeTable;
+using axiom::lhme::benchmark::table::HashValueTable;
+using axiom::lhme::benchmark::table::FormulaOverrideTable;
+using axiom::lhme::benchmark::table::SortedPairTable;
+using axiom::lhme::benchmark::table::synthetic_value_at;
 
 }  // namespace
 

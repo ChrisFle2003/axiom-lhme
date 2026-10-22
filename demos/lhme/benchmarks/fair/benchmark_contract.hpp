@@ -6,7 +6,7 @@
 #include <optional>
 #include <vector>
 
-namespace bruce::lhme::benchmark::fair {
+namespace axiom::lhme::benchmark::fair {
 
 inline constexpr std::size_t kTimedSampleCount = 11;
 
@@ -92,4 +92,4 @@ struct TimingSummary {
                        .maximum_microseconds = ordered.back()};
 }
 
-}  // namespace bruce::lhme::benchmark::fair
+}  // namespace axiom::lhme::benchmark::fair

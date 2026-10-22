@@ -12,8 +12,8 @@
 
 namespace {
 
-using namespace bruce::lhme;
-using namespace bruce::lhme::benchmark::fair;
+using namespace axiom::lhme;
+using namespace axiom::lhme::benchmark::fair;
 
 [[nodiscard]] const char* workload_name(WorkloadKind kind) {
   switch (kind) {

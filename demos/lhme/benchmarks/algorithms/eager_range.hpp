@@ -2,7 +2,7 @@
 
 #include "algorithm_result.hpp"
 
-namespace bruce::lhme::benchmark::algorithm {
+namespace axiom::lhme::benchmark::algorithm {
 
 inline Result eager_range(const EvaluationRequest& exact_request,
                           AddressRange range) {
@@ -38,4 +38,4 @@ inline Result eager_range(const EvaluationRequest& exact_request,
   return output;
 }
 
-}  // namespace bruce::lhme::benchmark::algorithm
+}  // namespace axiom::lhme::benchmark::algorithm

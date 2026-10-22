@@ -1,9 +1,9 @@
-#include "bruce/lhme/trace.hpp"
+#include "axiom/lhme/trace.hpp"
 
 #include <cstdint>
 #include <utility>
 
-namespace bruce::lhme {
+namespace axiom::lhme {
 
 bool TraceRecord::contains(GateScope scope) const {
   for (const auto& event : events) {
@@ -30,4 +30,4 @@ std::shared_ptr<const TraceRecord> make_trace(std::vector<GateEvent> events) {
       TraceRecord{.id = std::to_string(hash), .events = std::move(events)});
 }
 
-}  // namespace bruce::lhme
+}  // namespace axiom::lhme

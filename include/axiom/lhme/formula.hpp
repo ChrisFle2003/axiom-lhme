@@ -6,9 +6,9 @@
 #include <cstdint>
 #include <optional>
 
-#include "bruce/lhme/types.hpp"
+#include "axiom/lhme/types.hpp"
 
-namespace bruce::lhme {
+namespace axiom::lhme {
 
 enum class FormulaOperation {
   PowerOffset,
@@ -43,4 +43,4 @@ struct EvaluationRequest {
 
 [[nodiscard]] EvaluationResult evaluate(const EvaluationRequest& request);
 
-}  // namespace bruce::lhme
+}  // namespace axiom::lhme

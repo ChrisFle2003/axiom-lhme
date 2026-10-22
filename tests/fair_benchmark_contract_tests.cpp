@@ -10,17 +10,17 @@
 
 namespace {
 
-using bruce::lhme::benchmark::fair::FairBenchmarkConfig;
-using bruce::lhme::benchmark::fair::fair_storage_report_contract;
-using bruce::lhme::benchmark::fair::StorageStrategyKind;
-using bruce::lhme::benchmark::fair::WorkloadKind;
-using bruce::lhme::benchmark::fair::build_storage_case;
-using bruce::lhme::benchmark::fair::lookup_scalar;
-using bruce::lhme::benchmark::fair::make_workload;
-using bruce::lhme::benchmark::fair::storage_case_label;
-using bruce::lhme::benchmark::fair::summarize_samples;
-using bruce::lhme::benchmark::fair::validate_config;
-using bruce::lhme::benchmark::fair::verify_workload;
+using axiom::lhme::benchmark::fair::FairBenchmarkConfig;
+using axiom::lhme::benchmark::fair::fair_storage_report_contract;
+using axiom::lhme::benchmark::fair::StorageStrategyKind;
+using axiom::lhme::benchmark::fair::WorkloadKind;
+using axiom::lhme::benchmark::fair::build_storage_case;
+using axiom::lhme::benchmark::fair::lookup_scalar;
+using axiom::lhme::benchmark::fair::make_workload;
+using axiom::lhme::benchmark::fair::storage_case_label;
+using axiom::lhme::benchmark::fair::summarize_samples;
+using axiom::lhme::benchmark::fair::validate_config;
+using axiom::lhme::benchmark::fair::verify_workload;
 
 constexpr FairBenchmarkConfig valid_config{
     .record_count = 1'024,

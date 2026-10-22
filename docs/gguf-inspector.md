@@ -1,6 +1,6 @@
-# BRUCE GGUF Inspector V1
+# AXIOM GGUF Inspector V1
 
-Der BRUCE GGUF Inspector untersucht lokale GGUF-V3-Modelldateien und erstellt
+Der AXIOM GGUF Inspector untersucht lokale GGUF-V3-Modelldateien und erstellt
 einen deterministischen CPU/RAM-Ladeplan. Er ersetzt weder GGUF noch ggml oder
 llama.cpp und führt keine Inferenz aus.
 
@@ -24,7 +24,7 @@ llama.cpp und führt keine Inferenz aus.
   **kein** bewiesenes `FormulaRecipe` und hat immer `exactly_verified=false`.
 
 Die gespeicherte Reihenfolge eines Tensors ist Teil seiner Modellbedeutung.
-BRUCE sortiert nur Inventar- und Planbeschreibungen für reproduzierbare
+AXIOM sortiert nur Inventar- und Planbeschreibungen für reproduzierbare
 Berichte; es sortiert niemals einzelne Gewichtswerte. Quantisierte,
 trainierte Gewichte gelten nicht automatisch als formelkomprimierbar.
 
@@ -49,9 +49,9 @@ Inferenz-Runtime.
 
 ```bash
 cmake --preset release
-cmake --build --preset release --target bruce_gguf_inspect
+cmake --build --preset release --target axiom_gguf_inspect
 
-./out/build/release/bruce_gguf_inspect model.gguf \
+./out/build/release/axiom_gguf_inspect model.gguf \
   --memory-budget 8589934592 \
   --chunk-size 67108864 \
   --policy budgeted \
@@ -71,7 +71,7 @@ Die drei Ladepolitiken sind:
 Ein Nutzungsprofil ist eine lokale Textdatei mit einem Tensorname pro Zeile:
 
 ```bash
-./out/build/release/bruce_gguf_inspect model.gguf \
+./out/build/release/axiom_gguf_inspect model.gguf \
   --memory-budget 8589934592 \
   --chunk-size 67108864 \
   --policy budgeted \

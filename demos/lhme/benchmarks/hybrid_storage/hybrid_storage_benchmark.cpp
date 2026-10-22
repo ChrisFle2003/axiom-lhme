@@ -1,7 +1,7 @@
 #include "demo_report.hpp"
 
-#include "bruce/lhme/formula_override_snapshot.hpp"
-#include "bruce/lhme/formula_override_store.hpp"
+#include "axiom/lhme/formula_override_snapshot.hpp"
+#include "axiom/lhme/formula_override_store.hpp"
 #include "table_storage.hpp"
 
 #include <chrono>
@@ -15,7 +15,7 @@
 namespace {
 
 using Clock = std::chrono::steady_clock;
-using bruce::lhme::benchmark::table::HashValueTable;
+using axiom::lhme::benchmark::table::HashValueTable;
 
 constexpr std::uint64_t kVirtualAddressCount = 1'000'000;
 
@@ -35,11 +35,11 @@ struct Measurement {
 
 [[nodiscard]] std::filesystem::path snapshot_path(std::uint64_t override_count) {
   return std::filesystem::temp_directory_path() /
-         ("bruce-hybrid-" + std::to_string(override_count) + ".snapshot");
+         ("axiom-hybrid-" + std::to_string(override_count) + ".snapshot");
 }
 
 [[nodiscard]] Measurement measure_tier(std::uint64_t override_count) {
-  using namespace bruce::lhme;
+  using namespace axiom::lhme;
   auto engine = Engine::create({});
   const auto binding = engine.register_formula(make_power_offset_spec(2, 100, 1));
   FormulaOverrideStore store{engine};
@@ -104,7 +104,7 @@ struct Measurement {
 }  // namespace
 
 int main(int argc, char* argv[]) {
-  using namespace bruce::lhme;
+  using namespace axiom::lhme;
 
   bool include_full_override_tier = false;
   if (argc == 2 && std::string_view{argv[1]} == "--full-overrides") {

@@ -20,7 +20,7 @@
       "inherits": "base",
       "cacheVariables": {
         "CMAKE_BUILD_TYPE": "Debug",
-        "BRUCE_SANITIZER": "none"
+        "AXIOM_SANITIZER": "none"
       }
     },
     {
@@ -29,7 +29,7 @@
       "inherits": "base",
       "cacheVariables": {
         "CMAKE_BUILD_TYPE": "Release",
-        "BRUCE_SANITIZER": "none"
+        "AXIOM_SANITIZER": "none"
       }
     },
     {
@@ -57,7 +57,7 @@
       "displayName": "AddressSanitizer",
       "inherits": "debug",
       "cacheVariables": {
-        "BRUCE_SANITIZER": "address"
+        "AXIOM_SANITIZER": "address"
       }
     },
     {
@@ -65,7 +65,7 @@
       "displayName": "UndefinedBehaviorSanitizer",
       "inherits": "debug",
       "cacheVariables": {
-        "BRUCE_SANITIZER": "undefined"
+        "AXIOM_SANITIZER": "undefined"
       }
     },
     {
@@ -73,7 +73,7 @@
       "displayName": "ThreadSanitizer",
       "inherits": "debug",
       "cacheVariables": {
-        "BRUCE_SANITIZER": "thread"
+        "AXIOM_SANITIZER": "thread"
       }
     }
   ],

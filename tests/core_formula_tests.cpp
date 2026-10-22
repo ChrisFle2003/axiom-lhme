@@ -1,18 +1,18 @@
 #include "test.hpp"
 
-#include "bruce/lhme/formula.hpp"
+#include "axiom/lhme/formula.hpp"
 
 namespace {
 
-bruce::lhme::FormulaSpec reference_spec() {
-  return bruce::lhme::make_power_offset_spec(2, 100, 1);
+axiom::lhme::FormulaSpec reference_spec() {
+  return axiom::lhme::make_power_offset_spec(2, 100, 1);
 }
 
-bruce::lhme::EvaluationResult exact(const bruce::lhme::FormulaSpec& spec,
+axiom::lhme::EvaluationResult exact(const axiom::lhme::FormulaSpec& spec,
                                     std::int64_t index) {
-  return bruce::lhme::evaluate_power_offset(
-      spec, {.index = index}, bruce::lhme::EvaluationMode::Exact,
-      bruce::lhme::Budget::unlimited());
+  return axiom::lhme::evaluate_power_offset(
+      spec, {.index = index}, axiom::lhme::EvaluationMode::Exact,
+      axiom::lhme::Budget::unlimited());
 }
 
 }  // namespace
@@ -28,5 +28,5 @@ TEST(power_offset_exact_reference_values) {
 
 TEST(power_offset_rejects_negative_address) {
   const auto result = exact(reference_spec(), -1);
-  CHECK(result.status == bruce::lhme::Status::InvalidArgument);
+  CHECK(result.status == axiom::lhme::Status::InvalidArgument);
 }

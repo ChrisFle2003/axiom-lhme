@@ -1,13 +1,13 @@
-#include "bruce/lhme/reduction.hpp"
+#include "axiom/lhme/reduction.hpp"
 
-#include "bruce/lhme/trace.hpp"
+#include "axiom/lhme/trace.hpp"
 
 #include <algorithm>
 #include <future>
 #include <limits>
 #include <utility>
 
-namespace bruce::lhme {
+namespace axiom::lhme {
 namespace {
 struct TileResult { std::uint64_t id; RangeResult result; };
 
@@ -98,4 +98,4 @@ RangeResult evaluate_range(const EvaluationRequest& request, AddressRange range,
   }
   return output;
 }
-}  // namespace bruce::lhme
+}  // namespace axiom::lhme

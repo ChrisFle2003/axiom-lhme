@@ -1,8 +1,8 @@
-#include "bruce/lhme/domain_projection.hpp"
+#include "axiom/lhme/domain_projection.hpp"
 
 #include <limits>
 
-namespace bruce::lhme {
+namespace axiom::lhme {
 namespace {
 
 constexpr std::size_t kMaximumDepth = 10;
@@ -67,7 +67,7 @@ bool valid_projection_identity(const ProjectionIdentity& identity) {
 }
 
 ProjectionIdentity DepthPathProjection::identity() const {
-  return {.id = "bruce.depth-path", .version = 1};
+  return {.id = "axiom.depth-path", .version = 1};
 }
 
 std::optional<FormulaAddress> DepthPathProjection::project(
@@ -87,4 +87,4 @@ std::optional<FormulaAddress> DepthPathProjection::project(
   return FormulaAddress{.index = static_cast<std::int64_t>(index)};
 }
 
-}  // namespace bruce::lhme
+}  // namespace axiom::lhme

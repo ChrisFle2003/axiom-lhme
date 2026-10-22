@@ -1,10 +1,10 @@
-#include "bruce/lhme/engine.hpp"
+#include "axiom/lhme/engine.hpp"
 
-#include "bruce/lhme/trace.hpp"
+#include "axiom/lhme/trace.hpp"
 
 #include <mutex>
 
-namespace bruce::lhme {
+namespace axiom::lhme {
 namespace {
 
 EvaluationResult cancelled_result(EvaluationMode mode) {
@@ -197,7 +197,7 @@ EvaluationResult Engine::evaluate(const EvaluationRequest& request) {
 
   auto effective_request = request;
   effective_request.cancellation_signal = cancellation_signal_;
-  EvaluationResult result = bruce::lhme::evaluate(effective_request);
+  EvaluationResult result = axiom::lhme::evaluate(effective_request);
   if (cacheable) {
     append_cache_event(result, "cache miss");
     cache_.admit(key, result);
@@ -282,7 +282,7 @@ RangeResult Engine::evaluate_range(const EvaluationRequest& request,
   }
   auto effective_request = request;
   effective_request.cancellation_signal = cancellation_signal_;
-  return bruce::lhme::evaluate_range(
+  return axiom::lhme::evaluate_range(
       effective_request, range,
       {.worker_count = config_.worker_count, .tile_size = config_.tile_size});
 }
@@ -294,4 +294,4 @@ void Engine::cancel() noexcept {
   cancellation_signal_->notify_all();
 }
 
-}  // namespace bruce::lhme
+}  // namespace axiom::lhme

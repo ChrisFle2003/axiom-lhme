@@ -2,7 +2,7 @@
 
 #include "algorithm_result.hpp"
 
-namespace bruce::lhme::benchmark::algorithm {
+namespace axiom::lhme::benchmark::algorithm {
 
 inline Result lazy_summary(const EvaluationRequest& exact_request,
                            AddressRange range) {
@@ -35,4 +35,4 @@ inline Result lazy_summary(const EvaluationRequest& exact_request,
   return output;
 }
 
-}  // namespace bruce::lhme::benchmark::algorithm
+}  // namespace axiom::lhme::benchmark::algorithm

@@ -1,11 +1,11 @@
-#include "bruce/lhme/kevin_filter.hpp"
+#include "axiom/lhme/kevin_filter.hpp"
 
 #include <condition_variable>
 #include <mutex>
 #include <thread>
 #include <utility>
 
-namespace bruce::lhme {
+namespace axiom::lhme {
 
 class KevinTileCpuExecutor::Impl {
  public:
@@ -157,4 +157,4 @@ TileReductionSummary KevinTileCpuExecutor::filter(
   return impl_->filter(store, grid, parents, modulus, residue, minimum, maximum);
 }
 
-}  // namespace bruce::lhme
+}  // namespace axiom::lhme

@@ -7,9 +7,9 @@
 #include <string_view>
 #include <type_traits>
 
-#include "bruce/lhme/types.hpp"
+#include "axiom/lhme/types.hpp"
 
-namespace bruce::lhme::demo {
+namespace axiom::lhme::demo {
 
 inline std::string_view status_name(Status status) {
   switch (status) {
@@ -68,4 +68,4 @@ class Report {
   std::size_t failures_ = 0;
 };
 
-}  // namespace bruce::lhme::demo
+}  // namespace axiom::lhme::demo

@@ -6,16 +6,16 @@
 
 namespace {
 
-using bruce::lhme::Status;
-using bruce::lhme::demo::stress::Scenario;
-using bruce::lhme::demo::stress::run_isolated;
+using axiom::lhme::Status;
+using axiom::lhme::demo::stress::Scenario;
+using axiom::lhme::demo::stress::run_isolated;
 
 [[nodiscard]] std::string_view stress_executable_path() {
-  return LHME_STRESS_EXECUTABLE;
+  return AXIOM_LHME_STRESS_EXECUTABLE;
 }
 
 [[nodiscard]] std::string_view fixture_executable_path() {
-  return LHME_ISOLATED_FIXTURE_EXECUTABLE;
+  return AXIOM_LHME_ISOLATED_FIXTURE_EXECUTABLE;
 }
 
 }  // namespace

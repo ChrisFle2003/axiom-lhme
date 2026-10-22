@@ -1,11 +1,11 @@
 name: Bug report
-description: Report a reproducible BRUCE LHME problem.
+description: Report a reproducible AXIOM LHME problem.
 title: "bug: "
 labels: [bug]
 body:
   - type: markdown
     attributes:
-      value: Thank you for helping improve BRUCE LHME.
+      value: Thank you for helping improve AXIOM LHME.
   - type: textarea
     id: expected
     attributes:
@@ -37,5 +37,5 @@ body:
   - type: textarea
     id: trace
     attributes:
-      label: BRUCE trace or relevant output
+      label: AXIOM trace or relevant output
       description: Remove secrets before pasting logs.

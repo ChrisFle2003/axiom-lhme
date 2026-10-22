@@ -1,4 +1,4 @@
-# BRUCE LHME v0.1 — Release Contract
+# AXIOM LHME v0.1 — Release Contract
 
 ## Scope
 
@@ -15,7 +15,7 @@ GridDomainSpec / GridAddress
 ```
 
 The public source repository is
-[ChrisFle2003/bruce-lhme](https://github.com/ChrisFle2003/bruce-lhme).
+[ChrisFle2003/axiom-lhme](https://github.com/ChrisFle2003/axiom-lhme).
 
 `FormulaRecipe` is the deterministic source of values. `KEVIN` is a separate
 8×8 domain and dimension layer; it neither owns values nor implicitly selects a

@@ -46,7 +46,7 @@ für `(0,0)`, Bit 63 für `(7,7)`.
 ```
 
 Die Maske ist lokal für dieses Tile. Ein nicht passender Kandidat entfernt weder
-andere Tiles noch beendet er die Engine. `lhme_kevin_grid_filter_demo` zeigt den
+andere Tiles noch beendet er die Engine. `axiom_lhme_kevin_grid_filter_demo` zeigt den
 Ablauf und prüft, dass die Filterphase keine exakte Berechnung auslöst.
 
 `filter_tiles(...)` führt mehrere Eltern-Tiles in der übergebenen Reihenfolge
@@ -71,15 +71,15 @@ Eingabereihenfolge und gibt die Kandidaten in genau dieser Reihenfolge zurück.
 
 ## Vergleichbare Benchmarks
 
-`lhme_table_memory_benchmark` misst die Speicherform einer Million materialisierter
-`UInt64`-Werte gegen eine symbolische Formel-Rezeptur. `lhme_kevin_cpu_benchmark`
+`axiom_lhme_table_memory_benchmark` misst die Speicherform einer Million materialisierter
+`UInt64`-Werte gegen eine symbolische Formel-Rezeptur. `axiom_lhme_kevin_cpu_benchmark`
 misst separat die KEVIN-Filterpipeline für 64 Tiles (4.096 virtuelle Zellen) mit
 1, 2, 4 und 8 CPU-Workern. Er prüft dabei gleiche Überlebende und null Exact-
 Materialisierungen für jede Worker-Zahl und mittelt vier Durchläufe je persistentem
 Worker-Pool. Laufzeiten sind maschinenabhängig; die
 deterministische Gleichheit von Kandidaten und Zählern ist der feste Vertrag.
 
-`lhme_hybrid_storage_benchmark` erweitert den Vergleich auf einen virtuellen
+`axiom_lhme_hybrid_storage_benchmark` erweitert den Vergleich auf einen virtuellen
 Adressraum von einer Million Werten. Es speichert die Formelbasis einmal und fügt
 nur echte Abweichungen als BigInt-Overrides hinzu. Standardmäßig misst es 0 %, 0,1
 %, 1 % und 10 % Overrides gegen die Containergröße einer Millionenwert-Hash-Map;
@@ -88,7 +88,7 @@ Snapshot-Größe ist die Größe des aktuellen ASCII-Snapshotformats auf Platte,
 die universelle Größe einer späteren Binärserialisierung. Sie belegt daher das
 Verhalten dieser Implementierung, keine allgemeine RAM-Obergrenze.
 
-`lhme_table_memory_benchmark` misst zusätzlich den Peak-RAM in je einem
+`axiom_lhme_table_memory_benchmark` misst zusätzlich den Peak-RAM in je einem
 isolierten Linux-Kindprozess. Neben dichter Tabelle, sortierten Paaren und
 Hash-Map misst er `FormulaOnly` sowie `FormulaWithOverrides` mit 0 %, 1 %,
 10 % und 100 % expliziten Abweichungen. Alle Varianten decken denselben

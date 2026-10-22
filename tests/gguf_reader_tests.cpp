@@ -2,7 +2,7 @@
 
 #include "gguf_fixture.hpp"
 
-#include "bruce/lhme/gguf_inspector.hpp"
+#include "axiom/lhme/gguf_inspector.hpp"
 
 #include <cstddef>
 #include <array>
@@ -13,10 +13,10 @@
 
 namespace {
 
-using bruce::lhme::GgufInspectionLimits;
-using bruce::lhme::GgufValidationError;
-using bruce::lhme::Status;
-using bruce::lhme::inspect_gguf_file;
+using axiom::lhme::GgufInspectionLimits;
+using axiom::lhme::GgufValidationError;
+using axiom::lhme::Status;
+using axiom::lhme::inspect_gguf_file;
 
 void expect_rejected(const std::filesystem::path& path,
                      GgufValidationError expected_error) {

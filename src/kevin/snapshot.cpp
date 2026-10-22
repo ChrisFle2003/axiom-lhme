@@ -1,11 +1,11 @@
-#include "bruce/lhme/kevin_snapshot.hpp"
+#include "axiom/lhme/kevin_snapshot.hpp"
 
 #include <fstream>
 #include <sstream>
 #include <string>
 
 namespace {
-constexpr char kMagic[] = "BRUCE-KEVIN-1\n";
+constexpr char kMagic[] = "AXIOM-KEVIN-1\n";
 std::uint64_t checksum(std::string_view bytes) { std::uint64_t hash=14695981039346656037ULL; for (const auto byte:bytes) { hash^=static_cast<unsigned char>(byte); hash*=1099511628211ULL; } return hash; }
 
 bool write_string(std::ostream& out, const std::string& value) {
@@ -22,7 +22,7 @@ bool read_string(std::istream& in, std::string& value) {
 }
 }
 
-namespace bruce::lhme {
+namespace axiom::lhme {
 
 SnapshotStatus save_snapshot(const KevinMemoryStore& store, const std::filesystem::path& path) {
   const auto temporary = path.string() + ".tmp";
@@ -86,4 +86,4 @@ SnapshotStatus load_snapshot(KevinMemoryStore& store, const std::filesystem::pat
   return store.replace_snapshot(snapshot);
 }
 
-}  // namespace bruce::lhme
+}  // namespace axiom::lhme

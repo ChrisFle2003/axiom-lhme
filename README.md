@@ -1,11 +1,11 @@
-# BRUCE LHME
+# AXIOM LHME
 
-BRUCE LHME is a C++20 library for deterministic, lazy and memory-conscious
+AXIOM LHME is a C++20 library for deterministic, lazy and memory-conscious
 formula evaluation. It is designed for cases where a large logical value space
 is better represented by a compact rule than by materializing every value in
 RAM.
 
-Source repository: [ChrisFle2003/bruce-lhme](https://github.com/ChrisFle2003/bruce-lhme).
+Source repository: [ChrisFle2003/axiom-lhme](https://github.com/ChrisFle2003/axiom-lhme).
 
 ## The core idea
 
@@ -76,13 +76,13 @@ binaries.
 
 ## Use as a CMake package
 
-Install BRUCE LHME, then consume it from another project:
+Install AXIOM LHME, then consume it from another project:
 
 ```cmake
-find_package(bruce_lhme 0.1 CONFIG REQUIRED)
+find_package(axiom_lhme 0.1 CONFIG REQUIRED)
 
 add_executable(my_program main.cpp)
-target_link_libraries(my_program PRIVATE bruce_lhme::core)
+target_link_libraries(my_program PRIVATE axiom_lhme::core)
 ```
 
 The checked external example lives in
@@ -100,4 +100,4 @@ The checked external example lives in
 
 ## License
 
-BRUCE LHME is released under the [MIT License](LICENSE).
+AXIOM LHME is released under the [MIT License](LICENSE).

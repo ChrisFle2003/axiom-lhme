@@ -6,11 +6,11 @@
 #include <string>
 #include <vector>
 
-#include "bruce/lhme/gguf_inspector.hpp"
-#include "bruce/lhme/trace.hpp"
-#include "bruce/lhme/types.hpp"
+#include "axiom/lhme/gguf_inspector.hpp"
+#include "axiom/lhme/trace.hpp"
+#include "axiom/lhme/types.hpp"
 
-namespace bruce::lhme {
+namespace axiom::lhme {
 
 enum class GgufLoadingPolicy {
   AllResident,
@@ -54,4 +54,4 @@ struct GgufStoragePlan {
 [[nodiscard]] GgufStoragePlan make_gguf_storage_plan(
     const GgufInventory& inventory, const GgufPlanConfig& config);
 
-}  // namespace bruce::lhme
+}  // namespace axiom::lhme

@@ -1,6 +1,6 @@
 #include "test.hpp"
 
-#include "bruce/lhme/gguf_storage_plan.hpp"
+#include "axiom/lhme/gguf_storage_plan.hpp"
 
 #include <cstdint>
 #include <string>
@@ -8,13 +8,13 @@
 
 namespace {
 
-using bruce::lhme::GgufInventory;
-using bruce::lhme::GgufLoadingPolicy;
-using bruce::lhme::GgufPlacement;
-using bruce::lhme::GgufPlanConfig;
-using bruce::lhme::GgufTensor;
-using bruce::lhme::Status;
-using bruce::lhme::make_gguf_storage_plan;
+using axiom::lhme::GgufInventory;
+using axiom::lhme::GgufLoadingPolicy;
+using axiom::lhme::GgufPlacement;
+using axiom::lhme::GgufPlanConfig;
+using axiom::lhme::GgufTensor;
+using axiom::lhme::Status;
+using axiom::lhme::make_gguf_storage_plan;
 
 GgufInventory three_tensor_inventory() {
   return {.version = 3,

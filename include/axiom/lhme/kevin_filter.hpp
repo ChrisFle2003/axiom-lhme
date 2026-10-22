@@ -4,10 +4,10 @@
 #include <memory>
 #include <span>
 #include <vector>
-#include "bruce/lhme/domain_projection.hpp"
-#include "bruce/lhme/formula_evaluator.hpp"
-#include "bruce/lhme/kevin_memory_store.hpp"
-namespace bruce::lhme {
+#include "axiom/lhme/domain_projection.hpp"
+#include "axiom/lhme/formula_evaluator.hpp"
+#include "axiom/lhme/kevin_memory_store.hpp"
+namespace axiom::lhme {
 class CandidateMask64 { public: constexpr CandidateMask64(std::uint64_t bits=0):bits_(bits){} static constexpr CandidateMask64 all(){return CandidateMask64{~0ULL};} constexpr std::uint64_t bits()const{return bits_;} constexpr std::uint32_t popcount()const{return std::popcount(bits_);} friend constexpr CandidateMask64 operator&(CandidateMask64 a,CandidateMask64 b){return {a.bits_&b.bits_};} friend constexpr CandidateMask64 operator|(CandidateMask64 a,CandidateMask64 b){return {a.bits_|b.bits_};} friend constexpr CandidateMask64 operator^(CandidateMask64 a,CandidateMask64 b){return {a.bits_^b.bits_};} friend constexpr CandidateMask64 operator~(CandidateMask64 a){return {~a.bits_};} private: std::uint64_t bits_; };
 constexpr std::uint32_t grid_tile_bit(std::uint8_t x,std::uint8_t y){return y*8U+x;}
 constexpr std::uint64_t grid_tile_row_mask(std::uint8_t y){return 0xffULL<<(y*8U);}
@@ -61,4 +61,4 @@ class KevinTileCpuExecutor {
   class Impl;
   std::unique_ptr<Impl> impl_;
 };
-} // namespace bruce::lhme
+} // namespace axiom::lhme

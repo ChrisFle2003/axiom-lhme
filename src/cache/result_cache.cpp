@@ -1,9 +1,9 @@
-#include "bruce/lhme/cache.hpp"
-#include "bruce/lhme/trace.hpp"
+#include "axiom/lhme/cache.hpp"
+#include "axiom/lhme/trace.hpp"
 
 #include <algorithm>
 
-namespace bruce::lhme {
+namespace axiom::lhme {
 namespace {
 CacheKey make_key(const FormulaSpec& spec, std::int64_t index, EvaluationMode mode) {
   return {.domain = "formula",
@@ -103,4 +103,4 @@ CacheStatistics ResultCache::statistics() const {
   const std::lock_guard lock(*mutex_);
   return {.resident_entries = entries_.size(), .resident_bytes = resident_bytes_};
 }
-}  // namespace bruce::lhme
+}  // namespace axiom::lhme

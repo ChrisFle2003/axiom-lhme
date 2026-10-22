@@ -5,7 +5,7 @@
 #include "algorithms/lazy_summary.hpp"
 #include "algorithms/modular_prefilter.hpp"
 
-#include "bruce/lhme/streaming.hpp"
+#include "axiom/lhme/streaming.hpp"
 
 #include <chrono>
 #include <cstdint>
@@ -16,30 +16,30 @@ namespace {
 
 using Clock = std::chrono::steady_clock;
 
-bruce::lhme::EvaluationRequest exact_request() {
-  return {.spec = bruce::lhme::demo::reference_spec(),
-          .mode = bruce::lhme::EvaluationMode::Exact,
-          .budget = bruce::lhme::Budget::unlimited()};
+axiom::lhme::EvaluationRequest exact_request() {
+  return {.spec = axiom::lhme::demo::reference_spec(),
+          .mode = axiom::lhme::EvaluationMode::Exact,
+          .budget = axiom::lhme::Budget::unlimited()};
 }
 
-bruce::lhme::StreamingOptions summary_options(std::uint32_t workers) {
+axiom::lhme::StreamingOptions summary_options(std::uint32_t workers) {
   return {.worker_count = workers,
           .tile_size = 4,
-          .retention_mode = bruce::lhme::RetentionMode::SummaryOnly,
+          .retention_mode = axiom::lhme::RetentionMode::SummaryOnly,
           .max_retained_candidates = 3,
           .retention_memory_bytes = 4096};
 }
 
-bruce::lhme::CandidateFilter modular_filter() {
-  return {.mode = bruce::lhme::FilterMode::ModularEquals,
+axiom::lhme::CandidateFilter modular_filter() {
+  return {.mode = axiom::lhme::FilterMode::ModularEquals,
           .modulus = 17,
           .expected_residue = 11};
 }
 
-bruce::lhme::StreamingOptions filtered_options() {
+axiom::lhme::StreamingOptions filtered_options() {
   return {.worker_count = 1,
           .tile_size = 4,
-          .retention_mode = bruce::lhme::RetentionMode::Adaptive,
+          .retention_mode = axiom::lhme::RetentionMode::Adaptive,
           .max_retained_candidates = 3,
           .retention_memory_bytes = 4096,
           .filter = modular_filter()};
@@ -54,7 +54,7 @@ auto measure(Callable callable) {
   return std::pair{std::move(result), elapsed.count()};
 }
 
-void row(bruce::lhme::demo::Report& report, std::string name,
+void row(axiom::lhme::demo::Report& report, std::string name,
          std::uint32_t workers, std::uint64_t exact_count,
          std::uint64_t filtered_count, std::size_t retained_count,
          std::int64_t elapsed_microseconds) {
@@ -65,8 +65,8 @@ void row(bruce::lhme::demo::Report& report, std::string name,
   report.row(name + " elapsed microseconds", std::to_string(elapsed_microseconds));
 }
 
-bool same_exact_prefix(const std::vector<bruce::lhme::EvaluationResult>& reference,
-                       const std::vector<bruce::lhme::EvaluationResult>& prefix) {
+bool same_exact_prefix(const std::vector<axiom::lhme::EvaluationResult>& reference,
+                       const std::vector<axiom::lhme::EvaluationResult>& prefix) {
   if (prefix.size() > reference.size()) return false;
   for (std::size_t index = 0; index < prefix.size(); ++index) {
     if (reference[index].integer != prefix[index].integer) return false;
@@ -77,7 +77,7 @@ bool same_exact_prefix(const std::vector<bruce::lhme::EvaluationResult>& referen
 }  // namespace
 
 int main() {
-  using namespace bruce::lhme;
+  using namespace axiom::lhme;
 
   demo::Report report;
   report.heading("LHME Algorithm Comparison Benchmark");
@@ -160,13 +160,13 @@ int main() {
                       filtered.retained_candidates.size());
   report.expect_equal("V2 adaptive fallback", RetentionMode::TopK,
                       filtered.effective_retention_mode);
-  report.expect_equal("BRUCE/lazy checked", lazy.summary.checked_count,
+  report.expect_equal("AXIOM/lazy checked", lazy.summary.checked_count,
                       summary_one.summary.checked_count);
-  report.expect_equal("BRUCE/lazy confirmed", lazy.summary.confirmed_count,
+  report.expect_equal("AXIOM/lazy confirmed", lazy.summary.confirmed_count,
                       summary_one.summary.confirmed_count);
-  report.expect_equal("BRUCE/lazy invalid", lazy.summary.invalid_argument_count,
+  report.expect_equal("AXIOM/lazy invalid", lazy.summary.invalid_argument_count,
                       summary_one.summary.invalid_argument_count);
-  report.expect_true("BRUCE adaptive values match reference prefix",
+  report.expect_true("AXIOM adaptive values match reference prefix",
                      same_exact_prefix(prefilter.retained_candidates,
                                        filtered.retained_candidates));
   return report.finish();

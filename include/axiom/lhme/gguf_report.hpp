@@ -2,11 +2,11 @@
 
 #include <string>
 
-#include "bruce/lhme/gguf_inspector.hpp"
-#include "bruce/lhme/gguf_pattern_scan.hpp"
-#include "bruce/lhme/gguf_storage_plan.hpp"
+#include "axiom/lhme/gguf_inspector.hpp"
+#include "axiom/lhme/gguf_pattern_scan.hpp"
+#include "axiom/lhme/gguf_storage_plan.hpp"
 
-namespace bruce::lhme {
+namespace axiom::lhme {
 
 [[nodiscard]] std::string render_gguf_text_report(
     const GgufInspection& inspection, const GgufStoragePlan& plan,
@@ -16,4 +16,4 @@ namespace bruce::lhme {
     const GgufInspection& inspection, const GgufStoragePlan& plan,
     const GgufPatternScanResult* pattern_scan = nullptr);
 
-}  // namespace bruce::lhme
+}  // namespace axiom::lhme

@@ -1,8 +1,8 @@
 #include "test.hpp"
 
-#include "bruce/lhme/fibonacci_kernel.hpp"
-#include "bruce/lhme/kevin_memory_store.hpp"
-#include "bruce/lhme/power_offset_kernel.hpp"
+#include "axiom/lhme/fibonacci_kernel.hpp"
+#include "axiom/lhme/kevin_memory_store.hpp"
+#include "axiom/lhme/power_offset_kernel.hpp"
 
 #include <atomic>
 #include <memory>
@@ -10,20 +10,20 @@
 #include <vector>
 
 namespace {
-using namespace bruce::lhme;
+using namespace axiom::lhme;
 GridAddress address(std::uint8_t x, std::uint8_t y = 0) {
   const std::vector<GridStep> steps{{.x = x, .y = y}};
   return *GridAddress::from_steps(steps);
 }
 GridSpec power_spec() {
-  return {.identity = {.id = "bruce.grid.power", .version = 1},
-          .technique = {.id = "bruce.power_offset", .version = 1},
+  return {.identity = {.id = "axiom.grid.power", .version = 1},
+          .technique = {.id = "axiom.power_offset", .version = 1},
           .canonical_parameters = encode_power_offset_parameters(2, 100),
           .max_depth = 1};
 }
 GridSpec fibonacci_spec() {
-  return {.identity = {.id = "bruce.grid.fibonacci", .version = 1},
-          .technique = {.id = "bruce.fibonacci", .version = 1},
+  return {.identity = {.id = "axiom.grid.fibonacci", .version = 1},
+          .technique = {.id = "axiom.fibonacci", .version = 1},
           .canonical_parameters = kFibonacciFastDoublingParameters,
           .max_depth = 1};
 }

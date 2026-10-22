@@ -42,7 +42,7 @@ Sanitizer gebaut werden. Die Konfiguration bleibt absichtlich explizit, damit
 normale Release-Binaries keine Debug-Laufzeitkosten tragen:
 
 ```text
-cmake -S . -B build-address -DBRUCE_SANITIZER=address
+cmake -S . -B build-address -DAXIOM_SANITIZER=address
 cmake --build build-address -j2
 ctest --test-dir build-address --output-on-failure
 ```

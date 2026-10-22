@@ -1,4 +1,4 @@
-# BRUCE Lazy Hierarchical Memory Engine
+# AXIOM Lazy Hierarchical Memory Engine
 
 **Status:** KONZEPT / ENTWURF  
 **Version:** 0.1  
@@ -9,7 +9,7 @@
 
 ## 1. Kurzfassung
 
-Die BRUCE Lazy Hierarchical Memory Engine speichert große Werte nicht
+Die AXIOM Lazy Hierarchical Memory Engine speichert große Werte nicht
 standardmäßig als vollständig expandierte Zahlen. Stattdessen speichert sie
 eine kleine, versionierte Berechnungsregel, eine stabile Adresse und die
 Auswertungsvorgaben.

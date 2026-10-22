@@ -1,6 +1,6 @@
 #include "test.hpp"
-#include "bruce/lhme/kevin_snapshot.hpp"
-#include "bruce/lhme/power_offset_kernel.hpp"
+#include "axiom/lhme/kevin_snapshot.hpp"
+#include "axiom/lhme/power_offset_kernel.hpp"
 
 #include <filesystem>
 #include <fstream>
@@ -8,12 +8,12 @@
 #include <vector>
 
 TEST(kevin_snapshot_roundtrips_sparse_override) {
-  using namespace bruce::lhme;
-  const auto path = std::filesystem::temp_directory_path() / "bruce-kevin-snapshot-test.bin";
+  using namespace axiom::lhme;
+  const auto path = std::filesystem::temp_directory_path() / "axiom-kevin-snapshot-test.bin";
   std::filesystem::remove(path);
   auto engine = Engine::create({});
   CHECK(engine.register_technique(std::make_shared<PowerOffsetKernel>()));
-  GridSpec grid{{.id="bruce.snapshot",.version=1}, {.id="bruce.power_offset",.version=1}, encode_power_offset_parameters(2,100), 1};
+  GridSpec grid{{.id="axiom.snapshot",.version=1}, {.id="axiom.power_offset",.version=1}, encode_power_offset_parameters(2,100), 1};
   const std::vector<GridStep> steps{{.x=1,.y=1}};
   const auto address = *GridAddress::from_steps(steps);
   KevinMemoryStore source{engine};
@@ -27,12 +27,12 @@ TEST(kevin_snapshot_roundtrips_sparse_override) {
 }
 
 TEST(kevin_snapshot_rejects_bad_magic_without_mutating_store) {
-  using namespace bruce::lhme;
-  const auto path = std::filesystem::temp_directory_path() / "bruce-kevin-bad-snapshot.bin";
-  { std::ofstream out(path, std::ios::binary); out << "not-a-bruce-snapshot"; }
+  using namespace axiom::lhme;
+  const auto path = std::filesystem::temp_directory_path() / "axiom-kevin-bad-snapshot.bin";
+  { std::ofstream out(path, std::ios::binary); out << "not-a-axiom-snapshot"; }
   auto engine = Engine::create({});
   CHECK(engine.register_technique(std::make_shared<PowerOffsetKernel>()));
-  GridSpec grid{{.id="bruce.snapshot.bad",.version=1}, {.id="bruce.power_offset",.version=1}, encode_power_offset_parameters(2,100), 1};
+  GridSpec grid{{.id="axiom.snapshot.bad",.version=1}, {.id="axiom.power_offset",.version=1}, encode_power_offset_parameters(2,100), 1};
   const auto address = *GridAddress::from_steps(std::vector<GridStep>{{.x=1,.y=1}});
   KevinMemoryStore store{engine}; CHECK(store.register_grid(grid));
   CHECK(store.set_override(grid.identity,address,BigInt{7}) == Status::Confirmed);
@@ -42,10 +42,10 @@ TEST(kevin_snapshot_rejects_bad_magic_without_mutating_store) {
 }
 
 TEST(kevin_snapshot_rejects_changed_payload_by_checksum) {
-  using namespace bruce::lhme;
-  const auto path = std::filesystem::temp_directory_path() / "bruce-kevin-checksum-test.bin";
+  using namespace axiom::lhme;
+  const auto path = std::filesystem::temp_directory_path() / "axiom-kevin-checksum-test.bin";
   auto engine = Engine::create({}); CHECK(engine.register_technique(std::make_shared<PowerOffsetKernel>()));
-  GridSpec grid{{.id="bruce.checksum",.version=1}, {.id="bruce.power_offset",.version=1}, encode_power_offset_parameters(2,100), 1};
+  GridSpec grid{{.id="axiom.checksum",.version=1}, {.id="axiom.power_offset",.version=1}, encode_power_offset_parameters(2,100), 1};
   KevinMemoryStore store{engine}; CHECK(store.register_grid(grid)); CHECK(save_snapshot(store,path)==SnapshotStatus::Confirmed);
   { std::fstream file(path, std::ios::in|std::ios::out|std::ios::binary); file.seekp(0); file.put('X'); }
   CHECK(load_snapshot(store,path)==SnapshotStatus::InvalidSnapshot);

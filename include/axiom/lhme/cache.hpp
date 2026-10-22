@@ -8,10 +8,10 @@
 #include <optional>
 #include <string>
 
-#include "bruce/lhme/formula.hpp"
-#include "bruce/lhme/technique.hpp"
+#include "axiom/lhme/formula.hpp"
+#include "axiom/lhme/technique.hpp"
 
-namespace bruce::lhme {
+namespace axiom::lhme {
 
 struct CacheKey {
   std::string domain;
@@ -52,4 +52,4 @@ class ResultCache {
   std::uint64_t sequence_ = 0;
   std::shared_ptr<std::mutex> mutex_;
 };
-}  // namespace bruce::lhme
+}  // namespace axiom::lhme

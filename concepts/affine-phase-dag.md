@@ -1,10 +1,10 @@
-BRUCE Affine Phase-DAG und Relation Search Engine
+AXIOM Affine Phase-DAG und Relation Search Engine
 
 Ausführliches Softwarekonzept für deterministische Pfadverarbeitung, symbolische Prozessräume, quanteninspirierte Interferenzmodelle und kontrollierte Kollisionssuche
 
 1. Kurzfassung
 
-BRUCE Affine Phase-DAG und Relation Search Engine ist eine geplante Erweiterung der BRUCE-AI-Softwarearchitektur. Sie soll mathematische und semantische Berechnungen nicht nur als einzelne Eingabe-Ausgabe-Funktionen behandeln, sondern als nachvollziehbare Netze aus Zuständen, Transformationen, Pfaden, Zusammenführungen, Zyklen und Beweisen.
+AXIOM Affine Phase-DAG und Relation Search Engine ist eine geplante Erweiterung der AXIOM-AI-Softwarearchitektur. Sie soll mathematische und semantische Berechnungen nicht nur als einzelne Eingabe-Ausgabe-Funktionen behandeln, sondern als nachvollziehbare Netze aus Zuständen, Transformationen, Pfaden, Zusammenführungen, Zyklen und Beweisen.
 
 Das System beschreibt große theoretische Prozessräume symbolisch, erzeugt nur tatsächlich benötigte Zustände und speichert zu jedem relevanten Ergebnis seine mathematische Herkunft. Mehrere Rechenwege dürfen denselben Wert oder Zustand erreichen, ohne dass ihre unterschiedlichen Entstehungsgeschichten verloren gehen. Genau diese Trennung zwischen Zustand und Provenienz bildet den Kern des Konzepts.
 
@@ -22,7 +22,7 @@ x_{\mathrm{Ende}}=Ax_0+B.
 
 Die Ausführung erfolgt über einen gerichteten Ausführungsgraphen. Azyklische Abhängigkeiten werden als Directed Acyclic Graph, kurz DAG, dargestellt. Echte Wiederholungen und Zyklen werden dagegen in einem separaten semantischen Zustandsgraphen erfasst. Zyklische Komponenten können anschließend zu einem azyklischen Komponenten-DAG verdichtet werden.
 
-Die quanteninspirierte Erweiterung besteht nicht in der Behauptung, klassische Hardware könne einen Quantencomputer ersetzen. Stattdessen übernimmt BRUCE einzelne mathematische Prinzipien:
+Die quanteninspirierte Erweiterung besteht nicht in der Behauptung, klassische Hardware könne einen Quantencomputer ersetzen. Stattdessen übernimmt AXIOM einzelne mathematische Prinzipien:
 
 Pfade erhalten Gewichte, Vorzeichen oder diskrete Phasen.
 
@@ -50,7 +50,7 @@ Die Engine stellt keinen neuen Beweis für eine schnellere Lösung des elliptisc
 
 Die konsolidierte technische Bezeichnung lautet:
 
-BRUCE Affine Phase-DAG und Relation Search Engine ist eine deterministische, trace-basierte Software-Runtime für affine und gruppenbasierte Zustandsübergänge, lazy erzeugte Prozessräume, pfaderhaltende Zustandszusammenführung, exakte Relationsextraktion und experimentelle quanteninspirierte Pfadalgebren.
+AXIOM Affine Phase-DAG und Relation Search Engine ist eine deterministische, trace-basierte Software-Runtime für affine und gruppenbasierte Zustandsübergänge, lazy erzeugte Prozessräume, pfaderhaltende Zustandszusammenführung, exakte Relationsextraktion und experimentelle quanteninspirierte Pfadalgebren.
 
 2. Ausgangslage und Problemstellung
 
@@ -96,13 +96,13 @@ Ausgangszustand
 → Prüfung
 → verwertbares Ergebnis
 
-Die physikalische Luftblasenidee gehört nicht zur BRUCE-Runtime. Sie diente als Inspiration für nichtlineare Adressierung und skalierende Koordinatensysteme. Die daraus abgeleitete mathematische Funktion
+Die physikalische Luftblasenidee gehört nicht zur AXIOM-Runtime. Sie diente als Inspiration für nichtlineare Adressierung und skalierende Koordinatensysteme. Die daraus abgeleitete mathematische Funktion
 
 [
 H_n=h_0(b^n-1)
 ]
 
-zeigt, wie eine diskrete logische Stufe auf einen exponentiell wachsenden Koordinatenwert abgebildet werden kann. Der für BRUCE relevante Teil ist deshalb nicht die Luftblase selbst, sondern das Prinzip:
+zeigt, wie eine diskrete logische Stufe auf einen exponentiell wachsenden Koordinatenwert abgebildet werden kann. Der für AXIOM relevante Teil ist deshalb nicht die Luftblase selbst, sondern das Prinzip:
 
 Ein großer Werte- oder Prozessraum kann über eine kompakte Erzeugungsregel adressiert werden, ohne vollständig materialisiert zu werden.
 
@@ -212,7 +212,7 @@ Ein klassischer Prozessgraph ist keine physikalische Superposition. Eine komplex
 
 Daher wird folgende Grenze festgelegt:
 
-BRUCE darf quantenmechanische Konzepte als formale Inspiration verwenden, aber keine unbelegte Behauptung über Quantenparallelität, Quantenbeschleunigung oder die klassische Simulation eines vollständigen Quantencomputers ableiten.
+AXIOM darf quantenmechanische Konzepte als formale Inspiration verwenden, aber keine unbelegte Behauptung über Quantenparallelität, Quantenbeschleunigung oder die klassische Simulation eines vollständigen Quantencomputers ableiten.
 
 2.5 Problem bei großen symbolischen Zahlen
 
@@ -231,7 +231,7 @@ möglicherweise unvertretbar groß
 
 Die Runtime benötigt daher eine verbindliche Kosten- und Auswertungsordnung, bevor eine Expansion zugelassen wird.
 
-2.6 Problemstellung für BRUCE
+2.6 Problemstellung für AXIOM
 
 Das Gesamtsystem muss folgende Fragen zuverlässig beantworten:
 
@@ -283,7 +283,7 @@ in einem einheitlichen Daten- und Ausführungsmodell verbinden.
 
 Einheitliche Zwischenrepräsentation
 
-Mathematische, semantische und experimentelle Suchaufgaben sollen in eine gemeinsame BRUCE-Zwischenrepräsentation überführt werden.
+Mathematische, semantische und experimentelle Suchaufgaben sollen in eine gemeinsame AXIOM-Zwischenrepräsentation überführt werden.
 
 Affine Pfadkompression
 
@@ -455,7 +455,7 @@ Kryptografische Techniken werden ausschließlich in kontrollierten, autorisierte
 
 5. Begriffe und Definitionen
 
-BRUCE-AI
+AXIOM-AI
 
 Bedeutung:
 Übergeordnete deterministische Softwarearchitektur.
@@ -464,9 +464,9 @@ Aufgabe:
 Versteht Eingaben, routet Aufgaben, führt spezialisierte Komponenten aus, verifiziert Resultate und rekonstruiert Antworten.
 
 Abgrenzung:
-BRUCE-AI ist kein einzelnes neuronales Modell und kein Hardwareprodukt.
+AXIOM-AI ist kein einzelnes neuronales Modell und kein Hardwareprodukt.
 
-BRUCE-Core
+AXIOM-Core
 
 Bedeutung:
 Zentrale Routing-, Orchestrierungs-, Prüf- und Trace-Schicht.
@@ -483,9 +483,9 @@ Aufgabe:
 Überführt natürliche Sprache in strukturierte Sachverhalte und rekonstruiert nachvollziehbare Antworten.
 
 Abgrenzung:
-PeacemakerLLM führt keine unkontrollierte mathematische Großrechnung aus; diese gehört zu BRUCE-Math.
+PeacemakerLLM führt keine unkontrollierte mathematische Großrechnung aus; diese gehört zu AXIOM-Math.
 
-BRUCE-Math
+AXIOM-Math
 
 Bedeutung:
 Exakte mathematische Rechen-, Beweis- und Verifikationskomponente.
@@ -633,7 +633,7 @@ Definition dafür, wie Kantenwerte entlang eines Pfads und Beiträge mehrerer Pf
 
 Interferenz
 
-Bedeutung im BRUCE-Konzept:
+Bedeutung im AXIOM-Konzept:
 Kontrollierte algebraische Kombination kompatibler Pfadbeiträge.
 
 Abgrenzung:
@@ -674,11 +674,11 @@ Keine physikalische Behauptung.
 
 6. Gesamtarchitektur
 
-6.1 BRUCE-AI-Hierarchie
+6.1 AXIOM-AI-Hierarchie
 
-BRUCE-AI
+AXIOM-AI
 │
-├─ BRUCE-Core
+├─ AXIOM-Core
 │  ├─ Eingabeverständnis
 │  ├─ Semantic Routing
 │  ├─ Cascade-Filterung
@@ -694,7 +694,7 @@ BRUCE-AI
 │  ├─ Relation Profiles
 │  └─ Lücken-/Baustein-Templates
 │
-├─ BRUCE-Math
+├─ AXIOM-Math
 │  ├─ exakte Formelauswertung
 │  ├─ BigInt
 │  ├─ rationale Arithmetik
@@ -705,7 +705,7 @@ BRUCE-AI
 │  └─ Safe Shutdown
 │
 ├─ Affine Phase-DAG und Relation Search Engine
-│  ├─ BRUCE-IR
+│  ├─ AXIOM-IR
 │  ├─ AffineStateKernel
 │  ├─ GraphLayer
 │  ├─ Canonicalization Engine
@@ -736,11 +736,11 @@ BRUCE-AI
 
 Natürliche oder formale Eingabe
               ↓
-        BRUCE-Core
+        AXIOM-Core
               ↓
  semantische und mathematische Klassifikation
               ↓
-          BRUCE-IR
+          AXIOM-IR
               ↓
  Domain-, Autorisierungs- und Budgetprüfung
               ↓
@@ -754,7 +754,7 @@ Natürliche oder formale Eingabe
               ↓
       Relation und Kandidat
               ↓
-          BRUCE-Math
+          AXIOM-Math
               ↓
  unabhängige Verifikation
               ↓
@@ -798,11 +798,11 @@ Im Semantic State Graph bleibt er dagegen ein Zyklus zwischen den Zuständen (5)
 
 7. Komponenten
 
-7.1 BRUCE Intermediate Representation
+7.1 AXIOM Intermediate Representation
 
 Zweck
 
-BRUCE-IR bildet eine gemeinsame formale Sprache für mathematische, semantische und gruppenbasierte Aufgaben.
+AXIOM-IR bildet eine gemeinsame formale Sprache für mathematische, semantische und gruppenbasierte Aufgaben.
 
 Verantwortung
 
@@ -1528,7 +1528,7 @@ ExperienceRecords mit Herkunftsreferenz.
 
 Eine Eingabe wird empfangen.
 
-BRUCE-Core bestimmt, ob es sich um:
+AXIOM-Core bestimmt, ob es sich um:
 
 eine mathematische Analyse,
 
@@ -1544,7 +1544,7 @@ oder einen autorisierten kryptografischen Benchmark handelt.
 
 PeacemakerLLM überführt natürliche Sprache in eine strukturierte ProblemSpec.
 
-BRUCE-Core prüft:
+AXIOM-Core prüft:
 
 Domain,
 
@@ -1556,7 +1556,7 @@ Ressourcenpolicy,
 
 benötigte Verifikation.
 
-BRUCE-IR wird erzeugt.
+AXIOM-IR wird erzeugt.
 
 Invarianten und offensichtliche Unmöglichkeiten werden vor der Graphausführung geprüft.
 
@@ -1602,9 +1602,9 @@ gegebenenfalls eine Relation erzeugt.
 
 Die Cycle Engine aktualisiert den semantischen Graphen.
 
-Ein RelationPoint wird an BRUCE-Math übergeben.
+Ein RelationPoint wird an AXIOM-Math übergeben.
 
-BRUCE-Math normalisiert und löst die Relation innerhalb seines freigegebenen Scopes.
+AXIOM-Math normalisiert und löst die Relation innerhalb seines freigegebenen Scopes.
 
 Ein möglicher Kandidat wird unabhängig gegen die ursprüngliche Problemdefinition verifiziert.
 
@@ -1823,14 +1823,14 @@ PRUNED → EXPANDED ohne neue explizite Freigabe
 
 12. Schnittstellen
 
-12.1 BRUCE-Core zu BRUCE-IR
+12.1 AXIOM-Core zu AXIOM-IR
 
 Zweck: Übergabe der normalisierten Aufgabenbeschreibung.
-Richtung: BRUCE-Core → Engine.
+Richtung: AXIOM-Core → Engine.
 Vertrauensgrenze: Nur schema-validierte ProblemSpecs.
 Fehlerverhalten: Ablehnung mit strukturiertem Grund.
 
-12.2 Engine zu BRUCE-Math
+12.2 Engine zu AXIOM-Math
 
 Zweck: Exakte Berechnung, Relationlösung und Verifikation.
 Eingaben: Formeln, Koeffizienten, Moduli, Domainbedingungen.
@@ -2005,7 +2005,7 @@ korrigierte Eingabe
 
 ungebundener Parameter
 
-BRUCE-IR/Math
+AXIOM-IR/Math
 
 Symbolic oder Stop
 
@@ -2268,7 +2268,7 @@ Bis Layer 3:
 1+512+512^2+512^3=134.480.385.
 ]
 
-Diese Rechnungen wurden durch BRUCE-Math exakt bestätigt.
+Diese Rechnungen wurden durch AXIOM-Math exakt bestätigt.
 
 16.4 Speicherkomplexität
 
@@ -2661,11 +2661,11 @@ Ein verifizierter Kandidat muss die ursprüngliche Gleichung erfüllen.
 
 19.3 Integrationstests
 
-BRUCE-Core → BRUCE-IR,
+AXIOM-Core → AXIOM-IR,
 
-BRUCE-IR → GraphPlanner,
+AXIOM-IR → GraphPlanner,
 
-Engine → BRUCE-Math,
+Engine → AXIOM-Math,
 
 Relation → VerifyGate,
 
@@ -3015,7 +3015,7 @@ Welche PathAlgebren gehören zum stabilen Kern?
 
 Wird die Pisano-Periode als Tabelle, Formelregel oder verifiziertes Registry-Artefakt hinterlegt?
 
-Wie wird die Trennung zwischen Compute-, Retain-, Publish- und LearnGate im bestehenden BRUCE-Code verankert?
+Wie wird die Trennung zwischen Compute-, Retain-, Publish- und LearnGate im bestehenden AXIOM-Code verankert?
 
 Welche vorhandenen NanoCell8-Records können wiederverwendet werden?
 
@@ -3141,7 +3141,7 @@ Kollisionstabellen,
 
 verifizierte Traces.
 
-Die Kombination innerhalb einer gemeinsamen BRUCE-IR stellt den eigentlichen konzeptionellen Mehrwert dar.
+Die Kombination innerhalb einer gemeinsamen AXIOM-IR stellt den eigentlichen konzeptionellen Mehrwert dar.
 
 23.2 Stärken
 
@@ -3155,7 +3155,7 @@ starke Verifikations- und Gate-Architektur;
 
 symbolische Behandlung großer Räume;
 
-kontrollierte Integration in BRUCE-AI;
+kontrollierte Integration in AXIOM-AI;
 
 gute Eignung für Benchmarks und Forschung;
 
@@ -3206,7 +3206,7 @@ Integer-/Modularzustände
 + Provenance Records
 + Signed Path Algebra
 + Relation Records
-+ BRUCE-Math-Verifikation
++ AXIOM-Math-Verifikation
 
 Dieses Modell liefert bereits den größten Erkenntnisgewinn.
 
@@ -3258,11 +3258,11 @@ Gleiche Kurvenpunkte dürfen kanonisch komprimiert werden, aber ihre verschieden
 
 Folgende Bestandteile sollten übernommen werden:
 
-BRUCE als übergeordnete Routing- und Trace-Architektur;
+AXIOM als übergeordnete Routing- und Trace-Architektur;
 
 PeacemakerLLM mit PostgreSQL;
 
-BRUCE-Math als einzige normative exakte Mathematikinstanz;
+AXIOM-Math als einzige normative exakte Mathematikinstanz;
 
 NanoCell als kompakte Runtime;
 
@@ -3348,7 +3348,7 @@ Der empfohlene minimale Prototyp besteht aus:
 1 Signed Path Algebra
 1 Provenance Store
 1 Relation Engine
-1 BRUCE-Math-Verifikation
+1 AXIOM-Math-Verifikation
 1 Gate Controller
 1 Trace Pipeline
 
@@ -3416,7 +3416,7 @@ AnswerPoints speichern nur verifizierte Resultate;
 
 ExperienceRecords verbessern Auswahl und Planung;
 
-BRUCE-Math sichert die mathematische Korrektheit;
+AXIOM-Math sichert die mathematische Korrektheit;
 
 Gates verhindern unkontrollierte Berechnung und Veröffentlichung.
 
@@ -3438,17 +3438,17 @@ Autorisierung.
 
 Erst danach sind größere Prozessräume, kryptografische Benchmarks und quanteninspirierte Phasenmodelle sinnvoll.
 
-Der nächste entscheidende Schritt ist daher nicht die Suche nach einem unbekannten Bitcoin-Schlüssel und auch nicht die vollständige Interferenzsimulation. Der nächste Schritt ist ein kleiner, exakter und vollständig getesteter Signed-Affine-DAG-Prototyp, der beweist, dass BRUCE gleiche Zustände komprimieren kann, ohne ihre unterschiedlichen mathematischen Geschichten zu verlieren.
+Der nächste entscheidende Schritt ist daher nicht die Suche nach einem unbekannten Bitcoin-Schlüssel und auch nicht die vollständige Interferenzsimulation. Der nächste Schritt ist ein kleiner, exakter und vollständig getesteter Signed-Affine-DAG-Prototyp, der beweist, dass AXIOM gleiche Zustände komprimieren kann, ohne ihre unterschiedlichen mathematischen Geschichten zu verlieren.
 
 Festgelegte Bestandteile
 
-BRUCE-AI bleibt ausschließlich ein Softwareprojekt.
+AXIOM-AI bleibt ausschließlich ein Softwareprojekt.
 
-BRUCE-Core übernimmt Routing, Orchestrierung, Prüfung und Traceability.
+AXIOM-Core übernimmt Routing, Orchestrierung, Prüfung und Traceability.
 
 PeacemakerLLM verwendet PostgreSQL.
 
-BRUCE-Math bleibt die normative exakte Mathematikkomponente.
+AXIOM-Math bleibt die normative exakte Mathematikkomponente.
 
 NanoCell, NanoNeuron und ExecutionCell sind Software-Runtime-Komponenten.
 
@@ -3468,7 +3468,7 @@ Es wird kein Quanten- oder DLP-Durchbruch behauptet.
 
 Abgeleitete Bestandteile
 
-BRUCE benötigt eine formale BRUCE-IR.
+AXIOM benötigt eine formale AXIOM-IR.
 
 Ein gemeinsamer Graphkern kann mehrere PathAlgebren unterstützen.
 
@@ -3490,9 +3490,9 @@ Experience-Lernen sollte Technik- und Parameterwahl optimieren, nicht mathematis
 
 Verwendete Annahmen
 
-Der bestehende BRUCE-Code kann um neue versionierte Datenverträge erweitert werden.
+Der bestehende AXIOM-Code kann um neue versionierte Datenverträge erweitert werden.
 
-BRUCE-Math stellt oder erhält die erforderlichen modularen und gruppenbezogenen Verifikationsfunktionen.
+AXIOM-Math stellt oder erhält die erforderlichen modularen und gruppenbezogenen Verifikationsfunktionen.
 
 PostgreSQL bleibt das kanonische Wissensrepository.
 
@@ -3546,7 +3546,7 @@ Exakter Umfang der stabilen PathAlgebra Registry.
 
 Autorisierungsmodell für kryptografische Benchmarks.
 
-Schnittstelle zwischen BRUCE-Math und gruppenbasierten Operationen.
+Schnittstelle zwischen AXIOM-Math und gruppenbasierten Operationen.
 
 Kriterien für das Lernen aus negativen und abgebrochenen Läufen.
 
@@ -3570,7 +3570,7 @@ Zyklenerkennung,
 
 hierarchischen Gates,
 
-BRUCE-Math-Verifikation,
+AXIOM-Math-Verifikation,
 
 reproduzierbaren Formula- und Execution-Traces.
 

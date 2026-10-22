@@ -4,10 +4,10 @@
 #include <string>
 #include <utility>
 
-#include "bruce/lhme/technique.hpp"
-#include "bruce/lhme/trace.hpp"
+#include "axiom/lhme/technique.hpp"
+#include "axiom/lhme/trace.hpp"
 
-namespace bruce::lhme {
+namespace axiom::lhme {
 
 [[nodiscard]] inline bool cancellation_requested(
     const TechniqueRequest& request) noexcept {
@@ -47,4 +47,4 @@ namespace bruce::lhme {
   return result;
 }
 
-}  // namespace bruce::lhme
+}  // namespace axiom::lhme

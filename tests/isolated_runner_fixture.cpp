@@ -10,10 +10,10 @@
 
 namespace {
 
-using bruce::lhme::RetentionMode;
-using bruce::lhme::Status;
-using bruce::lhme::demo::stress::ChildReport;
-using bruce::lhme::demo::stress::Scenario;
+using axiom::lhme::RetentionMode;
+using axiom::lhme::Status;
+using axiom::lhme::demo::stress::ChildReport;
+using axiom::lhme::demo::stress::Scenario;
 
 [[nodiscard]] ChildReport valid_report(Scenario scenario) {
   ChildReport report{};
@@ -47,7 +47,7 @@ int main(int argc, char* argv[]) {
 #else
   if (argc != 3 || std::string_view{argv[1]} != "--isolated-child") return 2;
 
-  const auto scenario = bruce::lhme::demo::stress::parse_scenario(argv[2]);
+  const auto scenario = axiom::lhme::demo::stress::parse_scenario(argv[2]);
   if (!scenario.has_value()) return 3;
   const auto report = valid_report(*scenario);
 

@@ -10,7 +10,7 @@ Der Kernentwurf trennt strikt:
 Koordinate ≠ berechneter Wert ≠ Bedeutung ≠ Evidenz ≠ Freigabe
 ```
 
-BRUCE darf Ergebnisse nur als verifiziert markieren, wenn exakte Ausführung, unabhängige Gegenprüfung, vollständige Versionsbezüge und Replay vorhanden sind.
+AXIOM darf Ergebnisse nur als verifiziert markieren, wenn exakte Ausführung, unabhängige Gegenprüfung, vollständige Versionsbezüge und Replay vorhanden sind.
 
 # 2. Untersuchter Repository-Stand
 
@@ -40,9 +40,9 @@ Build/Test: nicht möglich, da kein Build-System existiert
 
 **Bewertung:** NICHT AUS DEM REPOSITORY ABLEITBAR.
 
-# 3. BRUCE-Identität und Produktziel
+# 3. AXIOM-Identität und Produktziel
 
-BRUCE ist eine integrierte mathematische Forschungs- und Lösungsmaschine. Sichtbar wird sie als Research-Cockpit; intern verwendet sie mehrere austauschbare Strategien.
+AXIOM ist eine integrierte mathematische Forschungs- und Lösungsmaschine. Sichtbar wird sie als Research-Cockpit; intern verwendet sie mehrere austauschbare Strategien.
 
 ```text
 Aufgabe
@@ -157,7 +157,7 @@ ExplanationV1 / ResearchCockpit
 Bruce_raw/
 ├── CMakeLists.txt
 ├── README.md
-├── include/bruce/
+├── include/axiom/
 │   ├── core/
 │   ├── coordinate/
 │   ├── compatibility/
@@ -197,7 +197,7 @@ math → core / coordinate / evidence
 compatibility → core / coordinate / evidence
 token → core / compatibility
 evidence → core
-core → keine BRUCE-Module
+core → keine AXIOM-Module
 ```
 
 Verbotene Richtung:
@@ -339,7 +339,7 @@ x=z_{local}\bmod8,\qquad y=\lfloor z_{local}/8\rfloor
 Vorgeschlagene Datei:
 
 ```text
-include/bruce/coordinate/single_triangle_kernel.hpp
+include/axiom/coordinate/single_triangle_kernel.hpp
 src/coordinate/single_triangle_kernel.cpp
 tests/property/single_triangle_kernel_tests.cpp
 ```
@@ -463,7 +463,7 @@ Ein 64-Bit-Filter repräsentiert exakt 64 Boolesche Eigenschaften oder Kandidate
 Messbares Ziel für eine begrenzte Domäne:
 
 ```text
-BRUCE kann Token normalisieren,
+AXIOM kann Token normalisieren,
 Rollen mit festen Regeln zuordnen,
 mehrere Interpretationen sichtbar halten,
 begründete Relationen speichern,
@@ -490,8 +490,8 @@ neue Rule-/Compatibility-Version
 Vorgeschlagene Dateien:
 
 ```text
-include/bruce/evidence/experience_store.hpp
-include/bruce/evidence/experience_record.hpp
+include/axiom/evidence/experience_store.hpp
+include/axiom/evidence/experience_record.hpp
 src/evidence/experience_store.cpp
 tests/integration/experience_store_tests.cpp
 ```
@@ -518,7 +518,7 @@ Schutz gegen Selbstbestätigung:
 
 **Bewertung:** BLUEPRINT-VORSCHLAG.
 
-# 16. BRUCE-Math und exakte mathematische Forschung
+# 16. AXIOM-Math und exakte mathematische Forschung
 
 ```text
 TaskSpec
@@ -882,7 +882,7 @@ Krypto-/Mining-Suche
 
 | Begriff | Bedeutung |
 |---|---|
-| BRUCE | integrierte mathematische Forschungsmaschine |
+| AXIOM | integrierte mathematische Forschungsmaschine |
 | Single Triangle | feste Koordinatenformel, kein Dreiecksbaum |
 | \(z\) | reversible Adresse aus \(x,y\) |
 | Filtergruppe | 64 boolesche Kandidaten oder Merkmale |

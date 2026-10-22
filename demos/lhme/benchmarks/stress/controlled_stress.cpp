@@ -16,12 +16,12 @@
 
 namespace {
 
-using bruce::lhme::RetentionMode;
-using bruce::lhme::Status;
-using bruce::lhme::demo::Report;
-using bruce::lhme::demo::stress::ChildReport;
-using bruce::lhme::demo::stress::IsolatedRunResult;
-using bruce::lhme::demo::stress::Scenario;
+using axiom::lhme::RetentionMode;
+using axiom::lhme::Status;
+using axiom::lhme::demo::Report;
+using axiom::lhme::demo::stress::ChildReport;
+using axiom::lhme::demo::stress::IsolatedRunResult;
+using axiom::lhme::demo::stress::Scenario;
 
 #if defined(__linux__)
 [[nodiscard]] bool write_child_report(const ChildReport& report) {
@@ -41,8 +41,8 @@ using bruce::lhme::demo::stress::Scenario;
 }
 
 [[nodiscard]] int run_isolated_child(Scenario scenario) {
-  const auto child_report = bruce::lhme::demo::stress::execute_scenario(scenario);
-  if (!bruce::lhme::demo::stress::valid_child_report(child_report) ||
+  const auto child_report = axiom::lhme::demo::stress::execute_scenario(scenario);
+  if (!axiom::lhme::demo::stress::valid_child_report(child_report) ||
       child_report.status != static_cast<std::uint32_t>(Status::Confirmed)) {
     return 2;
   }
@@ -87,7 +87,7 @@ void report_adaptive_expectations(Report& report, const ChildReport& child_repor
 
 void report_isolated_run(Report& report, Scenario scenario,
                          const IsolatedRunResult& run) {
-  const auto name = bruce::lhme::demo::stress::scenario_name(scenario);
+  const auto name = axiom::lhme::demo::stress::scenario_name(scenario);
   report.expect_true(std::string{name} + " isolated measurement available",
                      run.available);
   report.expect_true(std::string{name} + " isolated child valid", run.success);
@@ -107,10 +107,10 @@ void report_isolated_run(Report& report, Scenario scenario,
 }
 
 void report_safe_stop(Report& report) {
-  auto request = bruce::lhme::demo::stress::exact_request();
+  auto request = axiom::lhme::demo::stress::exact_request();
   request.cancellation_signal = std::make_shared<std::atomic_bool>(true);
-  const auto cancelled = bruce::lhme::evaluate_streaming_range(
-      request, {0, 1'000'000}, bruce::lhme::demo::stress::million_scan_options(4));
+  const auto cancelled = axiom::lhme::evaluate_streaming_range(
+      request, {0, 1'000'000}, axiom::lhme::demo::stress::million_scan_options(4));
   report.expect_equal("safe stop status", Status::Cancelled, cancelled.status);
   report.expect_equal("safe stop checked", std::uint64_t(0),
                       cancelled.summary.checked_count);
@@ -126,11 +126,11 @@ void report_safe_stop(Report& report) {
   report.heading("LHME Isolated CPU and Bounded-Retention Stress Test");
 
 #if defined(__linux__)
-  const auto first = bruce::lhme::demo::stress::run_isolated(
+  const auto first = axiom::lhme::demo::stress::run_isolated(
       "/proc/self/exe", Scenario::MillionScanOne);
-  const auto eighth = bruce::lhme::demo::stress::run_isolated(
+  const auto eighth = axiom::lhme::demo::stress::run_isolated(
       "/proc/self/exe", Scenario::MillionScanEight);
-  const auto adaptive = bruce::lhme::demo::stress::run_isolated(
+  const auto adaptive = axiom::lhme::demo::stress::run_isolated(
       "/proc/self/exe", Scenario::AdaptiveHits);
   report_isolated_run(report, Scenario::MillionScanOne, first);
   report_isolated_run(report, Scenario::MillionScanEight, eighth);
@@ -154,7 +154,7 @@ void report_safe_stop(Report& report) {
 
 int main(int argc, char* argv[]) {
   if (argc == 3 && std::string_view{argv[1]} == "--isolated-child") {
-    const auto scenario = bruce::lhme::demo::stress::parse_scenario(argv[2]);
+    const auto scenario = axiom::lhme::demo::stress::parse_scenario(argv[2]);
     if (!scenario.has_value()) return 1;
 #if defined(__linux__)
     return run_isolated_child(*scenario);

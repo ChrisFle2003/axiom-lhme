@@ -1,4 +1,4 @@
-#include "bruce/lhme/formula_override_snapshot.hpp"
+#include "axiom/lhme/formula_override_snapshot.hpp"
 
 #include <fstream>
 #include <limits>
@@ -6,10 +6,10 @@
 #include <string>
 #include <string_view>
 
-namespace bruce::lhme {
+namespace axiom::lhme {
 namespace {
 
-constexpr char kMagic[] = "BRUCE-FORMULA-OVERRIDE-1\n";
+constexpr char kMagic[] = "AXIOM-FORMULA-OVERRIDE-1\n";
 constexpr std::size_t kMaximumRecords = 100'000;
 constexpr std::size_t kMaximumStringBytes = 1'000'000;
 
@@ -221,4 +221,4 @@ FormulaOverrideSnapshotStatus load_formula_override_snapshot(
              : FormulaOverrideSnapshotStatus::InvalidSnapshot;
 }
 
-}  // namespace bruce::lhme
+}  // namespace axiom::lhme

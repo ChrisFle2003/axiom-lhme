@@ -1,8 +1,8 @@
 #include "demo_report.hpp"
 
-#include "bruce/lhme/domain_projection.hpp"
-#include "bruce/lhme/kevin_filter.hpp"
-#include "bruce/lhme/power_offset_kernel.hpp"
+#include "axiom/lhme/domain_projection.hpp"
+#include "axiom/lhme/kevin_filter.hpp"
+#include "axiom/lhme/power_offset_kernel.hpp"
 
 #include <memory>
 #include <string>
@@ -10,17 +10,17 @@
 
 namespace {
 
-class EngineTechniqueEvaluator final : public bruce::lhme::FormulaEvaluator {
+class EngineTechniqueEvaluator final : public axiom::lhme::FormulaEvaluator {
  public:
-  EngineTechniqueEvaluator(bruce::lhme::Engine& engine,
-                           bruce::lhme::TechniqueIdentity identity,
+  EngineTechniqueEvaluator(axiom::lhme::Engine& engine,
+                           axiom::lhme::TechniqueIdentity identity,
                            std::string parameters)
       : engine_(engine), identity_(std::move(identity)), parameters_(std::move(parameters)) {}
 
-  bruce::lhme::EvaluationResult evaluate(
-      bruce::lhme::FormulaAddress address, bruce::lhme::EvaluationMode mode,
-      bruce::lhme::Budget budget,
-      std::optional<bruce::lhme::BigInt> modulus) override {
+  axiom::lhme::EvaluationResult evaluate(
+      axiom::lhme::FormulaAddress address, axiom::lhme::EvaluationMode mode,
+      axiom::lhme::Budget budget,
+      std::optional<axiom::lhme::BigInt> modulus) override {
     return engine_.evaluate_technique({.identity = identity_,
                                        .parameters = parameters_,
                                        .address = address,
@@ -30,13 +30,13 @@ class EngineTechniqueEvaluator final : public bruce::lhme::FormulaEvaluator {
   }
 
  private:
-  bruce::lhme::Engine& engine_;
-  bruce::lhme::TechniqueIdentity identity_;
+  axiom::lhme::Engine& engine_;
+  axiom::lhme::TechniqueIdentity identity_;
   std::string parameters_;
 };
 
-void add_tile(bruce::lhme::TileSummary& total,
-              const bruce::lhme::TileSummary& tile) {
+void add_tile(axiom::lhme::TileSummary& total,
+              const axiom::lhme::TileSummary& tile) {
   total.status = tile.status;
   total.checked += tile.checked;
   total.modular_survivors += tile.modular_survivors;
@@ -49,7 +49,7 @@ void add_tile(bruce::lhme::TileSummary& total,
 }  // namespace
 
 int main() {
-  using namespace bruce::lhme;
+  using namespace axiom::lhme;
 
   demo::Report report;
   report.heading("KEVIN Domain Filter");
@@ -58,10 +58,10 @@ int main() {
   report.expect_true("PowerOffset kernel registered",
                      engine.register_technique(std::make_shared<PowerOffsetKernel>()));
 
-  const TechniqueIdentity technique{.id = "bruce.power_offset", .version = 1};
+  const TechniqueIdentity technique{.id = "axiom.power_offset", .version = 1};
   const auto parameters = encode_power_offset_parameters(2, 100);
   EngineTechniqueEvaluator evaluator{engine, technique, parameters};
-  const GridDomainSpec domain{{.id = "bruce.demo.grid-filter", .version = 1}, 2};
+  const GridDomainSpec domain{{.id = "axiom.demo.grid-filter", .version = 1}, 2};
   DepthPathProjection projection;
   const DomainEvaluationContext context{.domain = domain, .projection = &projection,
                                         .evaluator = evaluator};

@@ -2,10 +2,10 @@
 
 #include <string>
 
-#include "bruce/lhme/kevin_domain.hpp"
-#include "bruce/lhme/technique.hpp"
+#include "axiom/lhme/kevin_domain.hpp"
+#include "axiom/lhme/technique.hpp"
 
-namespace bruce::lhme {
+namespace axiom::lhme {
 
 // Legacy compatibility binding. New domain code uses GridDomainSpec plus a
 // DomainProjection and never infers a formula value from a grid address.
@@ -19,4 +19,4 @@ struct GridSpec {
 
 [[nodiscard]] bool valid_grid_spec(const GridSpec& spec);
 
-}  // namespace bruce::lhme
+}  // namespace axiom::lhme

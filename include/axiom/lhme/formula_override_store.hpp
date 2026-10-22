@@ -8,9 +8,9 @@
 #include <variant>
 #include <vector>
 
-#include "bruce/lhme/engine.hpp"
+#include "axiom/lhme/engine.hpp"
 
-namespace bruce::lhme {
+namespace axiom::lhme {
 
 struct TechniqueBinding {
   TechniqueIdentity identity;
@@ -78,4 +78,4 @@ class FormulaOverrideStore {
   std::shared_ptr<std::shared_mutex> mutex_;
 };
 
-}  // namespace bruce::lhme
+}  // namespace axiom::lhme
